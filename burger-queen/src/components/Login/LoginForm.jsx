@@ -20,6 +20,7 @@ const LoginForm = () => {
     };
 
     console.log("data entrando", data);
+    
     const res = await fetch(url, {
       method: "POST",
       headers: {
