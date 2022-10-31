@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 ;
+}
+
+.App{
+    width: 100%;
+    height: 100vh;
+}
+
+
+
+.loginPage{
+    width: 100%;
+    height: 100%;
+
+    //@include flex-column-center
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+  
+
+
+    &::after{
+        content: "";
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        background: linear-gradient(rgba(0, 0, 0, 0.35) 100%, rgba(0, 0, 0, 0.35) 100%);
+    }
+
+    &_background{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        top: 0;
+        object-fit: cover;
+    }
+
+    &_container{
+        width: 90%;
+        max-width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        gap:100px;
+    }
+
+    &_logo{
+        width: 70%;
+        max-width: 300px;
+        margin-top: 70px;
+    }
+
+    &_form{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &_input{
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        text-align: start;
+        outline: none;
+
+        
+        &:active {
+            box-shadow:  3px -3px 6px #fbcf8d,
+			-3px 3px 6px #ee9f27;
+        }
+
+        &:focus {
+            //background-color: #fbf7f0;
+            border: 2px solid #F9B209;
+            color:#474747;
+        }
+    }
+
+    &_btn{
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 10px;
+        text-align: center;
+        background: #F9B209;
+        margin-top: 50px;
+        outline: none;
+        cursor: pointer;
+
+        &:active{
+            //background: #4d4a43;
+            box-shadow: #b68105 0 3px 7px inset;
+            color: #fff;
+        }
+        
+        &:hover{
+            background: #eaaf25;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .loginPage{
+        &_container{
+            flex-direction: row;
+            position: relative;
+    
+        }
+
+        &_logo{
+            max-width: 350px;
+            position: absolute;
+            top: 10px;
+            left: -50px;
+            margin-top: 0;
+        }
+
+        &_form{
+            position: absolute;
+            right: -50px;
+        }
+
+        &_input{
+            max-width: 340px;
+           // padding: 15px 25px;
+            font-size: 18px;
+        }
+
+        &_btn{
+            max-width: 340px;
+           // padding: 15px 25px;
+            font-size: 18px;
+        }
+        
+    }
+}
