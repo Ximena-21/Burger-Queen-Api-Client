@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import './App.css'
+import './AppStyles.scss'
 import { Login } from './pages/login/Login'
 import Products from './pages/login/Products/Products'
 
