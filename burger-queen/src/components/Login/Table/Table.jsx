@@ -15,7 +15,7 @@ const Table = (props) => {
     })
 
 return(
-    <table className="table">
+    <table className="table" border='1'>
         <TableHeader listElements={filterListElements}/>
         <TableBody filterListElements={filterListElements}/>
     </table>
