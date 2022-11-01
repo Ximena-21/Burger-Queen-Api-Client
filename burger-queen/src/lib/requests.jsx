@@ -9,7 +9,7 @@ async function getData(pathname, data) {
           },
           body: JSON.stringify(data),
         });
-        if(res.code != 200){
+        if(res.status >= 400){
             throw new Error('Validación incorrecta')
         }
         const response = await res.json();
@@ -21,6 +21,26 @@ async function getData(pathname, data) {
     }
   }
 
+  const token = localStorage.getItem("loginToken")
+
+async function getProducts (pathname) {
+
+    const url = `http://localhost:8080/${pathname}`
+    const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'content-Type': 'application/json',
+          'authorization': `Bearer ${token}`
+        },
+        //body: JSON.stringify(data)
+      });
+
+    const responseData = await response.json()
+
+    return responseData
+}
+
   export {
     getData,
+    getProducts
   }
