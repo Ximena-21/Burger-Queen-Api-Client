@@ -1,15 +1,18 @@
-import { filterAtributteList } from "../../../lib/helpers";
+import { filterAtributteList, filterAtributteListPrueba } from "../../../lib/helpers";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 
 const Table = (props) => {
 
 
-    const {listFilterKeys, listElements} = props
+    const {listElements, listProducts} = props
+    // const {listFilterKeys, listElements} = props
 
-    const filterListElements = filterAtributteList(listFilterKeys, listElements)
+    // const filterListElements = filterAtributteList(listFilterKeys, listElements)
+    const filterListElements = filterAtributteListPrueba( listElements, listProducts)
+
     console.log({
-        listaFiltra: listFilterKeys,
+        listaFiltra: listProducts,
         products: listElements,
         elementsFilter: filterListElements
     })

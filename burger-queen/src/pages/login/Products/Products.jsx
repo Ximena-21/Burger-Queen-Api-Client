@@ -8,21 +8,20 @@ const Products = () => {
     const [products, setProducts] = useState([])
    const avaliablesKeys = ['image', 'name', 'price']
 
-
-    useEffect(()=> {
-       getListProducts();
-    }, [])
-
    async function getListProducts(){
     const dataProducts = await getProducts('products')
     setProducts(dataProducts);
    }
+
+   useEffect(()=> {
+    getListProducts();
+ }, [])
    console.log(products)
 
     return(
         <div>
-            <Table listElements={products}
-            listFilterKeys={avaliablesKeys}
+            < Table listElements={products}
+            listProducts={avaliablesKeys}
             />
             <ProductsHeaders />
         </div>

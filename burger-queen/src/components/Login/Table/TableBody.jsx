@@ -1,15 +1,16 @@
 const TableBody = (props) => {
 
-    const {listElement} = props
+    const {listProducts} = props
+    console.log('table body ', listProducts );
     return(
         <tbody>
         <tr>
                 {/* <td>{newListObject.dateEntry}</td>
                 <td>{newListObject.id}</td> */}
-                {/* <td> <img src={newListObject.image} alt="product" /></td>
-                <td>{newListObject.name}</td>
-                <td>{newListObject.price}</td>
-                <td>{newListObject.type}</td> */}
+                {/* <td> <img src={listElement.image} alt="product" /></td>
+                <td>{listElement.name}</td>
+                <td>{listElement.price}</td> */}
+                {/* <td>{newListObject.type}</td> */}
         </tr>
         </tbody>
     )
