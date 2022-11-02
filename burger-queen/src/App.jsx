@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import './AppStyles.scss'
 import { Login } from './pages/login/Login'
-import Products from './pages/login/Products/Products'
+import {Products} from "./pages/Products/Products";
 
 function App() {
 

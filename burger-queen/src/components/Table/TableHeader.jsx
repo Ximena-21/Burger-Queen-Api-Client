@@ -1,8 +1,8 @@
 const TableHeader = (props) => {
 
-    const {listElements} = props;
+    const {listElements, headerColumns} = props;
    
-    const listTh = Object.keys(listElements[0]);
+    const listTh = listElements.length > 0 ? Object.keys(listElements[0]) : headerColumns
 
 return(
     <thead className="table_header">
