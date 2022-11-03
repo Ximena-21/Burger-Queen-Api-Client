@@ -14,7 +14,7 @@ export const Table = (props) => {
 
     return(
         <table className="table">
-            <TableHeader listElements={filterListElements} headerColumns ={listFilterKeys}/>
+            <TableHeader headerColumns ={listFilterKeys}/>
             <TableBody listElements={filterListElements} />
         </table>
     )
