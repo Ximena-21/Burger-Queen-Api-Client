@@ -14,15 +14,18 @@
         width: 90%;
         background: #fff;
         border-radius: 10px;
-        @include flex-column-center;
-        gap: 20px
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
     } 
 
     &_button{
-        width: 200px;
-        height: 50px;
         background: $secundary-color;
         border-radius: 10px;
+        padding: 10px 15px;
+        font-weight: bold;
     }
 
     &_role{
