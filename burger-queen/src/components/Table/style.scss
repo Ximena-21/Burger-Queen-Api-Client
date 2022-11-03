@@ -1,0 +1,84 @@
+@import '../../generics.scss';
+
+.table {
+    width: 90%;
+    min-width: 320px;
+    max-width: 850px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+   // border-spacing: 0 10px;
+    line-height: 50px;
+    display: flex;
+    flex-direction: column;
+
+
+    &_header{
+        // width: 100%;
+        /* border: 1px solid; */
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // justify-content: center;
+        /* border-radius: 10px;*/
+
+    }
+
+    &_headerRow{
+        width: 100%;
+        display: flex;
+        background: #F9B209;
+        /* border-bottom: 4px solid #1e3483; */
+        /* border-top-left-radius: 7px; */
+        /* border-bottom-left-radius: 7px; */
+        //flex-direction: row;
+        justify-content: space-around;
+        //align-items: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    &_body{
+      //  width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    &_rowBody{
+        //width: 100%;
+        border-radius: 5px;
+        border: 1px solid #B8B5B5;
+        // box-shadow: inset 0px 0px 1px 1px rgb(184 181 181);
+        // background: rgb(255, 255, 255);
+        // text-align: center;
+        display: flex;
+        // flex-direction: row;
+        // align-content: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &_rowBodyOpt{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    &_columnBody{
+        display: flex;
+
+        &--img{
+            width: 40px;
+            height: 40px;
+        }
+
+        &--price{
+            color: $tertiary-color;
+        }
+
+        &--option{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
