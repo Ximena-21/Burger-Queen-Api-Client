@@ -14,8 +14,10 @@ export const TableBody = (props) => {
         return (
             <tr className='table_rowBody'>
                 <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" /></td>
-                <td className='table_columnBody'>{element.name}</td>
-                <td className='table_columnBody table_columnBody--price'>{element.price}</td>
+                <div className="table_columnBody--section">
+                    <td className='table_columnBody'>{element.name}</td>
+                    <td className='table_columnBody table_columnBody--price'>{element.price}</td>
+                </div>
                 <TableComlumnOption/>
             </tr>
         )
