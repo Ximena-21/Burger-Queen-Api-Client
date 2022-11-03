@@ -1,4 +1,4 @@
-const TableHeader = (props) => {
+export const TableHeader = (props) => {
 
     const {listElements, headerColumns} = props;
    
@@ -12,9 +12,8 @@ return(
                 return <th className="table_headerColumn">{column}</th>
               })
             }
+            <th className="table_headerColumn">Options</th>
         </tr>
     </thead>
 )
 }
-
-export default TableHeader;

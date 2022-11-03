@@ -1,41 +1,30 @@
-const TableBody = (props) => {
+import { TableComlumnOption } from "./TableColumnOption"
+
+
+export const TableBody = (props) => {
 
     const { listElements } = props
+    console.log('lista de elementos', listElements)
 
+
+   // const tr = return listElements.includes(regexUrl) ? listTrImg : listTr 
+//    listElements.length === 0 ?
     const listTr = listElements.map((element) => {
-        return Object.values(element)
-    })
-
-    const td = listTr.map(elementTd => {
+       // console.log('elemento', element)
         return (
-            <td>{elementTd}</td>
+            <tr className='table_rowBody'>
+                <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" /></td>
+                <td className='table_columnBody'>{element.name}</td>
+                <td className='table_columnBody table_columnBody--price'>{element.price}</td>
+                <TableComlumnOption/>
+            </tr>
         )
-    })
-
-    // const tr = listElements.map(element => {
-    //     return (
-    //         <tr>
-
-    //         </tr>
-    //     )
-    // })
-
+    }) 
 
     return (
-        <tbody>
-
-            <tr>
-                {td}
-            </tr>
-            <tr>
-                <td>chocolate</td>
-                <td>kdjal;dladlajdljdal;</td>
-                <td>2000</td>
-            </tr>
-
-
+        <tbody className='table_body'>
+            {listTr}
         </tbody>
     )
 }
 
-export default TableBody
