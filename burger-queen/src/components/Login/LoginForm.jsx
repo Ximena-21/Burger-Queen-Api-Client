@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getData } from "../../lib/requests";
 
-const LoginForm = () => {
+export const LoginForm = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -41,31 +41,12 @@ const LoginForm = () => {
 }
 
   return (
-    <form
-      className="loginPage_form"
-      onSubmit={handleSubmit}
-    >
-      <input
-        type="email"
-        name="email"
-        className="loginPage_input"
-        placeholder="Correo"
-        value={email}
-        onChange={handleEmailChange}
-      />
-      <input
-        type="password"
-        name="password"
-        className="loginPage_input"
-        placeholder="Contraseña"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <button className="loginPage_btn">
-        Iniciar Sesión
-      </button>
+    <form onSubmit={handleSubmit} className="loginPage_form">
+      <input onChange={handleEmailChange} type="email" name="email" className="loginPage_input" placeholder="Correo" value={email}/>
+      <input onChange={handlePasswordChange} type="password" name="password" className="loginPage_input" placeholder="Contraseña" value={password}/>
+      <button className="loginPage_btn">Iniciar Sesión</button>
     </form>
   );
 };
 
-export default LoginForm;
+
