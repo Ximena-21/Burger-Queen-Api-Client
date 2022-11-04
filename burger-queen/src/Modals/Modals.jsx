@@ -19,7 +19,6 @@ export const Modals = ({btnEdit, btnDelet}) =>{
             <ModalPortal isOpen={isOpenDelet} closeModal={closeDelet}>
                 <DeletModal btnAbort={ <button onClick={closeDelet}>CANCELAR</button>}/>
             </ModalPortal >
-
         </div>
     )
 }

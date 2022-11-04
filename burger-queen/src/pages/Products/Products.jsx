@@ -36,7 +36,7 @@ export const Products = () => {
             
             <div className="products_page">
 
-                <h1 className="products_role">ADMINISTRADOR</h1>
+                {/* <h1 className="products_role">ADMINISTRADOR</h1>
 
                 <div className="products_container">
 
@@ -46,10 +46,10 @@ export const Products = () => {
                     </div>
 
                     <Table listElements={products} listFilterKeys={avaliablesKeys} />
-                </div>
+                </div> */}
 
-            <h1 className="products_role">ADMINISTRADOR</h1>
-            <div className="products_container">
+            <h1 className="products_role">ADMINISTRADOR</h1> 
+             <div className="products_container">
                 <Modals 
                 btnEdit={<div className="products_button">
                      <img src={plus} alt="" className="products_button--plus"/>
@@ -58,9 +58,10 @@ export const Products = () => {
                 />
                 <Table listElements={products} listFilterKeys={avaliablesKeys} />
 
-            </div>
+            </div> 
 
             
+        </div>
         </div>
     )
 }
