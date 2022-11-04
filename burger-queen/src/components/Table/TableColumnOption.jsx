@@ -9,12 +9,12 @@ export const TableComlumnOption = () => {
 
     return (
         <tr className='table_rowBodyOpt'>
-            <td className='table_columnBody table_columnBody--option'>
+            <td className='table_columnBody'>
                 {/* <img src={edit} alt=""/> */}
-                 <Modals btnEdit={ <img src={edit} alt="" /> }/>
+                 <Modals btnEdit={ <img className='table_columnBody--option' src={edit} alt="" /> }/>
             </td>
-            <td className='table_columnBody table_columnBody--option'>
-                <Modals btnDelet={ <img src={delet} alt="" /> }/>
+            <td className='table_columnBody'>
+                <Modals btnDelet={ <img className='table_columnBody--option' src={delet} alt="" /> }/>
             </td>
         </tr>
     )

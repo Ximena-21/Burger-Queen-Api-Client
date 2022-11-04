@@ -7,14 +7,14 @@ import { Header } from "../../components/Header/Header";
 import { SideMenu } from "../../components/SideMenu/SideMenu";
 import { Modals } from '../../Modals/Modals'
 import { useModal } from '../../Modals/useModal'
-
+import { ModalAddProduct } from "../../components/FormModals/FormModalProduct";
 
 export const Products = () => {
 
-    const [,openModalPortal,,] = useModal(false)
+    const [, openModalPortal, ,] = useModal(false)
 
     const [products, setProducts] = useState([])
-    const avaliablesKeys = ['image', 'name', 'price' ]
+    const avaliablesKeys = ['image', 'name', 'price']
 
     useEffect(() => {
         getListProducts();
@@ -30,38 +30,27 @@ export const Products = () => {
         <div className="products">
 
 
-            <Header/>
+            <Header />
 
             {/* <SideMenu/> */}
-            
+
             <div className="products_page">
 
-                {/* <h1 className="products_role">ADMINISTRADOR</h1>
-
+                <h1 className="products_role">ADMINISTRADOR</h1>
                 <div className="products_container">
+                    <Modals
+                        btnEdit =
+                        {<div className="products_button">
+                            <img src={plus} alt="" className="products_button--plus" />
+                            <span className="products_button--text"> Agregar Producto </span>
+                        </div>}
 
-                    <div className="products_button">
-                        <img src={plus} alt="" className="products_button--plus"/>
-                        <span className="products_button--text"> Agregar Producto</span>
-                    </div>
-
+                        modal={<ModalAddProduct/>}
+                    />
                     <Table listElements={products} listFilterKeys={avaliablesKeys} />
-                </div> */}
 
-            <h1 className="products_role">ADMINISTRADOR</h1> 
-             <div className="products_container">
-                <Modals 
-                btnEdit={<div className="products_button">
-                     <img src={plus} alt="" className="products_button--plus"/>
-                     <span className="products_button--text"> Agregar Producto</span>
-                </div>}
-                />
-                <Table listElements={products} listFilterKeys={avaliablesKeys} />
-
-            </div> 
-
-            
-        </div>
+                </div>
+            </div>
         </div>
     )
 }
