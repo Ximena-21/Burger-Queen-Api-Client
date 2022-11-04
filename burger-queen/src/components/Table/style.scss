@@ -79,6 +79,15 @@
             background: #F9B209;
             border-radius: 10px;
         }
+
+        &_columnBody{
+            &--section{
+                flex-direction: row;
+                gap: 20px;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
       
        
     }

@@ -4,6 +4,7 @@ import ProductsHeaders from "../../components/Products/ProductsHeaders"
 import { Table } from "../../components/Table/Table";
 import { getProducts } from "../../lib/requests";
 import plus from '../../assets/images/plus.png'
+import { Header } from "../../components/Header/Header";
 
 export const Products = () => {
 
@@ -22,7 +23,10 @@ export const Products = () => {
 
     return (
         <div className="products">
+            <Header/>
+
             <h1 className="products_role">ADMINISTRADOR</h1>
+            
             <div className="products_container">
                 <div className="products_button">
                      <img src={plus} alt="" className="products_button--plus"/>
