@@ -3,6 +3,8 @@ import { useEffect, useReducer, useState } from "react";
 import { Table } from "../../components/Table/Table";
 import { getProducts } from "../../lib/requests";
 import plus from '../../assets/images/plus.png'
+import { Header } from "../../components/Header/Header";
+import { SideMenu } from "../../components/SideMenu/SideMenu";
 import { Modals } from '../../Modals/Modals'
 import { useModal } from '../../Modals/useModal'
 
@@ -26,6 +28,26 @@ export const Products = () => {
 
     return (
         <div className="products">
+
+
+            <Header/>
+
+            {/* <SideMenu/> */}
+            
+            <div className="products_page">
+
+                <h1 className="products_role">ADMINISTRADOR</h1>
+
+                <div className="products_container">
+
+                    <div className="products_button">
+                        <img src={plus} alt="" className="products_button--plus"/>
+                        <span className="products_button--text"> Agregar Producto</span>
+                    </div>
+
+                    <Table listElements={products} listFilterKeys={avaliablesKeys} />
+                </div>
+
             <h1 className="products_role">ADMINISTRADOR</h1>
             <div className="products_container">
                 <Modals 
@@ -35,7 +57,10 @@ export const Products = () => {
                 </div>}
                 />
                 <Table listElements={products} listFilterKeys={avaliablesKeys} />
+
             </div>
+
+            
         </div>
     )
 }
