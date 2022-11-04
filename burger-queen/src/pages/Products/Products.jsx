@@ -1,11 +1,15 @@
 import "./style.scss"
 import { useEffect, useReducer, useState } from "react";
-import ProductsHeaders from "../../components/Products/ProductsHeaders"
 import { Table } from "../../components/Table/Table";
 import { getProducts } from "../../lib/requests";
 import plus from '../../assets/images/plus.png'
+import { Modals } from '../../Modals/Modals'
+import { useModal } from '../../Modals/useModal'
+
 
 export const Products = () => {
+
+    const [,openModalPortal,,] = useModal(false)
 
     const [products, setProducts] = useState([])
     const avaliablesKeys = ['image', 'name', 'price' ]
@@ -24,10 +28,12 @@ export const Products = () => {
         <div className="products">
             <h1 className="products_role">ADMINISTRADOR</h1>
             <div className="products_container">
-                <div className="products_button">
+                <Modals 
+                btnEdit={<div className="products_button">
                      <img src={plus} alt="" className="products_button--plus"/>
                      <span className="products_button--text"> Agregar Producto</span>
-                </div>
+                </div>}
+                />
                 <Table listElements={products} listFilterKeys={avaliablesKeys} />
             </div>
         </div>
