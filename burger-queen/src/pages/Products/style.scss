@@ -10,10 +10,21 @@
 
     gap: 20px;
 
-    &_container{
+    &_page{
         width: 90%;
         min-width: 310px;
         max-width: 900px;
+        
+        @include flex-column-center;
+        gap: 20px;
+
+        position: relative;
+    }
+
+    &_container{
+        width: 100%;
+        // min-width: 310px;
+        // max-width: 900px;
         background: #fff;
         border-radius: 10px;
         display: flex;
@@ -54,8 +65,8 @@
     .products{
         &_role{
             position: absolute;
-            top: 110px;
-            left: 80px;
+            top: -10%;
+            left: 5%;
         }   
         
         &_container{
@@ -68,9 +79,23 @@
             min-width: 200px;
             padding: 10px 15px;
             position: absolute;
-            top: -50px;
-            right: 32px;           
+            top: -15%;
+            right: 5%;           
         }
     
     }
 }
+
+// @media (min-width: 950px) {
+
+//     .products{
+//         &_role{
+//             left:95px;
+//         }   
+        
+//         &_button{
+//             right: 45px;           
+//         }
+    
+//     }
+// }
