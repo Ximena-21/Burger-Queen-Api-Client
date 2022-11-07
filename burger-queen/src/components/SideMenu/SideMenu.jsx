@@ -30,7 +30,7 @@ export const SideMenu = () => {
 
                 <div className="sideMenu_menuBox--items">
                     <img src={Orders} alt="" className="sideMenu_menuBox--img" />
-                    <span className="sideMenu_menuBox--text">Ordenes</span>
+                    <span className="sideMenu_menuBox--text">Órdenes</span>
                 </div>
 
             </div>

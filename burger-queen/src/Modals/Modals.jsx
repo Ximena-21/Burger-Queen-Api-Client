@@ -1,27 +1,30 @@
-import { DeletModal } from "../components/DeletModal/DeletModal"
-import { ModalAddProduct } from "../components/FormModals/FormModalProduct"
 import { ModalPortal } from "./ModalPortal"
 import { useModal } from "./useModal"
 
-export const Modals = ({btnEdit, btnDelet,modal}) =>{
+export const Modals = ({element, content, elementClose}) =>{
 
     const [isOpenPortal, openModalPortal, closeModalPortal] = useModal(false);
-    const [isOpenDelet, openDelet, closeDelet] = useModal(false);
-
-    console.log('modal', modal)
 
     return(
         <div>
-            <button className="btnModals" onClick={openModalPortal}>{btnEdit}</button>
+            <div onClick={openModalPortal}>
+                {element}
+            </div>
             <ModalPortal isOpen={isOpenPortal} closeModal={closeModalPortal}>
-                {/* <ModalAddProduct /> */}
+                {content}
+                    <div onClick={closeModalPortal}>
+                        {elementClose}
+                    </div>
+            </ModalPortal>
+            {/* <button className="btnModals" onClick={openModalPortal}>{btnEdit}</button>
+            <ModalPortal isOpen={isOpenPortal} closeModal={closeModalPortal}>
                 {modal}
             </ModalPortal >
 
             <button className="btnModals" onClick={openDelet}>{btnDelet}</button>
             <ModalPortal isOpen={isOpenDelet} closeModal={closeDelet}>
                 <DeletModal btnAbort={ <button onClick={closeDelet}>CANCELAR</button>}/>
-            </ModalPortal >
+            </ModalPortal > */}
         </div>
     )
 }
