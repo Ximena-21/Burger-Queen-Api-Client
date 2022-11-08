@@ -1,0 +1,14 @@
+@import '../../generics.scss';
+
+.modalProduct{
+
+    &_previewImage{
+        width: 100%;
+        display: flex;
+
+        &--img {
+            background: wheat;
+            width: 20%;
+        }
+    }
+}
