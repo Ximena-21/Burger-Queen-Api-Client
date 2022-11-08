@@ -1,4 +1,4 @@
-export function filterAtributteList(filterKeys, listElements) {
+function filterAtributteList(filterKeys, listElements) {
   const newListElements = listElements.map((element) => {
     return Object.keys(element)
       .filter((key) => {
@@ -13,4 +13,10 @@ export function filterAtributteList(filterKeys, listElements) {
       }, {});
   });
   return newListElements;
+}
+
+
+
+export {
+  filterAtributteList,
 }
