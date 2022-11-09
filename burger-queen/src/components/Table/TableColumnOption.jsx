@@ -15,7 +15,7 @@ export const TableComlumnOption = () => {
             </td>
             <td className='table_columnBody'>
                 <Modals 
-                element={ <img className='table_columnBody--option' src={delet} alt="" /> }
+                element={ <img className='table_columnBody--option' src={delet} alt=""  onClick={(e) => console.log('delet ',e) }/> }
                 content={<DeletModal />}
                 elementClose={<BtnDelet />}
                 />

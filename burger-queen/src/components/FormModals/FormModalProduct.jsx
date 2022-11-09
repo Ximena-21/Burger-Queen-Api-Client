@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { uploadImgWeb, onChangeImg } from "../../lib/helpers"
-import { makeRequest } from "../../lib/requests"
+import { makeRequestPost } from "../../lib/requests"
 import "./style.scss"
-
 
 export const ModalAddProduct = () => {
 
@@ -24,7 +23,7 @@ export const ModalAddProduct = () => {
             price: priceProduct
           };
 
-          makeRequest('products', data)
+          makeRequestPost('products', data, true)
         console.log('data para enviar', data)
 
     }
