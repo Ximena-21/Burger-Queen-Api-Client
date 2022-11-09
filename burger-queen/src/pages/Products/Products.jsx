@@ -11,7 +11,7 @@ import { ModalAddProduct } from "../../components/FormModals/FormModalProduct";
 export const Products = () => {
 
     const [products, setProducts] = useState([])
-    const avaliablesKeys = ['image', 'name', 'price']
+    const avaliablesKeys = ['image', 'name', 'price', 'id']
 
     useEffect(() => {
         getListProducts();

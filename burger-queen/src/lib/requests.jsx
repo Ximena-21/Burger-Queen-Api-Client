@@ -41,20 +41,37 @@ async function getProducts(pathname) {
   return responseData
 }
 
-const makeRequestDelete = async (pathname, id, ) => {
+// const makeRequestDelete = async (pathname, id, ) => {
+//   const url = `http://localhost:8080/${pathname}/${id}`
+//   const response = await fetch(url, {
+//     method: 'DELETE',
+//     headers: {
+//       'content-Type': 'application/json',
+//       // 'authorization': `Bearer ${token}`
+//     },
+//   });
+
+//   // const responseData = await response.json()
+
+//   // return responseData
+// }
+
+const makeRequestDelete = async (pathname, id,) => {
+  
+  const token = localStorage.getItem("loginToken")
+
   const url = `http://localhost:8080/${pathname}/${id}`
-  const response = await fetch(url, {
+  const res = await fetch(url, {
     method: 'DELETE',
     headers: {
-      'content-Type': 'application/json',
-      // 'authorization': `Bearer ${token}`
+      "content-type": "application/json",
+      'authorization': `Bearer ${token}`
     },
   });
 
-  // const responseData = await response.json()
-
-  // return responseData
 }
+
+
 
 
 // fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/products/8452', {
@@ -66,6 +83,6 @@ const makeRequestDelete = async (pathname, id, ) => {
 
 export {
   makeRequestPost,
-  getProducts, 
+  getProducts,
   makeRequestDelete
 }

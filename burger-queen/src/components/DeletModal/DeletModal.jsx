@@ -1,3 +1,6 @@
+import { makeRequestDelete } from "../../lib/requests"
+
+
 export const BtnDelet = ()=>{
     
 return (
@@ -5,14 +8,16 @@ return (
 )
 }
 
-export const DeletModal = ({btnAbort}) =>{
+export const DeletModal = ({element}) =>{
+
+    
 
 return(
     <div>
         <h1>Eliminación</h1>
         <p>La información del producto no podrá ser recuperada</p>
         <p>¿Está seguro de eliminar el producto?</p>
-        <button>ELIMINAR</button>
+        <button onClick={() => makeRequestDelete('products', element.id)}>ELIMINAR</button>
     </div>
 )
 }
