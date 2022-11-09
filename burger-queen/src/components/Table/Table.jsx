@@ -6,7 +6,7 @@ import {TableHeader} from "./TableHeader";
 
 export const Table = (props) => {
 
-    const {listFilterKeys, listElements} = props
+    const {listFilterKeys, listElements, onClose} = props
 
     const filterListElements = filterAtributteList(listFilterKeys, listElements)
     console.log('array filtrado', filterListElements)
@@ -14,7 +14,7 @@ export const Table = (props) => {
     return(
         <table className="table">
             <TableHeader headerColumns ={listFilterKeys}/>
-            <TableBody listElements={filterListElements} />
+            <TableBody onClose = {onClose} listElements={filterListElements} />
         </table>
     )
 }

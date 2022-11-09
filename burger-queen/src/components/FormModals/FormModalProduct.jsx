@@ -1,29 +1,39 @@
 import { useState } from "react"
 import { uploadImgWeb, onChangeImg } from "../../lib/helpers"
-import { makeRequestPost } from "../../lib/requests"
+import { makeRequestPatch, makeRequestPost } from "../../lib/requests"
 import "./style.scss"
 
-export const ModalAddProduct = () => {
 
-    const [nameProduct, setNameProduct] = useState('')
-    const [typeProduct, setTypeProduct] = useState('')
+export const ModalAddProduct = (props = false,) => {
+
+    const {element = {}, onClose} = props
+
+    console.log('PROPS MODADL ADD', element)
+
+    const [nameProduct, setNameProduct] = useState(element.name || '')
+    const [typeProduct, setTypeProduct] = useState(element.type ||'')
     const [imgProduct, setImgProduct] = useState('')
-    const [priceProduct, setPriceProduct] = useState('')
-    const [filePreview, setFilePreview] = useState(null)
+    const [priceProduct, setPriceProduct] = useState(element.price ||'')
+    const [filePreview, setFilePreview] = useState(element.image || null)
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const data = {
-            id: new Date().getTime(),
+            id: element.id || new Date().getTime(),
             name: nameProduct,
             type: typeProduct,
             image: imgProduct,
             price: priceProduct
           };
 
-          makeRequestPost('products', data, true)
+        await  makeRequestPost('products', data, true)
+        
+        onClose()
+
+        // await makeRequestPatch('products', element.id, data)
+
         console.log('data para enviar', data)
 
     }
@@ -50,7 +60,7 @@ export const ModalAddProduct = () => {
                 <input onChange={(event) => handleInputsChange( setNameProduct, event)} type="text" name="name_product" className="modalAddProduct_input" value={nameProduct}/>
 
                 <label htmlFor="select_product">Tipo de menú:</label>
-                <select onChange={(event) => handleInputsChange( setTypeProduct, event)} name="select_product" className="modalAddProduct_input">
+                <select onChange={(event) => handleInputsChange( setTypeProduct, event)} name="select_product" className="modalAddProduct_input" value={typeProduct}>
                     <option selected='selected'>Seleccionar</option>
                     <option >Desayuno</option>
                     <option >Almuerzo</option>

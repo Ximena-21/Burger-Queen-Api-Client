@@ -1,7 +1,7 @@
 export const TableHeader = (props) => {
 
     const {headerColumns} = props;
-    const listTh = headerColumns.filter(element => element != 'id')
+    const listTh = headerColumns.filter(element => element != 'id' && element != 'type')
 
 
 return(

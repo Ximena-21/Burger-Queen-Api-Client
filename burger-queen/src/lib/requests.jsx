@@ -41,21 +41,6 @@ async function getProducts(pathname) {
   return responseData
 }
 
-// const makeRequestDelete = async (pathname, id, ) => {
-//   const url = `http://localhost:8080/${pathname}/${id}`
-//   const response = await fetch(url, {
-//     method: 'DELETE',
-//     headers: {
-//       'content-Type': 'application/json',
-//       // 'authorization': `Bearer ${token}`
-//     },
-//   });
-
-//   // const responseData = await response.json()
-
-//   // return responseData
-// }
-
 const makeRequestDelete = async (pathname, id,) => {
   
   const token = localStorage.getItem("loginToken")
@@ -71,6 +56,21 @@ const makeRequestDelete = async (pathname, id,) => {
 
 }
 
+const makeRequestPatch = async (pathname, id, data) => {
+  
+  const token = localStorage.getItem("loginToken")
+
+  const url = `http://localhost:8080/${pathname}/${id}`
+  const res = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      "content-type": "application/json",
+      'authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(data),
+  });
+
+}
 
 
 
@@ -84,5 +84,6 @@ const makeRequestDelete = async (pathname, id,) => {
 export {
   makeRequestPost,
   getProducts,
-  makeRequestDelete
+  makeRequestDelete,
+  makeRequestPatch
 }
