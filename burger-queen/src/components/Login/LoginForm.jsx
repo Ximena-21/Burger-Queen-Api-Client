@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getData } from "../../lib/requests";
+import { makeRequestPost } from "../../lib/requests";
 
 export const LoginForm = () => {
 
@@ -20,7 +20,7 @@ export const LoginForm = () => {
       password: password,
     };
 
-      const dataLogin = await getData('login', data)
+      const dataLogin = await makeRequestPost('login', data)
       if(dataLogin !== null){
         const token = dataLogin.accessToken
         window.localStorage.setItem("loginToken", token);

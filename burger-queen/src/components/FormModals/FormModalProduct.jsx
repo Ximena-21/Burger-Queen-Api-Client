@@ -1,5 +1,6 @@
 import { useState } from "react"
-// import { changeUploadImg } from "../../lib/helpers"
+import { uploadImgWeb, onChangeImg } from "../../lib/helpers"
+import { makeRequest } from "../../lib/requests"
 import "./style.scss"
 
 
@@ -17,12 +18,13 @@ export const ModalAddProduct = () => {
 
         const data = {
             id: new Date().getTime(),
-            producto: nameProduct,
-            tipo: typeProduct,
-            imagen: imgProduct,
-            precio: priceProduct
+            name: nameProduct,
+            type: typeProduct,
+            image: imgProduct,
+            price: priceProduct
           };
 
+          makeRequest('products', data)
         console.log('data para enviar', data)
 
     }
@@ -31,15 +33,12 @@ export const ModalAddProduct = () => {
         setFunction( e.target.value)
     }
 
-    const onChangeImg = (e) => {
-        const url = URL.createObjectURL(e.target.files[0])
+    const handleChangeImage = async (e) => {
+        const urlImgUpload = await onChangeImg(e, setFilePreview)
+        const urlImageWeb = await uploadImgWeb(urlImgUpload)
+        setImgProduct(urlImageWeb)
+    } 
 
-        console.log('URL >>>', url)
-
-        setFilePreview(url)  
-       
-
-    }
 
     return (
         <div className="modalAddProduct">
@@ -60,12 +59,14 @@ export const ModalAddProduct = () => {
 
                 <div className="modalProduct_previewImage">
                     <label htmlFor="name_product">Imagen del producto</label>
-                    <input onChange={(event)=>onChangeImg(event)} type="file" name="image_product" className="modalAddProduct_input" value={imgProduct}/>
+                    <input 
+                     onChange={(e)=> { handleChangeImage(e)
+                    }} type="file" name="image_product" className="modalAddProduct_input" />
                     <img src={filePreview} alt="" className="modalProduct_previewImage--img" />
                 </div>
 
                 <label htmlFor="name_product">Precio del producto</label>
-                <input onChange={(event) => handleInputsChange( setPriceProduct, event)} type="number" name="price_product" className="modalAddProduct_input" value={priceProduct}/>
+                <input onChange={(e) => handleInputsChange( setPriceProduct, e)} type="number" name="price_product" className="modalAddProduct_input" value={priceProduct}/>
 
                 <button className="loginPage_btn">Guardar</button>
             </form>
