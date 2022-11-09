@@ -1,4 +1,4 @@
-import './styleModal.scss'
+import './style.scss'
 import ReactDOM from 'react-dom'
 
 export const ModalPortal = ({children, isOpen, closeModal}) => {

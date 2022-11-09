@@ -4,16 +4,27 @@
     width: 100%;
     height: 100%;
     @include flex-column-center;
-
+    position: relative;
     // background: url('/src/assets/images/background1.jpg') no-repeat 50% 50%/cover;
     background: #202020;
 
     gap: 20px;
 
-    &_container{
+    &_page{
         width: 90%;
         min-width: 310px;
         max-width: 900px;
+        
+        @include flex-column-center;
+        gap: 20px;
+
+        position: relative;
+    }
+
+    &_container{
+        width: 100%;
+        // min-width: 310px;
+        // max-width: 900px;
         background: #fff;
         border-radius: 10px;
         display: flex;
@@ -44,7 +55,47 @@
 
     &_role{
         font-weight: 500;
-        font-size: 30px;
+        font-size: 28px;
         color: #fff;  
     }
 }
+
+@media (min-width: 750px) {
+
+    .products{
+        &_role{
+            position: absolute;
+            top: -10%;
+            left: 5%;
+        }   
+        
+        &_container{
+            background: none;
+            position: relative;
+        } 
+
+        &_button{
+            width: 20%;
+            min-width: 200px;
+            padding: 10px 15px;
+            position: absolute;
+            top: -15%;
+            right: 5%;           
+        }
+    
+    }
+}
+
+// @media (min-width: 950px) {
+
+//     .products{
+//         &_role{
+//             left:95px;
+//         }   
+        
+//         &_button{
+//             right: 45px;           
+//         }
+    
+//     }
+// }

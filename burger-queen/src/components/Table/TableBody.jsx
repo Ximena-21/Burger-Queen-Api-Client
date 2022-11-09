@@ -1,16 +1,16 @@
-import { Modals } from "../../Modals/Modals"
 import { TableComlumnOption } from "./TableColumnOption"
 
 
 export const TableBody = (props) => {
 
-    const { listElements } = props
+    const { listElements, onClose } = props
     console.log('lista de elementos', listElements)
 
    // const tr = return listElements.includes(regexUrl) ? listTrImg : listTr 
 //    listElements.length === 0 ?
     const listTr = listElements.map((element) => {
         
+
         return (
             <tr className='table_rowBody'>
                 <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" /></td>
@@ -18,7 +18,7 @@ export const TableBody = (props) => {
                     <td className='table_columnBody'>{element.name}</td>
                     <td className='table_columnBody table_columnBody--price'>{element.price}</td>
                 </div>
-                <TableComlumnOption/>
+                <TableComlumnOption onClose= {onClose} element={element}/>
             </tr>
         )
     }) 

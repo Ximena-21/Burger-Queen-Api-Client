@@ -1,21 +1,27 @@
 import edit from '../../assets/images/edit.png'
 import delet from '../../assets/images/delete.png'
 import { Modals } from '../../Modals/Modals'
-import { useModal } from '../../Modals/useModal'
+import { BtnDelet, DeletModal } from '../DeletModal/DeletModal'
+import { ModalAddProduct } from '../FormModals/FormModalProduct'
 
-export const TableComlumnOption = () => {
-
-    const [,openModalPortal,,] = useModal(false)
-
+export const TableComlumnOption = ({element, onClose}) => {
+    // console.log('producto que entra en la coluna de opciones >>>', element)
     return (
         <tr className='table_rowBodyOpt'>
-            <td className='table_columnBody table_columnBody--option'>
-                {/* <img src={edit} alt=""/> */}
-                 <Modals btnEdit={ <img src={edit} alt="" /> }/>
+            <td className='table_columnBody'>
+                 <Modals element={ <img className='table_columnBody--option' src={edit} alt="" /> }
+                 content={<ModalAddProduct element={element}/>}
+                 />
             </td>
-            <td className='table_columnBody table_columnBody--option'>
-                <Modals btnDelet={ <img src={delet} alt="" /> }/>
+            <td className='table_columnBody'>
+                <Modals 
+                element={ <img className='table_columnBody--option' src={delet} alt=""  onClick={() => console.log('quiere eliminar este elemnto') }/> }
+                content={<DeletModal element={element} onClose={onClose} />}
+                elementClose={<BtnDelet />}
+                />
             </td>
         </tr>
     )
 }
+
+//makeRequestDelete('products', element.id)

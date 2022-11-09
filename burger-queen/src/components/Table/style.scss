@@ -4,19 +4,18 @@
     width: 90%;
     min-width: 310px;
     max-width: 850px;
+    max-height: 350px;
     padding: 20px;
     background: rgb(255, 255, 255);
     border-radius: 10px;
-   // border-spacing: 0 10px;
-    // line-height: 50px;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll;
 
     &_headerRow{
        display: none;
     }
     &_body{
-      //  width: 100%;
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -78,6 +77,15 @@
             justify-content: space-around;
             background: #F9B209;
             border-radius: 10px;
+        }
+
+        &_columnBody{
+            &--section{
+                flex-direction: row;
+                gap: 20px;
+                align-items: center;
+                justify-content: space-between;
+            }
         }
       
        
