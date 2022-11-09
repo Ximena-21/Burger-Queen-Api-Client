@@ -11,7 +11,7 @@ import { ModalAddProduct } from "../../components/FormModals/FormModalProduct";
 export const Products = () => {
 
     const [products, setProducts] = useState([])
-    const avaliablesKeys = ['image', 'name', 'price']
+    const avaliablesKeys = ['image', 'name', 'price', 'id', 'type']
 
     useEffect(() => {
         getListProducts();
@@ -37,9 +37,9 @@ export const Products = () => {
                             <img src={plus} alt="" className="products_button--plus" />
                             <span className="products_button--text"> Agregar Producto </span>
                         </div>}
-                        content={<ModalAddProduct />}
+                        content={<ModalAddProduct onClose = {getListProducts}/>}
                     />
-                    <Table listElements={products} listFilterKeys={avaliablesKeys} />
+                    <Table listElements={products} listFilterKeys={avaliablesKeys} onClose = {getListProducts}/>
                 </div>
             </div>
         </div>

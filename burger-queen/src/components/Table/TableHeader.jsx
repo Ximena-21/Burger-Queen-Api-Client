@@ -1,14 +1,14 @@
 export const TableHeader = (props) => {
 
     const {headerColumns} = props;
-   
-    //const listTh = listElements.length > 0 ? Object.keys(listElements[0]) : headerColumns
+    const listTh = headerColumns.filter(element => element != 'id' && element != 'type')
+
 
 return(
     <thead className="table_header">
         <tr className="table_headerRow">
             {
-              headerColumns.map(column =>{
+              listTh.map(column =>{
                 return <th className="table_headerColumn">{column}</th>
               })
             }

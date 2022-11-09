@@ -1,4 +1,6 @@
-async function getData(pathname, data) {
+async function makeRequestPost(pathname, data, token = false) {
+
+  token = localStorage.getItem("loginToken")
 
   try {
     const url = `http://localhost:8080/${pathname}`
@@ -6,6 +8,7 @@ async function getData(pathname, data) {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        'authorization': `Bearer ${token}`
       },
       body: JSON.stringify(data),
     });
@@ -21,7 +24,6 @@ async function getData(pathname, data) {
   }
 }
 
-
 async function getProducts(pathname) {
 
   const token = localStorage.getItem("loginToken")
@@ -32,7 +34,6 @@ async function getProducts(pathname) {
       'content-Type': 'application/json',
       'authorization': `Bearer ${token}`
     },
-    //body: JSON.stringify(data)
   });
 
   const responseData = await response.json()
@@ -40,7 +41,49 @@ async function getProducts(pathname) {
   return responseData
 }
 
+const makeRequestDelete = async (pathname, id,) => {
+  
+  const token = localStorage.getItem("loginToken")
+
+  const url = `http://localhost:8080/${pathname}/${id}`
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      "content-type": "application/json",
+      'authorization': `Bearer ${token}`
+    },
+  });
+
+}
+
+const makeRequestPatch = async (pathname, id, data) => {
+  
+  const token = localStorage.getItem("loginToken")
+
+  const url = `http://localhost:8080/${pathname}/${id}`
+  const res = await fetch(url, {
+    method: 'PATCH',
+    headers: {
+      "content-type": "application/json",
+      'authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(data),
+  });
+
+}
+
+
+
+// fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/products/8452', {
+//     method: 'DELETE',
+//     headers: {
+//         'accept': 'application/json'
+//     }
+// });
+
 export {
-  getData,
-  getProducts
+  makeRequestPost,
+  getProducts,
+  makeRequestDelete,
+  makeRequestPatch
 }
