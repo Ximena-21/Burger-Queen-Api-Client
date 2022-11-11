@@ -5,52 +5,40 @@ import { makeRequestPatch, makeRequestPost } from "../../lib/requests"
 import "./style.scss"
 
 
-export const ModalAddProduct = (props = false,) => {
+export const ModalAddProduct = (props) => {
+    console.log('agregar un producto ', props);
+    const {element = {}} = props
 
-    // const {element = {}, onClose} = props
-    const {products, avaliablesKeys, onClose} = useContext(TableContext)
+    // const {products, onclose} = useContext(TableContext)
 
-
-    console.log('PROPS MODADL ADD new', products)
-    // console.log('PROPS MODADL ADD', element)
-
-    // const [nameProduct, setNameProduct] = useState(element.name || '')
-    // const [typeProduct, setTypeProduct] = useState(element.type ||'')
-    // const [imgProduct, setImgProduct] = useState('')
-    // const [priceProduct, setPriceProduct] = useState(element.price ||'')
-    // const [filePreview, setFilePreview] = useState(element.image || null)
-    const [nameProduct, setNameProduct] = useState(products.name || '')
-    const [typeProduct, setTypeProduct] = useState(products.type ||'')
+    const [nameProduct, setNameProduct] = useState(element.name || '')
+    const [typeProduct, setTypeProduct] = useState(element.type ||'')
     const [imgProduct, setImgProduct] = useState('')
-    const [priceProduct, setPriceProduct] = useState(products.price ||'')
-    const [filePreview, setFilePreview] = useState(products.image || null)
-
+    const [priceProduct, setPriceProduct] = useState(element.price ||'')
+    const [filePreview, setFilePreview] = useState(element.image || null)
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
-        if(nameProduct == '' || typeProduct == '' || imgProduct == '' || priceProduct == '' || filePreview == null){
-            alert('Todos los campos son obligatorios')
-        }else{
             const data = {
-                id: products.id || new Date().getTime(),
-                // id: element.id || new Date().getTime(),
+                id: element.id || new Date().getTime(),
                 name: nameProduct,
                 type: typeProduct,
                 image: imgProduct,
                 price: priceProduct
               };
     
-            await  makeRequestPost('products', data, true)
+            // window.location.pathname = '/products'
+            if(element !== {} ) console.log('Se está agregando un producto ')
+            else console.log('Se está editando un producto ')
             
-            onClose()
-    
-            // await makeRequestPatch('products', element.id, data)
-    
+            // nameProduct !== '' ?  console.log('Se está editando un producto ') :  console.log('Se está agregando un producto ')
+            // !props ?  await makeRequestPatch('products', element.id, data) :  await  makeRequestPost('products', data, true)
+           
             console.log('data para enviar', data)
         }
 
-    }
+    // }
 
     const handleInputsChange =  async (setFunction, e) =>{
         setFunction( e.target.value)
@@ -72,11 +60,11 @@ export const ModalAddProduct = (props = false,) => {
 
                 <label htmlFor="name_product">Nombre del producto</label>
                 <input onChange={(event) => handleInputsChange( setNameProduct, event)} type="text" name="name_product" 
-                className="modalAddProduct_input" value={nameProduct}/>
+                className="modalAddProduct_input" value={nameProduct} required/>
 
                 <label htmlFor="select_product">Tipo de menú:</label>
                 <select onChange={(event) => handleInputsChange( setTypeProduct, event)} name="select_product"
-                 className="modalAddProduct_input" value={typeProduct}>
+                 className="modalAddProduct_input" value={typeProduct} required>
                     <option selected='selected'>Seleccionar</option>
                     <option >Desayuno</option>
                     <option >Almuerzo</option>
@@ -91,7 +79,8 @@ export const ModalAddProduct = (props = false,) => {
                 </div>
 
                 <label htmlFor="name_product">Precio del producto</label>
-                <input onChange={(e) => handleInputsChange( setPriceProduct, e)} type="number" name="price_product" className="modalAddProduct_input" value={priceProduct}/>
+                <input onChange={(e) => handleInputsChange( setPriceProduct, e)} type="number" name="price_product" 
+                className="modalAddProduct_input" value={priceProduct} required/>
 
                 <button className="loginPage_btn" >Guardar</button>
             </form>

@@ -8,18 +8,16 @@ import TableContext from "../../context/TableContext";
 
 export const Table = (props) => {
     
-    const {products, avaliablesKeys, onClose} = useContext(TableContext)
+    const {products, avaliablesKeys} = useContext(TableContext)
 
     const filterListElements = filterAtributteList(avaliablesKeys, products)
     // const {listFilterKeys, listElements, onClose} = props
     // const filterListElements = filterAtributteList(listFilterKeys, listElements)
-    console.log('array filtrado', filterListElements)
 
     return(
         <table className="table">
             <TableHeader headerColumns ={avaliablesKeys}/>
-             {/* <TableBody onClose = {onClose} listElements={filterListElements} /> */}
-            <TableBody onClose = {onClose} listElements={filterListElements} />
+            <TableBody listElements={filterListElements} />
         </table>
     )
 }

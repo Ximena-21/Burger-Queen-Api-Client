@@ -8,7 +8,11 @@ export const BtnAbort = () => {
     )
 }
 
-    export const DeletModal = ({ element, onClose }) => {
+    export const DeletModal = ({ element}) => {
+
+        const {onClose} = useContext(TableContext)
+        // console.log('context delete ', products)
+
 
     return (
         <div>

@@ -17,10 +17,10 @@ const TableProvider = ({children}) => {
         const dataProducts = await getProducts('products')
         setProducts(dataProducts);
     }
-    const onClose = getListProducts
 
+    const onClose = getListProducts
     const data = {products, avaliablesKeys, onClose}
-    console.log('setProducts ', products);
+    // console.log('setProducts ', products);
 
     return <TableContext.Provider value={data}>{children}</TableContext.Provider>
 }

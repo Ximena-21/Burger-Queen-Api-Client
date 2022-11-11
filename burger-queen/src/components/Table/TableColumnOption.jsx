@@ -6,7 +6,8 @@ import { ModalAddProduct } from '../FormModals/FormModalProduct'
 import { useState } from 'react'
 
 
-    export const TableComlumnOption = ({element, onClose}) => {
+    export const TableComlumnOption = ({element}) => {
+
     
     // console.log('producto que entra en la coluna de opciones >>>', element)
     const [editElement, setEditElement] = useState(false)
@@ -14,16 +15,17 @@ import { useState } from 'react'
     return (
         <tr className='table_rowBodyOpt'>
             <td className='table_columnBody'>
-                 <Modals element={ <img className={`table_columnBody--option`} 
+                 <Modals element={ <img className={`table_columnBody--option `} 
                  src={edit} alt="Edit" /> }
-                 content={<ModalAddProduct element={element} onClose={onClose} />}
+                 content={<ModalAddProduct  />}
+                //  content={<ModalAddProduct element={element} />}
                  />
             </td>
             <td className='table_columnBody'>
                 <Modals 
                 element={ <img className='table_columnBody--option' src={delet} alt="Delete"  
                 onClick={() => console.log('quiere eliminar este elemnto') }/> }
-                content={<DeletModal element={element} onClose={onClose} />}
+                content={<DeletModal element={element}  />}
                 elementClose={<BtnAbort />}
                 />
             </td>

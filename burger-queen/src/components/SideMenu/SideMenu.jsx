@@ -10,10 +10,9 @@ export const ExitIcon = () => {
     return(
         <img src={Exit} alt="" className="sideMenu_exitMenu" />
     )
-
 }
-export const SideMenu = () => {
 
+export const SideMenu = () => {
 
     return (
         <div className="sideMenu">
