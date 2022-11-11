@@ -1,16 +1,21 @@
+import { useContext } from "react"
+import TableContext from "../../context/TableContext"
+import { filterAtributteList } from "../../lib/helpers"
 import { TableComlumnOption } from "./TableColumnOption"
 
 
 export const TableBody = (props) => {
 
-    const { listElements, onClose } = props
-    console.log('lista de elementos', listElements)
+    const {products, onClose} = useContext(TableContext)
+
+
+    // const { listElements, onClose } = props
+    // console.log('lista de elementos', listElements)
 
    // const tr = return listElements.includes(regexUrl) ? listTrImg : listTr 
 //    listElements.length === 0 ?
-    const listTr = listElements.map((element) => {
+    const listTr = products.map((element) => {
         
-
         return (
             <tr className='table_rowBody'>
                 <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" /></td>
