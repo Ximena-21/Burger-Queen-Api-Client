@@ -1,7 +1,12 @@
+import { useContext } from "react";
+import TableContext from "../../context/TableContext";
+
 export const TableHeader = (props) => {
 
-    const {headerColumns} = props;
-    const listTh = headerColumns.filter(element => element != 'id' && element != 'type')
+  const { avaliablesKeys} = useContext(TableContext)
+
+    // const {headerColumns} = props;
+    const listTh = avaliablesKeys.filter(element => element != 'id' && element != 'type')
 
 
 return(

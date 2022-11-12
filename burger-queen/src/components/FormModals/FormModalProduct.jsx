@@ -1,21 +1,15 @@
-import { useState } from "react"
+import {  useState } from "react"
 import { uploadImgWeb, onChangeImg } from "../../lib/helpers"
 import { makeRequestPatch, makeRequestPost } from "../../lib/requests"
 import "./style.scss"
 
-
-export const ModalAddProduct = (props = false,) => {
-
-    const {element = {}, onClose} = props
-
-    console.log('PROPS MODADL ADD', element)
+    export const ModalAddProduct = ({element} ) => {
 
     const [nameProduct, setNameProduct] = useState(element.name || '')
     const [typeProduct, setTypeProduct] = useState(element.type ||'')
-    const [imgProduct, setImgProduct] = useState('')
+    const [imgProduct, setImgProduct] = useState(element.image || '')
     const [priceProduct, setPriceProduct] = useState(element.price ||'')
     const [filePreview, setFilePreview] = useState(element.image || null)
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,17 +20,20 @@ export const ModalAddProduct = (props = false,) => {
             type: typeProduct,
             image: imgProduct,
             price: priceProduct
-          };
-
-        await  makeRequestPost('products', data, true)
+        };
         
-        onClose()
+        if(element.id === undefined) {
 
-        // await makeRequestPatch('products', element.id, data)
+            window.location.pathname = '/products'
+            await  makeRequestPost('products', data, true)
+            
+        } else {
 
-        console.log('data para enviar', data)
-
+            await makeRequestPatch('products', element.id, data) 
+            window.location.pathname = '/products'
+        }
     }
+    
 
     const handleInputsChange =  async (setFunction, e) =>{
         setFunction( e.target.value)
@@ -51,17 +48,20 @@ export const ModalAddProduct = (props = false,) => {
 
     return (
         <div className="modalAddProduct">
-            <form onSubmit={handleSubmit} className="modalAddProduct_form">
+            <form onSubmit={ 
+                handleSubmit} className="modalAddProduct_form">
                 <div>
                     <p>Nuevo producto</p>
                 </div>
 
                 <label htmlFor="name_product">Nombre del producto</label>
-                <input onChange={(event) => handleInputsChange( setNameProduct, event)} type="text" name="name_product" className="modalAddProduct_input" value={nameProduct}/>
+                <input onChange={(event) => handleInputsChange( setNameProduct, event)} type="text" name="name_product" 
+                className="modalAddProduct_input" value={nameProduct} required/>
 
                 <label htmlFor="select_product">Tipo de menú:</label>
-                <select onChange={(event) => handleInputsChange( setTypeProduct, event)} name="select_product" className="modalAddProduct_input" value={typeProduct}>
-                    <option selected='selected'>Seleccionar</option>
+                <select onChange={(event) => handleInputsChange( setTypeProduct, event)} name="select_product"
+                 className="modalAddProduct_input" value={typeProduct} required>
+                    <option selected='selected' >Seleccionar</option>
                     <option >Desayuno</option>
                     <option >Almuerzo</option>
                 </select>
@@ -75,9 +75,10 @@ export const ModalAddProduct = (props = false,) => {
                 </div>
 
                 <label htmlFor="name_product">Precio del producto</label>
-                <input onChange={(e) => handleInputsChange( setPriceProduct, e)} type="number" name="price_product" className="modalAddProduct_input" value={priceProduct}/>
+                <input onChange={(e) => handleInputsChange( setPriceProduct, e)} type="number" name="price_product" 
+                className="modalAddProduct_input" value={priceProduct} required/>
 
-                <button className="loginPage_btn">Guardar</button>
+                <button className="loginPage_btn" >Guardar</button>
             </form>
         </div>
     )
