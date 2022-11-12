@@ -9,6 +9,8 @@ import TableContext from "../../context/TableContext";
 export const Table = (props) => {
     
     const {products, avaliablesKeys} = useContext(TableContext)
+    
+    // console.log('products ', products);
 
     const filterListElements = filterAtributteList(avaliablesKeys, products)
     // const {listFilterKeys, listElements, onClose} = props

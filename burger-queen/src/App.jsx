@@ -6,16 +6,16 @@ import { Products } from "./pages/Products/Products";
 
 function App() {
   return (
-    <TableProvider>
-      <div className="App">
+    <div className="App">
+        <TableProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
             <Route exact path="/products" element={<Products />}  />
           </Routes>
         </BrowserRouter>
+        </TableProvider>
       </div>
-    </TableProvider>
   );
 }
 

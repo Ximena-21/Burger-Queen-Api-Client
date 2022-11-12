@@ -39,10 +39,11 @@ export const Products = () => {
                             <img src={plus} alt="" className="products_button--plus" />
                             <span className="products_button--text"> Agregar Producto </span>
                         </div>}
-                        content={<ModalAddProduct />}
+                        content={<ModalAddProduct element={{}}/>}
                         // content={<ModalAddProduct onClose = {getListProducts}/>}
                     />
-                    <Table listElements={products} listFilterKeys={avaliablesKeys} />
+                    <Table  />
+                    {/* <Table listElements={products} listFilterKeys={avaliablesKeys} /> */}
                 </div>
             </div>
         </div>
