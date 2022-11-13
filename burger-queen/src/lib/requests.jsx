@@ -41,6 +41,23 @@ async function getProducts(pathname) {
   return responseData
 }
 
+async function makeRequestGet(pathname) {
+
+  const token = localStorage.getItem("loginToken")
+  const url = `http://localhost:8080/${pathname}`
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'content-Type': 'application/json',
+      'authorization': `Bearer ${token}`
+    },
+  });
+
+  const responseData = await response.json()
+
+  return responseData
+}
+
 const makeRequestDelete = async (pathname, id,) => {
   
   const token = localStorage.getItem("loginToken")
@@ -85,5 +102,6 @@ export {
   makeRequestPost,
   getProducts,
   makeRequestDelete,
-  makeRequestPatch
+  makeRequestPatch,
+  makeRequestGet
 }

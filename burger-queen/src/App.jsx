@@ -1,21 +1,30 @@
 import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
 import "./AppStyles.scss";
-import { TableProvider } from "./context/TableContext";
+import { ProductsProvider } from "./context/ProductsContext";
+import { UsersProvider } from "./context/UsersContext";
 import { Login } from "./pages/login/Login";
 import { Products } from "./pages/Products/Products";
+import { Users } from "./pages/Users/Users";
 
 function App() {
   return (
     <div className="App">
-        <TableProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route exact path="/products" element={<Products />}  />
-          </Routes>
-        </BrowserRouter>
-        </TableProvider>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route exact path="/products" element={
+            <ProductsProvider>
+              <Products />
+            </ProductsProvider>
+          } />
+          <Route exact path="/users" element={
+            <UsersProvider>
+              <Users />
+            </UsersProvider>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

@@ -2,16 +2,15 @@ import "./style.scss"
 import { filterAtributteList } from "../../lib/helpers";
 import {TableBody} from "./TableBody";
 import {TableHeader} from "./TableHeader";
-import { useContext } from "react";
-import TableContext from "../../context/TableContext";
+import { useProductsContext } from "../../context/TableContext";
 
 
 export const Table = (props) => {
     
-    const {products, avaliablesKeys} = useContext(TableContext)
+    const {products, avaliablesKeys} = useProductsContext()
     
     // console.log('products ', products);
-
+    console.log({products,avaliablesKeys})
     const filterListElements = filterAtributteList(avaliablesKeys, products)
     // const {listFilterKeys, listElements, onClose} = props
     // const filterListElements = filterAtributteList(listFilterKeys, listElements)

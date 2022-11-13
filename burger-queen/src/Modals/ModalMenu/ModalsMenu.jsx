@@ -1,21 +1,18 @@
 import { ModalMenu } from "./ModalMenu";
 import { useModal } from "../useModal"
 
-export const ModalsMenu = ({element, content, elementClose}) =>{
+export const ModalsMenu = ({isOpen, open, close, element, content, elementClose}) =>{
 
-    ModalMenu
-    const [isOpenMenu, openModalMenu, closeModalMenu] = useModal(false);
+    // const [isOpen, open, close] = useModal(false);
 
     return(
         <div>
-            <div onClick={openModalMenu}>
+            <div onClick={open}>
                 {element}
             </div>
-            <ModalMenu isOpen={isOpenMenu} closeModal={closeModalMenu}>
+            <ModalMenu isOpen={isOpen} closeModal={close}>
                 {content}
-                    <div onClick={closeModalMenu}>
-                        {elementClose}
-                    </div>
+                {elementClose}
             </ModalMenu>
         </div>
     )
