@@ -11,14 +11,14 @@ export const Users = () => {
     const { isOpenModal, openModal, closeModal} = useUsersContext()
 
     return (
-        <div className="products">
+        <div className="users">
 
             <Header />
 
-            <div className="products_page">
+            <div className="users_page">
 
-                <h1 className="products_role">ADMINISTRADOR</h1>
-                <div className="products_container">
+                <h1 className="users_role">ADMINISTRADOR</h1>
+                <div className="users_container">
                     {/* <Modals
                         isOpen={isOpenModal}
                         close={closeModal}

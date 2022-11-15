@@ -1,16 +1,16 @@
 @import '../../generics.scss';
 
 .table {
-    width: 90%;
+    width: 100%;
     min-width: 310px;
     max-width: 850px;
-    max-height: 350px;
+    min-height: 300px;
+    max-height: 400px;
     padding: 20px;
     background: rgb(255, 255, 255);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
 
     &_headerRow{
        display: none;
@@ -19,6 +19,7 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        overflow-y: scroll;
     }
 
     &_rowBody {
@@ -27,7 +28,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        height: 60px;
+        min-height: 60px;
         gap: 10px;
         padding: 0 10px
     }
@@ -43,9 +44,14 @@
         font-size: 14px;
 
         &--img{
-            width: 40px;
-            height: 40px;
+            width: 10%;
+            min-width: 40px;
+            max-width: 50px;
+            height: 10%;
+            min-height: 40px;
+            max-height: 50px;
         }
+        
 
         &--price{
             color: $tertiary-color;
@@ -62,6 +68,10 @@
             flex-direction: column;
             align-items: flex-start;
         }
+    }
+
+    &_img{
+        width: 100%;
     }
 }
 
@@ -89,5 +99,11 @@
         }
       
        
+    }
+}
+
+@media (min-width: 1024px) {
+    .table{
+        max-height: 460px;
     }
 }

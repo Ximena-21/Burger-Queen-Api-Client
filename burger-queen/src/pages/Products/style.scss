@@ -13,7 +13,9 @@
     &_page{
         width: 90%;
         min-width: 310px;
-        max-width: 900px;
+        max-width: 1000px;
+
+        margin-top: 50px;
         
         @include flex-column-center;
         gap: 20px;
@@ -86,16 +88,24 @@
     }
 }
 
-// @media (min-width: 950px) {
+@media (min-width: 1024px) {
 
-//     .products{
-//         &_role{
-//             left:95px;
-//         }   
+    .products{
+        &_container{
+            flex-direction: row-reverse;
+            gap: 20px;
+            padding-top: 0;
+        } 
+
+        &_role{
+            top: 0;
+            left: 0;
+            position: relative;
+        }   
         
-//         &_button{
-//             right: 45px;           
-//         }
+        &_page{
+            max-width: 1000px;           
+        }
     
-//     }
-// }
+    }
+}

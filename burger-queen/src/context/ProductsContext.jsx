@@ -31,7 +31,7 @@ const ProductsProvider = ({ children }) => {
     const avaliablesKeys = [
         {
             key: "image",
-            componente: (element) => { return <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" /></td> }
+            componente: (element) => { return <td className='table_columnBody table_columnBody--img'><img src={element.image} alt="" className="table_img"/></td> }
         },
         {
             key: null, componente: BloqueProductPrice
