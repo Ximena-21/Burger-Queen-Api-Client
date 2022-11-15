@@ -1,6 +1,8 @@
 @import '../../generics.scss';
+
 .sideMenu{
     width: 70%;
+    min-width: 300px;
     min-height: 100vh;
     @include flex-column-center;
     justify-content: space-between;

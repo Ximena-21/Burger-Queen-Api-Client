@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 100vh;
     position: fixed;
-    z-index: 999;
+    z-index: 1500;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, .75);
@@ -29,9 +29,12 @@
     }
 
     &-close{
+        width: 20px;
+        height: 20px;
+
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: 5%;
+        right: 5%;
     }
 
 }
