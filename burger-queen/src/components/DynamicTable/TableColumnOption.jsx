@@ -55,14 +55,7 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
 
                 }
 
-              {/*   // <Modals
-                //     isOpen={isOpen}
-                //     open={open}
-                //     close={close}
-                //     element={<img className={`table_columnBody--option  `}
-                //         src={edit} alt="Edit" value={'edit'} />}
-                //     content={<Add closeModal={close} element={element} />}
-                // /> */}
+
             </td>
             <td className='table_columnBody'>
                 <Modals

@@ -24,7 +24,7 @@ function BloqueProductPrice(element) {
 const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([])
     //no hacer nunca mas
-    const columnKeys = ['imagen', 'nombre', 'precio', 'opciones']
+    const columnKeys = ['Imagen', 'Nombre', 'Precio', 'Opciones']
     //MODAL PARA CREAR
     const [isOpenModal, openModal, closeModal] = useModal(false);
 
