@@ -8,9 +8,9 @@ import { useUsersContext } from "../../../context/UsersContext"
 
 export const FormUser = ({ element, closeModal }) => {
 
-    console.log('usuario para editar', element.id);
+    // // console.log('usuario para editar', element);
 
-    const { createUser , updateUser} = useUsersContext()
+    const { createUser, updateUser } = useUsersContext()
 
 
     const [user, setUser] = useState(element || {})
@@ -22,7 +22,7 @@ export const FormUser = ({ element, closeModal }) => {
         let newObjKey = {}
         newObjKey[key] = e.target.value
 
-        console.log('name target', e.target.value)
+        // console.log('name target', e.target.value)
 
         setUser({ ...user, ...newObjKey, id: new Date().getTime(), })
     }
@@ -31,7 +31,7 @@ export const FormUser = ({ element, closeModal }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('Usuario >>', user)
+        console.log('Usuario enviar >>', user)
 
         if (element.id === undefined) {
 
@@ -39,36 +39,19 @@ export const FormUser = ({ element, closeModal }) => {
 
         } else {
 
-            await updateUser(element.id, user)
+            const copyElemnt = {...element}
+            const elementfilter = Object.keys(copyElemnt).
+            filter((key) => key != 'password').
+            reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
+            
+
+            setUser(element)
+            await updateUser(element.id,  elementfilter)
             closeModal()
         }
-        // const data = {
-        //     id: element.id || new Date().getTime(),
-        //     name: nameProduct,
-        //     type: typeProduct,
-        //     image: imgProduct,
-        //     price: priceProduct
-        // };
 
-        // //Create
-        // if (element.id === undefined) {
-        //     await createProduct(data)
-        //     //limpiar inputs 
-        //     setNameProduct('');
-        //     setTypeProduct('');
-        //     setImgProduct('');
-        //     setPriceProduct('');
-        //     setFilePreview(null)
 
-        // } else {
-        //     await updateProduct(element.id, data)
-        //     closeModal()
-        // }
     }
-
-    // const handleInputsChange = async (setFunction, e) => {
-    //     setFunction(e.target.value)
-    // }
 
 
     return (
@@ -99,11 +82,17 @@ export const FormUser = ({ element, closeModal }) => {
                         <option >Jefe Cocina</option>
                         <option >Meser@</option>
                     </select>
-
-
-                    <label htmlFor="userPassword">Contraseña</label>
-                    <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
-                        className="formUser_options--input" value={user.password} required />
+{/* 
+                    {
+                        element.id === undefined ?
+                            <> */}
+                                <label htmlFor="userPassword">Contraseña</label>
+                                <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
+                                    className="formUser_options--input" value={user.password} required />
+                            {/* </>
+                            :
+                            <></>
+                    } */}
 
                 </div>
 

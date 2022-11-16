@@ -58,21 +58,7 @@ export const Products = () => {
                             : <FormProduct element={{}} />
                     }
 
-                    {/* <Modals
-                        isOpen={isOpenModal}
-                        close={closeModal}
-                        open={openModal}
-                        element =
-                        {<div className="products_button">
-                            <img src={plus} alt="" className="products_button--plus" />
-                            <span className="products_button--text"> Agregar Producto </span>
-                        </div>}
-                        content={<FormProduct element={{}}/>}
-                        // content={<ModalAddProduct onClose = {getListProducts}/>}
-                    /> */}
                     <ProductsTable />
-                    {/* <Table  /> */}
-                    {/* <Table listElements={products} listFilterKeys={avaliablesKeys} /> */}
                 </div>
             </div>
         </div>

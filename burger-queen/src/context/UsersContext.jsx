@@ -17,6 +17,9 @@ const UsersContext = createContext();
 //ProductsProvider (mostrar)
 const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([])
+
+    const [selectedUser, setSelectedUser] = useState({})
+
     //no hacer nunca mas
     const columnKeys = ['Nombre','Correo', 'Rol', 'Opciones']
     //MODAL PARA CREAR
@@ -35,7 +38,7 @@ const UsersProvider = ({ children }) => {
         // {
         //     key: null, componente: BloqueProductPrice
         // },
-        { key: null, componente: (element) => <TableColumnOption element={element} Add={FormUser} Delete={DeleteModalUser}  />}
+        { key: null, componente: (element) => <TableColumnOption element={element} Add={FormUser} Delete={DeleteModalUser} setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
     ]
 
     //actualizar
@@ -50,6 +53,7 @@ const UsersProvider = ({ children }) => {
         await makeRequestPost("users", data, true)
         await getUsers()
         closeModal()
+        console.log('usuario que voy a enviar', data);
     }
 
     //editar
@@ -75,6 +79,8 @@ const UsersProvider = ({ children }) => {
         avaliablesKeys, 
         createUser,
         deleteUser,
+        setSelectedUser,
+        selectedUser,
         updateUser,
         isOpenModal, 
         openModal,

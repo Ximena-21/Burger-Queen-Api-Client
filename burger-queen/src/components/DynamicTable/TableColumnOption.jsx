@@ -5,11 +5,11 @@ import { BtnAbort } from '../Products/DeleteModalProduct/DeleteModalProduct'
 import { useModal } from '../../Modals/useModal'
 import { useEffect, useState } from 'react'
 import { useProductsContext } from '../../context/ProductsContext'
+import { FormUser } from '../Users/FormUser/FormUser'
 
+export const TableColumnOption = ({ element, Add, Delete, setSelectedUser, selectedUser }) => {
 
-export const TableColumnOption = ({ element, Add, Delete }) => {
-
-    const {updateProduct} = useProductsContext
+    // const {updateProduct} = useProductsContext
 
     const [isOpen, open, close] = useModal(false)
     const [isOpenDelete, openDelete, closeDelete] = useModal(false)
@@ -28,9 +28,19 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
     }, []);
 
 
-    const editProduct = async (element) =>{
+    const editElement = async (element) =>{
         console.log('width editar', width)
-        console.log('elemento', element)
+        
+        setSelectedUser(element)
+        console.log('elemento selecionado en option', selectedUser)
+
+        return (
+            <Add element={selectedUser}/>
+        )
+
+
+       
+
 
         // await updateProduct (element.id, element)
     }
@@ -50,7 +60,8 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
                         /> 
                         : <img className={`table_columnBody--option  `}
                         src={edit} alt="Edit" value={'edit'} onClick={()=>{
-                            editProduct(element)
+                            editElement(element)
+                            // <Add element={element}/>
                         }} />
 
                 }
