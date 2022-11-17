@@ -7,7 +7,7 @@ function UsersTable(){
 
     //table
     return(
-        <Table data={users} columns={avaliablesKeys} columnKeys={columnKeys}></Table>
+        <Table data={users} columns={avaliablesKeys} columnKeys={columnKeys} ></Table>
     )
 }
 

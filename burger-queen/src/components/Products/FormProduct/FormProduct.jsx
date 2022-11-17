@@ -1,41 +1,44 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { useProductsContext } from "../../../context/ProductsContext"
 import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
+import { makeRequestGet } from "../../../lib/requests"
 import "./style.scss"
 export const FormProduct = ({ element, closeModal }) => {
 
+    const params = useParams()
+
     const { updateProduct, createProduct } = useProductsContext()
+    const [productId, setProductId ] = useState(element.id || '')
     const [nameProduct, setNameProduct] = useState(element.name || '')
     const [typeProduct, setTypeProduct] = useState(element.type || '')
     const [imgProduct, setImgProduct] = useState(element.image || '')
     const [priceProduct, setPriceProduct] = useState(element.price || '')
     const [filePreview, setFilePreview] = useState(element.image || null)
 
+    const isCreating = productId === "" ? true : false
+
+    useEffect(()=>{
+        const paramProductId = params["*"]
+        if(paramProductId) getProductById(paramProductId)
+    },[params])
 
 
-    //------------INTENTAN CONVERTIR EN UNA SOLA VARIABLE---------------
-    // const [product, setProduct] = useState(element || {})
-    
-    //   const handleInputsChange = async (e, key) => {
-
-    //     // const k = key
-    //     let newProduct ={ 
-    //         ...product,
-    //         key
-    //     }
-    
-    //     setProduct(newProduct)
-    // }
-
-
-
+    const getProductById = async (id) => {
+        const data = await makeRequestGet(`products/${id}`)
+        setProductId(id)
+        setNameProduct(data.name)
+        setTypeProduct(data.type)
+        setImgProduct(data.image)
+        setPriceProduct(data.price)
+        setFilePreview(data.image)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // console.log('producto >>', product)
         const data = {
-            id: element.id || new Date().getTime(),
+            id: productId || new Date().getTime(),
             name: nameProduct,
             type: typeProduct,
             image: imgProduct,
@@ -43,9 +46,10 @@ export const FormProduct = ({ element, closeModal }) => {
         };
 
         //Create
-        if (element.id === undefined) {
+        if (isCreating) {
+            // alert("IS CREATING PRODUCT")
             await createProduct(data)
-            //limpiar inputs 
+            // //limpiar inputs 
             setNameProduct('');
             setTypeProduct('');
             setImgProduct('');
@@ -53,8 +57,8 @@ export const FormProduct = ({ element, closeModal }) => {
             setFilePreview(null)
 
         } else {
-            await updateProduct(element.id, data)
-            closeModal()
+            await updateProduct(productId, data)
+            if(typeof closeModal === "function") closeModal()
         }
     }
 
@@ -68,6 +72,7 @@ export const FormProduct = ({ element, closeModal }) => {
         setImgProduct(urlImageWeb)
     }
 
+    const title = isCreating ? "Nuevo producto" :  "Editar producto"
 
     return (
         <div className="formProduct">
@@ -75,7 +80,7 @@ export const FormProduct = ({ element, closeModal }) => {
 
                 <div className="formProduct_title">
 
-                    <p className="formProduct_title--text">Nuevo producto</p>
+                    <p className="formProduct_title--text">{title}</p>
 
                 </div>
 
@@ -84,7 +89,7 @@ export const FormProduct = ({ element, closeModal }) => {
                     <label htmlFor="name_product">Nombre del producto</label>
                     <input onChange={(event) => handleInputsChange(setNameProduct, event)} type="text" name="name_product"
                         className="formProduct_options--input" value={nameProduct} required />
-                    
+
                     <label htmlFor="select_product">Tipo de menú:</label>
                     <select onChange={(event) => handleInputsChange(setTypeProduct,event)} name="select_product"
                         className="formProduct_options--input" value={typeProduct} required>
@@ -92,13 +97,13 @@ export const FormProduct = ({ element, closeModal }) => {
                         <option >Desayuno</option>
                         <option >Almuerzo</option>
                     </select>
-                    
+
                     <div className="formProduct_options--image">
-                       
+
                         <label htmlFor="">Imagen del producto</label>
-                       
+
                         <div className="formProduct_options--input formProduct_containerFile">
-                           
+
                             <label htmlFor="imageProduct">
                                 <input
                                     onChange={(e) => {
