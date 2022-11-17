@@ -1,0 +1,13 @@
+@import '../../../../generics.scss';
+
+.containerProducts{
+
+    height: 50px;
+    @include center-perfect;
+    border: 1px solid white;
+    gap: 15px;
+
+    &_element{
+        color: white;
+    }
+}
