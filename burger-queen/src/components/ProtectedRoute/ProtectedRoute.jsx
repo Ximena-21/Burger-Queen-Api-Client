@@ -1,11 +1,10 @@
-export const ProtectedRoute = ({
-    isAllowed,
-    redirectPath = '/orders',
-    children,
-  }) => {
-    if (isAllowed) {
-      return <Navigate to={redirectPath} replace />;
-    }
-  
-    return children ? children : '' ;
-  };
+import { Navigate } from "react-router-dom"
+
+export const ProtectedRoute = ({avaliableRole, redirect, children}) =>{
+
+    const user = JSON.parse(localStorage.getItem("dataUser"))
+
+    if(user.role === avaliableRole) return children
+    
+    return <Navigate to={redirect} replace/>
+}

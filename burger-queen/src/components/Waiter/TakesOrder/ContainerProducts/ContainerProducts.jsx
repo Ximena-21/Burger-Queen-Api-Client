@@ -4,7 +4,6 @@ import { useWaiterContext } from "../../../../context/WaiterContext"
 export const ContainerProducts = () =>{
 
     const {products} = useWaiterContext(); //array de objeto
-    // console.log(products);
 
 
     const element = products.map(element => {

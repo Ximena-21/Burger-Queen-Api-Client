@@ -36,7 +36,7 @@ export const LoginForm = () => {
 
         }else if(dataUser.role === 'Meser@'){
 
-          navigate('/orders')
+          navigate('/takes-orders')
 
         }
       }

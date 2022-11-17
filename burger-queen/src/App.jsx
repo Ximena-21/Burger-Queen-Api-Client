@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./AppStyles.scss";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { ViewOrders } from "./components/Waiter/ViewOrders/ViewOrders";
 import { ProductsProvider } from "./context/ProductsContext";
 import { UsersProvider } from "./context/UsersContext";
 import { WaiterProvider } from "./context/WaiterContext";
@@ -10,39 +10,41 @@ import { Products } from "./pages/Products/Products";
 import { Users } from "./pages/Users/Users";
 import { TakesOrder } from "./pages/Waiter/TakesOrder/TakesOrder";
 
-
 function App() {
-
-  const [user, setUser] = useState(null)
-
-  const handleLogin = async () => {
-    const dataUser = await JSON.parse(localStorage.getItem("dataUser"))
-    setUser(dataUser)
-  }
-
-  handleLogin();
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route index element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/products/*" element={
-            <ProtectedRoute redirectPath="/orders" isAllowed={!!user && !user.role.includes('admin')}>
+           < ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}>
               <ProductsProvider>
                 <Products />
               </ProductsProvider>
-            </ProtectedRoute> 
+          </ProtectedRoute>
           } />
           <Route path="/users/*" element={
-            <UsersProvider>
-              <Users />
-            </UsersProvider>
+           < ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}>
+              <UsersProvider>
+                <Users />
+              </UsersProvider>
+          </ProtectedRoute>
           } />
-          <Route exact path="/orders" element={
-          <WaiterProvider>
-              <TakesOrder />
-          </WaiterProvider>
+          <Route exact path="/takes-orders" element={
+          //  < ProtectedRoute avaliableRole={'meser@'} redirect={'/products'}>
+            <WaiterProvider>
+                <TakesOrder />
+            </WaiterProvider>
+          // {/* </ProtectedRoute> */}
+          } />
+            <Route exact path="/view-orders" element={
+          //  < ProtectedRoute avaliableRole={'meser@'} redirect={'/products'}>
+            <WaiterProvider>
+                <ViewOrders />
+            </WaiterProvider>
+          // {/* </ProtectedRoute> */}
           } />
         </Routes>
       </BrowserRouter>

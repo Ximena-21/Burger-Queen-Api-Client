@@ -7,7 +7,7 @@ export const Table = (props) => {
     
     const {data, columns, columnKeys} = props
     
-    console.log('mis columnas', columnKeys)
+    // console.log('mis columnas', columnKeys)
 
     return(
         <table className="table">

@@ -76,7 +76,7 @@ const ProductsProvider = ({ children }) => {
         columnKeys,
     }
 
-    console.log("produtContext >>>> ", data)
+    // console.log("produtContext >>>> ", data)
 
     return <ProductContext.Provider value={data}>{children}</ProductContext.Provider>
 

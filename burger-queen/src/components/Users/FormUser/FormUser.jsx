@@ -35,7 +35,7 @@ export const FormUser = ({ element, closeModal }) => {
         setUser({ ...user, ...newObjKey })
     }
 
-    console.log("user", user.name)
+    // console.log("user", user.name)
 
     const handleSubmit = async (e) => {
         e.preventDefault();

@@ -9,6 +9,8 @@ import { useModal } from "../../Modals/useModal"
 export const Header = () => {
 
     const [isOpen, open, close] = useModal(false);
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"))
+
 
     return (
         <header className="header">
@@ -23,8 +25,7 @@ export const Header = () => {
             <img src={logo} alt="" className="header_logo" />
             <div className="header_user">
                 <img src={user} alt="" className="header_user--img" />
-                <span className="header_user--name">{localStorage.getItem("User")}</span>
-                {/* <span className="header_user--name">Nombre de Usuario</span> */}
+                <span className="header_user--name">{dataUser.name}</span>
             </div>
 
         </header>
