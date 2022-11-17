@@ -15,8 +15,12 @@ async function makeRequestPost(pathname, data, token = false) {
     if (res.status >= 400) {
       throw new Error('Validación incorrecta')
     }
+
     const response = await res.json();
+
+    window.localStorage.setItem("dataUser", JSON.stringify(response.user));
     console.log("respuesta json ", response);
+
     return response;
   } catch (error) {
     console.error('catch request ', error);
@@ -89,19 +93,22 @@ const makeRequestPatch = async (pathname, id, data) => {
 
 }
 
+// const getUserInformation = async (pathname, email) => {
 
+//   const url = `http://localhost:8080/${pathname}/${email}`
 
-// fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/products/8452', {
-//     method: 'DELETE',
+//   const request = await fetch(url, {
 //     headers: {
-//         'accept': 'application/json'
-//     }
-// });
+//       "content-type": "application/json"
+//     },
+//   })
+// }
 
 export {
   makeRequestPost,
   getProducts,
   makeRequestDelete,
   makeRequestPatch,
-  makeRequestGet
+  makeRequestGet, 
+  // getUserInformation
 }
