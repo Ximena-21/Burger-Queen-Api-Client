@@ -27,7 +27,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route exact path="/products" element={
+          <Route path="/products/*" element={
             <ProtectedRoute redirectPath="/orders" isAllowed={!!user && !user.role.includes('admin')}>
               <ProductsProvider>
                 <Products />
