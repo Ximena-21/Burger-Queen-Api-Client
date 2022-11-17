@@ -36,7 +36,7 @@ const ProductsProvider = ({ children }) => {
         {
             key: null, componente: BloqueProductPrice
         },
-        { key: null, componente: (element) => <TableColumnOption element={element} Add={FormProduct} Delete={DeleteModalProduct} /> }
+        { key: null, componente: (element) => <TableColumnOption type="products" element={element} Add={FormProduct} Delete={DeleteModalProduct} /> }
     ]
 
     async function getListProducts() {

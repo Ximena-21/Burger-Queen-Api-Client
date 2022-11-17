@@ -1,6 +1,3 @@
-// import { useContext } from "react"
-// import TableContext from "../../context/ProductsContext"
-// import { TableComlumnOption } from "./TableColumnOption"
 
 
 export const TableBody = (props) => {

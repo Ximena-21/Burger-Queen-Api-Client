@@ -86,16 +86,24 @@
     }
 }
 
-// @media (min-width: 950px) {
+@media (min-width: 1024px) {
 
-//     .users{
-//         &_role{
-//             left:95px;
-//         }   
+    .users{
+        &_container{
+            flex-direction: row-reverse;
+            gap: 20px;
+            padding-top: 0;
+        } 
+
+        &_role{
+            top: 0;
+            left: 0;
+            position: relative;
+        }   
         
-//         &_button{
-//             right: 45px;           
-//         }
+        &_page{
+            max-width: 1000px;           
+        }
     
-//     }
-// }
+    }
+}

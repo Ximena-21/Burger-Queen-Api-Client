@@ -34,7 +34,7 @@ function App() {
               </ProductsProvider>
             </ProtectedRoute> 
           } />
-          <Route exact path="/users" element={
+          <Route path="/users/*" element={
             <UsersProvider>
               <Users />
             </UsersProvider>

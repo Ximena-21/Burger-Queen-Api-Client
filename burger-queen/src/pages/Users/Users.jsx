@@ -2,21 +2,32 @@ import "./style.scss"
 import plus from '../../assets/images/plus.png'
 import { Header } from "../../components/Header/Header";
 import { Modals } from '../../Modals/Modals'
-// import { useProductsContext } from "../../context/ProductsContext";
 import { UsersTable } from "../../components/Users/UsersTable";
 import { useUsersContext } from "../../context/UsersContext";
 import { FormUser } from "../../components/Users/FormUser/FormUser";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const Users = () => {
 
-    const { isOpenModal, openModal, closeModal} = useUsersContext()
+    const { isOpenModal, openModal, closeModal } = useUsersContext()
 
     const [width, setWidth] = useState(window.innerWidth)
+
+    const [userId, setUserId] = useState("")
+
+    const params = useParams()
 
     const handleWindowResize = () => {
         setWidth(window.innerWidth)
     }
+
+    useEffect(()=>{
+        const paramProductId = params["*"]
+        if(paramProductId) setUserId(paramProductId)
+    },[params])
+
+    const title = userId ?  "Editar usuario" : "Nuevo usuario" 
 
 
     useEffect(() => {
@@ -32,10 +43,15 @@ export const Users = () => {
 
             <div className="users_page">
 
-                <h1 className="users_role">ADMINISTRADOR</h1>
+                <div>
+
+                    <h1 className="users_role">ADMINISTRADOR</h1>
+
+                </div>
+
                 <div className="users_container">
 
-                {
+                    {
                         width < 1024 ?
                             <Modals
                                 isOpen={isOpenModal}
@@ -44,26 +60,16 @@ export const Users = () => {
                                 element=
                                 {<div className="products_button">
                                     <img src={plus} alt="" className="products_button--plus" />
-                                    <span className="products_button--text"> Agregar Usuario</span>
+                                    <span className="products_button--text">{title} </span>
                                 </div>}
                                 content={<FormUser element={{}} />}
                             // content={<ModalAddProduct onClose = {getListProducts}/>}
                             />
 
-                            : <FormUser element={{}} />
-                    }   
-                    {/* <Modals
-                        isOpen={isOpenModal}
-                        close={closeModal}
-                        open={openModal}
-                        element =
-                        {<div className="products_button">
-                            <img src={plus} alt="" className="products_button--plus" />
-                            <span className="products_button--text"> Agregar Producto </span>
-                        </div>}
-                        content={<FormProduct element={{}}/>}
-                    /> */}
-                    <UsersTable/>
+                            : <FormUser /> //element={{selectedUser}}
+                    }
+         
+                    <UsersTable />
                 </div>
             </div>
         </div>
