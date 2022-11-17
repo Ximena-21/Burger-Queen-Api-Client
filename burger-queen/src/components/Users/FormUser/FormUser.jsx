@@ -1,53 +1,64 @@
-import { useState } from "react"
-// import { useProductsContext } from "../../../context/ProductsContext"
-// import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
+import { useEffect, useState } from "react"
 import "./style.scss"
 import { useUsersContext } from "../../../context/UsersContext"
-
-
+import { useParams } from "react-router-dom"
+import { makeRequestGet } from "../../../lib/requests"
 
 export const FormUser = ({ element, closeModal }) => {
 
-    // // console.log('usuario para editar', element);
-
     const { createUser, updateUser } = useUsersContext()
 
+    const params = useParams()
 
     const [user, setUser] = useState(element || {})
 
+    const isCreating = user?.id ? false : true
+
+    useEffect(()=>{
+        const paramUserId = params["*"]
+        if(paramUserId) getUserById(paramUserId)
+    },[params])
+
+    const getUserById = async (id) => {
+        const data = await makeRequestGet(`users/${id}`)
+        setUser(data)
+        console.log(data)
+    }
 
     const handleInputsChange = async (e) => {
 
+        console.log(user.id)
         const key = e.target.name
         let newObjKey = {}
         newObjKey[key] = e.target.value
 
-        // console.log('name target', e.target.value)
-
-        setUser({ ...user, ...newObjKey, id: new Date().getTime(), })
+        setUser({ ...user, ...newObjKey })
     }
 
+    console.log("user", user.name)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         console.log('Usuario enviar >>', user)
 
-        if (element.id === undefined) {
+        if (user.id === undefined) {
 
-            await createUser(user)
+            await createUser({...user, id: new Date().getTime()})
+            setUser({})
 
         } else {
 
-            const copyElemnt = {...element}
-            const elementfilter = Object.keys(copyElemnt).
-            filter((key) => key != 'password').
-            reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
-            
+            //no siempre existe element por que aveces viene pasado y otras veces
+            //se tiene que traer desde
+            // const copyElemnt = {...element}
+            // const elementfilter = Object.keys(copyElemnt).
+            // filter((key) => key != 'password').
+            // reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
 
-            setUser(element)
-            await updateUser(element.id,  elementfilter)
-            closeModal()
+            // setUser(element)
+            await updateUser(user)
+            // closeModal()
         }
 
 
@@ -68,11 +79,11 @@ export const FormUser = ({ element, closeModal }) => {
 
                     <label htmlFor="userName">Nombre</label>
                     <input onChange={(event) => handleInputsChange(event)} type="text" name="name"
-                        className="formUser_options--input" value={user.name} required />
+                        className="formUser_options--input" value={user.name || ""} required />
 
                     <label htmlFor="userEmail">Correo</label>
                     <input onChange={(event) => handleInputsChange(event, "email")} type="text" name="email"
-                        className="formUser_options--input" value={user.email} required />
+                        className="formUser_options--input" value={user.email || ""} required />
 
                     <label htmlFor="userRole">Rol</label>
                     <select onChange={(event) => handleInputsChange(event, "role")} name="role"
@@ -82,17 +93,15 @@ export const FormUser = ({ element, closeModal }) => {
                         <option >Jefe Cocina</option>
                         <option >Meser@</option>
                     </select>
-{/* 
+
                     {
-                        element.id === undefined ?
-                            <> */}
-                                <label htmlFor="userPassword">Contraseña</label>
-                                <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
-                                    className="formUser_options--input" value={user.password} required />
-                            {/* </>
-                            :
-                            <></>
-                    } */}
+                        isCreating &&
+                        <>
+                            <label htmlFor="userPassword">Contraseña</label>
+                            <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
+                                className="formUser_options--input" value={user.password} required />
+                        </>
+                    }
 
                 </div>
 

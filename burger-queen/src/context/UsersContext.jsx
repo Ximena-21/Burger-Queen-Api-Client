@@ -38,7 +38,7 @@ const UsersProvider = ({ children }) => {
         // {
         //     key: null, componente: BloqueProductPrice
         // },
-        { key: null, componente: (element) => <TableColumnOption element={element} Add={FormUser} Delete={DeleteModalUser} setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
+        { key: null, componente: (element) => <TableColumnOption type="users" element={element} Add={FormUser} Delete={DeleteModalUser} setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
     ]
 
     //actualizar
@@ -57,10 +57,9 @@ const UsersProvider = ({ children }) => {
     }
 
     //editar
-    async function updateUser(id, data) {
-        await makeRequestPatch("users", id, data)
+    async function updateUser(data) {
+        await makeRequestPatch("users", data.id, data)
         await getUsers()
-        
     }
 
     //eliminar

@@ -6,6 +6,7 @@ import { UsersTable } from "../../components/Users/UsersTable";
 import { useUsersContext } from "../../context/UsersContext";
 import { FormUser } from "../../components/Users/FormUser/FormUser";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export const Users = () => {
 
@@ -13,11 +14,20 @@ export const Users = () => {
 
     const [width, setWidth] = useState(window.innerWidth)
 
-    // const [selectedUser, setSelectedUser] = useState({})
+    const [userId, setUserId] = useState("")
+
+    const params = useParams()
 
     const handleWindowResize = () => {
         setWidth(window.innerWidth)
     }
+
+    useEffect(()=>{
+        const paramProductId = params["*"]
+        if(paramProductId) setUserId(paramProductId)
+    },[params])
+
+    const title = userId ?  "Editar usuario" : "Nuevo usuario" 
 
 
     useEffect(() => {
@@ -50,7 +60,7 @@ export const Users = () => {
                                 element=
                                 {<div className="products_button">
                                     <img src={plus} alt="" className="products_button--plus" />
-                                    <span className="products_button--text"> Agregar Usuario</span>
+                                    <span className="products_button--text">{title} </span>
                                 </div>}
                                 content={<FormUser element={{}} />}
                             // content={<ModalAddProduct onClose = {getListProducts}/>}

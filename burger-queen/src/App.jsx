@@ -12,12 +12,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route exact path="/products" element={
+          <Route path="/products/*" element={
             <ProductsProvider>
               <Products />
             </ProductsProvider>
           } />
-          <Route exact path="/users" element={
+          <Route path="/users/*" element={
             <UsersProvider>
               <Users />
             </UsersProvider>
