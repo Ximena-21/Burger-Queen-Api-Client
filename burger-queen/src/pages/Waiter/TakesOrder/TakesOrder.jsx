@@ -14,8 +14,6 @@ export const TakesOrder = () => {
             <h1>MESERO</h1>
         </div>
 
-       {/* <OptionsMenu /> */}
-
        <TableWaiter />
        
     </div> 

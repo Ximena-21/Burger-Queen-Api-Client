@@ -1,17 +1,18 @@
 import { useState } from "react"
 import { useWaiterContext } from "../../../context/WaiterContext";
 import { CardProducts } from "./ContainerProducts/CardProducts";
-// import { CardProducts } from "./ContainerProducts/ContainerProducts";
 
 export const TableWaiter = () => {
 
-    const {products} = useWaiterContext(); //array de objeto
     const [typeMenu, setTypeMenu] = useState('')
-
+    const {products} =  useWaiterContext()
 
     const handleTypeMenu = (e) => {
         setTypeMenu(e.target.value)
     }
+
+
+
 
     return ( 
     <div >
@@ -22,18 +23,15 @@ export const TableWaiter = () => {
         </select>
         {
             typeMenu === '' ? '...cargando' :
-
-            <CardProducts typeMenu={typeMenu} quantity={0}/>
+                <div>
+                    {
+                        products.map(element => {
+                            if(element.type === typeMenu)
+                           return <CardProducts element={element} />
+                        })
+                    }
+                </div>
         }
-        {/* {
-            typeMenu === '' ? '...cargando' :
-            products.filter(element => {
-                
-            //    if(element.type === typeMenu) console.log(element) 
-               if(element.type === typeMenu) return <CardProducts element={element.name} quantity={0}/>
-            //    else return <CardProducts element={element}/>
-            }) 
-        } */}
     </div>
   
     )
