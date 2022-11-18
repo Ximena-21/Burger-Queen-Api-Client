@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1668790666220" clover="3.2.0">
-  <project timestamp="1668790666220" name="All files">
-    <metrics statements="316" coveredstatements="6" conditionals="49" coveredconditionals="0" methods="110" coveredmethods="1" elements="475" coveredelements="7" complexity="0" loc="316" ncloc="316" packages="25" files="38" classes="38"/>
+<coverage generated="1668806326382" clover="3.2.0">
+  <project timestamp="1668806326382" name="All files">
+    <metrics statements="315" coveredstatements="8" conditionals="49" coveredconditionals="0" methods="110" coveredmethods="1" elements="474" coveredelements="9" complexity="0" loc="315" ncloc="315" packages="25" files="38" classes="38"/>
     <package name="src">
       <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="App.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\App.jsx">
@@ -111,31 +111,30 @@
       </file>
     </package>
     <package name="src.components.Login">
-      <metrics statements="22" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <metrics statements="21" coveredstatements="6" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
       <file name="LoginForm.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\components\Login\LoginForm.jsx">
-        <metrics statements="22" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="5" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
+        <metrics statements="21" coveredstatements="6" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="29" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Products">
