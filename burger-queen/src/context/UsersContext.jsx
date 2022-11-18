@@ -38,7 +38,9 @@ const UsersProvider = ({ children }) => {
         // {
         //     key: null, componente: BloqueProductPrice
         // },
-        { key: null, componente: (element) => <TableColumnOption type="users" element={element} Add={FormUser} Delete={DeleteModalUser} setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
+        { key: null, componente: (element) => <TableColumnOption type="users" 
+        element={element} Add={FormUser} Delete={DeleteModalUser} 
+        setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
     ]
 
     //actualizar
