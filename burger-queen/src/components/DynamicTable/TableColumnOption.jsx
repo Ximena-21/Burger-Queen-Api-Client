@@ -4,8 +4,6 @@ import { Modals } from '../../Modals/Modals'
 import { BtnAbort } from '../Products/DeleteModalProduct/DeleteModalProduct'
 import { useModal } from '../../Modals/useModal'
 import { useEffect, useState } from 'react'
-import { useProductsContext } from '../../context/ProductsContext'
-import { FormUser } from '../Users/FormUser/FormUser'
 import { useNavigate } from 'react-router-dom'
 
 export const TableColumnOption = ({ element, Add, Delete, type }) => {
@@ -22,7 +20,6 @@ export const TableColumnOption = ({ element, Add, Delete, type }) => {
 
 
     useEffect(() => {
-        // const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
@@ -53,7 +50,6 @@ export const TableColumnOption = ({ element, Add, Delete, type }) => {
                         /> 
                         : <img className={`table_columnBody--option  `}
                         src={edit} alt="Edit" value={'edit'} onClick={handleNavigateEdit} />
-
                 }
 
 
@@ -72,5 +68,3 @@ export const TableColumnOption = ({ element, Add, Delete, type }) => {
         </tr>
     )
 }
-
-//makeRequestDelete('products', element.id)

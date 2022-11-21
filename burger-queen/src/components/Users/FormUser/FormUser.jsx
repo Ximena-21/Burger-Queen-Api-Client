@@ -35,8 +35,6 @@ export const FormUser = ({ element, closeModal }) => {
         setUser({ ...user, ...newObjKey })
     }
 
-    // console.log("user", user.name)
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -48,17 +46,7 @@ export const FormUser = ({ element, closeModal }) => {
             setUser({})
 
         } else {
-
-            //no siempre existe element por que aveces viene pasado y otras veces
-            //se tiene que traer desde
-            // const copyElemnt = {...element}
-            // const elementfilter = Object.keys(copyElemnt).
-            // filter((key) => key != 'password').
-            // reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
-
-            // setUser(element)
             await updateUser(user)
-            // closeModal()
         }
 
 

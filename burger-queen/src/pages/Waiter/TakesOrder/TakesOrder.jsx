@@ -10,9 +10,9 @@ export const TakesOrder = () => {
 
         <Header />
 
-        <div >
-            <h1 className="takesOrder_role" >MESERO</h1>
-        </div>
+            <div >
+                <h1 className="takesOrder_role" >MESERO</h1>
+            </div>
 
        <TableWaiter />
        

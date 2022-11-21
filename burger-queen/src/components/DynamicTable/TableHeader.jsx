@@ -1,14 +1,6 @@
-
 export const TableHeader = (props) => {
 
-  // const { avaliablesKeys} = useContext(TableContext)
   const { columnKeys } = props
-
-  console.log("what", columnKeys)
-
-  // const {headerColumns} = props;
-  // const listTh = columns.filter(element => element != 'id' && element != 'type')
-
 
   return (
     <thead className="table_header">

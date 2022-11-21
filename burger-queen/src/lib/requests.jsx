@@ -93,22 +93,10 @@ const makeRequestPatch = async (pathname, id, data) => {
 
 }
 
-// const getUserInformation = async (pathname, email) => {
-
-//   const url = `http://localhost:8080/${pathname}/${email}`
-
-//   const request = await fetch(url, {
-//     headers: {
-//       "content-type": "application/json"
-//     },
-//   })
-// }
-
 export {
   makeRequestPost,
   getProducts,
   makeRequestDelete,
   makeRequestPatch,
   makeRequestGet, 
-  // getUserInformation
 }

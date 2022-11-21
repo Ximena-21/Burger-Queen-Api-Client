@@ -27,7 +27,6 @@ export const Products = () => {
     },[params])
 
     useEffect(() => {
-        // const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
@@ -61,9 +60,7 @@ export const Products = () => {
                                     <span className="products_button--text"> {title} </span>
                                 </div>}
                                 content={<FormProduct element={{}} />}
-                            // content={<ModalAddProduct onClose = {getListProducts}/>}
                             />
-
                             : <FormProduct element={{}} />
                     }
 

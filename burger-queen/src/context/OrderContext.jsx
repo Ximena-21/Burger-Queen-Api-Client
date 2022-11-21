@@ -75,6 +75,8 @@ const OrderProvider = ({ children }) => {
     deleteItemToOrder,
   };
 
+  console.log('OrderCOntext >>>>>>>', data);
+
   return <OrderContext.Provider value={data}>{children}</OrderContext.Provider>;
   
 };
