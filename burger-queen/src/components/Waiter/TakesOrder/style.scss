@@ -1,0 +1,27 @@
+@import '../../../generics.scss';
+
+.containerOrder{
+
+    width: 80%;
+    @include flex-column-center;
+    gap: 50px;
+
+    &_products{
+        width: 100%;
+        gap: 30px;
+        @include flex-row-center;
+    }
+
+    &_select{
+        width: 40%;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        background: url('../../../assets/images/triangle.png') no-repeat 95% 50% $primary-color !important;
+        appearance: none;
+        outline: none;
+        padding: 10px;
+        font-weight: 600;
+        font-size: 16px;
+    }
+}

@@ -7,17 +7,11 @@ export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [postResult, setPostResult] = useState([]);
-  
   /* Cambio de rutas*/
   const navigate = useNavigate(); 
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    
-    
-    // dataUser = JSON.parse(dataUser);
 
     const data = {
       email: email,

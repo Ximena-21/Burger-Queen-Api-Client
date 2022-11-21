@@ -14,7 +14,8 @@ function BloqueProductPrice(element) {
     return (
         <div className="table_columnBody--section">
             <td className='table_columnBody'>{element.name}</td>
-            <td className='table_columnBody table_columnBody--price'>{element.price}</td>
+            <td className='table_columnBody table_columnBody--price'>
+                {element.price}</td>
         </div>
     )
 
@@ -36,7 +37,9 @@ const ProductsProvider = ({ children }) => {
         {
             key: null, componente: BloqueProductPrice
         },
-        { key: null, componente: (element) => <TableColumnOption type="products" element={element} Add={FormProduct} Delete={DeleteModalProduct} /> }
+        { key: null, componente: (element) =>
+            <TableColumnOption type="products" element={element}
+             Add={FormProduct} Delete={DeleteModalProduct} /> }
     ]
 
     async function getListProducts() {

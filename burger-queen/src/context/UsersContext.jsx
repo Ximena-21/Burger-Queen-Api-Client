@@ -14,7 +14,7 @@ const UsersContext = createContext();
 
 
 
-//ProductsProvider (mostrar)
+//UsersProvider (mostrar)
 const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([])
 
