@@ -84,7 +84,11 @@
             width: 80%;
         }
     }
-
+    &_containerBtns{
+        width: 90%;
+        @include flex-row-center;
+        gap: 20px;
+    }
     &_btn {
         width: 60%;
         height: 36px;
@@ -98,6 +102,10 @@
         cursor: pointer;
         font-weight: bold;
         font-size: 14px;
+
+        &--abort{
+            background: rgb(170, 164, 164);
+        }
     }
 }
 

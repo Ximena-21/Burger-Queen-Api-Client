@@ -6,6 +6,7 @@ import { TableColumnOption } from "../components/DynamicTable/TableColumnOption"
 import { FormProduct } from "../components/Products/FormProduct/FormProduct";
 import { getProducts, makeRequestDelete, makeRequestPatch, makeRequestPost } from "../lib/requests";
 import { useModal } from "../Modals/useModal";
+import { useNavigate } from "react-router-dom";
 
 const ProductContext = createContext();
 
@@ -23,6 +24,9 @@ function BloqueProductPrice(element) {
 
 //ProductsProvider (mostrar)
 const ProductsProvider = ({ children }) => {
+
+    const navigate = useNavigate()
+
     const [products, setProducts] = useState([])
     //no hacer nunca mas
     const columnKeys = ['Imagen', 'Nombre', 'Precio', 'Opciones']
@@ -56,6 +60,7 @@ const ProductsProvider = ({ children }) => {
     async function updateProduct(id, data) {
         await makeRequestPatch("products", id, data)
         await getListProducts()
+        navigate('/products')
     }
 
     async function deleteProduct(id){
