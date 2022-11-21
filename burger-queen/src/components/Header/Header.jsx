@@ -24,7 +24,9 @@ export const Header = () => {
                 elementClose={< ExitIcon close={close} />}
             />
             <img src={logo} alt="" className="header_logo" />
-            <QuantityProducts />
+            {
+                dataUser.role !== 'Meser@' ? '' : <QuantityProducts />
+            }
             <div className="header_user">
                 <img src={user} alt="" className="header_user--img" />
                 <span className="header_user--name">{dataUser.name}</span>

@@ -17,8 +17,6 @@ async function makeRequestPost(pathname, data, token = false) {
     }
 
     const response = await res.json();
-
-    window.localStorage.setItem("dataUser", JSON.stringify(response.user));
     console.log("respuesta json ", response);
 
     return response;

@@ -20,10 +20,12 @@ export const LoginForm = () => {
 
       const dataLogin = await makeRequestPost('login', data)
       if(dataLogin !== null){
-        const dataUser = await JSON.parse(localStorage.getItem("dataUser"))
         const token = dataLogin.accessToken
+        window.localStorage.setItem("dataUser", JSON.stringify(dataLogin.user));
         window.localStorage.setItem("loginToken", token);
         window.localStorage.setItem("User", data.email);
+
+        const dataUser = JSON.parse(localStorage.getItem("dataUser"))
         if(dataUser.role === 'admin'){
 
           navigate('/products')
