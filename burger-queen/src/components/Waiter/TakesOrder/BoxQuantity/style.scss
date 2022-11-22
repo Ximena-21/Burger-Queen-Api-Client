@@ -1,0 +1,28 @@
+@import '../../../../generics.scss';
+
+.cardProduct_boxQuantity{
+
+        @include flex-row-center ;
+        width: 50%;
+        gap: 10px;
+
+        &--substract{
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        &--add{
+            font-size: 25px;
+            color: white;
+        }
+
+        &--quantity{
+            width: 100%;
+            @include flex-row-center;
+            background: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+}

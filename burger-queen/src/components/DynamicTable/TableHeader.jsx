@@ -1,8 +1,6 @@
-
 export const TableHeader = (props) => {
 
   const { columnKeys } = props
-
 
   return (
     <thead className="table_header">

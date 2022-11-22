@@ -2,10 +2,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { makeRequestDelete, makeRequestGet, makeRequestPatch, makeRequestPost } from "../lib/requests";
-// import { DeleteModalProduct } from "../components/Products/DeleteModalProduct/DeleteModalProduct";
 import { TableColumnOption } from "../components/DynamicTable/TableColumnOption";
-// import { FormProduct } from "../components/Products/FormProduct/FormProduct";
-// import { getProducts, makeRequestDelete, makeRequestPatch, makeRequestPost } from "../lib/requests";
 import { useModal } from "../Modals/useModal";
 import { FormUser } from "../components/Users/FormUser/FormUser";
 import { DeleteModalUser } from "../components/Users/DeleteModalUser/DeleteModalUser";
@@ -14,7 +11,7 @@ const UsersContext = createContext();
 
 
 
-//ProductsProvider (mostrar)
+//UsersProvider (mostrar)
 const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([])
 
@@ -35,9 +32,6 @@ const UsersProvider = ({ children }) => {
         {
             key: "role"
         },
-        // {
-        //     key: null, componente: BloqueProductPrice
-        // },
         { key: null, componente: (element) => <TableColumnOption type="users" 
         element={element} Add={FormUser} Delete={DeleteModalUser} 
         setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}

@@ -64,8 +64,6 @@ export const SideMenu = () => {
 
             </div>
 
-            {/* <span className="sideMenu_exit" onClick={logOut}>Cerrar Sesión</span> */}
-
             <Modals 
             isOpen={isOpen}
             open={open}

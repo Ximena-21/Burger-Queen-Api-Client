@@ -7,17 +7,11 @@ export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const [postResult, setPostResult] = useState([]);
-  
   /* Cambio de rutas*/
   const navigate = useNavigate(); 
 
   async function handleSubmit(event) {
     event.preventDefault();
-
-    
-    
-    // dataUser = JSON.parse(dataUser);
 
     const data = {
       email: email,
@@ -26,10 +20,12 @@ export const LoginForm = () => {
 
       const dataLogin = await makeRequestPost('login', data)
       if(dataLogin !== null){
-        const dataUser = await JSON.parse(localStorage.getItem("dataUser"))
         const token = dataLogin.accessToken
+        window.localStorage.setItem("dataUser", JSON.stringify(dataLogin.user));
         window.localStorage.setItem("loginToken", token);
         window.localStorage.setItem("User", data.email);
+
+        const dataUser = JSON.parse(localStorage.getItem("dataUser"))
         if(dataUser.role === 'admin'){
 
           navigate('/products')

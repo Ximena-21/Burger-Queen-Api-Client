@@ -3,9 +3,6 @@ import logo from "../../assets/images/logo.png"
 import background from "../../assets/images/BackgroundLogin.jpg"
 import { LoginForm } from "../../components/Login/LoginForm"
 
-
-
-
 export function Login () {
 
     return (
@@ -19,7 +16,3 @@ export function Login () {
         </div>
     )
 }
-
-
-
-// feature/PageProducts

@@ -7,7 +7,7 @@ import { useProductsContext } from "../../context/ProductsContext";
 import { ProductsTable } from "../../components/Products/ProductTable";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FormOrder } from "../../components/Orders/FormOrder/FormOrder";
+// import { FormOrder } from "../../components/Orders/FormOrder/FormOrder";
 
 
 export const Products = () => {
@@ -29,7 +29,6 @@ export const Products = () => {
     },[params])
 
     useEffect(() => {
-        // const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
@@ -63,10 +62,8 @@ export const Products = () => {
                                     <span className="products_button--text"> {title} </span>
                                 </div>}
                                 content={<FormProduct element={{}} />}
-                                // content={<FormOrder/>}
-                            // content={<ModalAddProduct onClose = {getListProducts}/>}
-                            />
-
+                                // content={<FormOrder/>}                        
+                                 />
                             : <FormProduct element={{}} />
                     }
 

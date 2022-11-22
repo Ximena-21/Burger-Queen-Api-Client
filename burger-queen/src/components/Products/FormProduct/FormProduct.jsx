@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useProductsContext } from "../../../context/ProductsContext"
 import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
 import { makeRequestGet } from "../../../lib/requests"
@@ -18,10 +18,20 @@ export const FormProduct = ({ element, closeModal }) => {
 
     const isCreating = productId === "" ? true : false
 
+    const navigate = useNavigate()
+
     useEffect(()=>{
         const paramProductId = params["*"]
         if(paramProductId) getProductById(paramProductId)
     },[params])
+
+    const setInputs = () => {
+        setNameProduct('');
+        setTypeProduct('');
+        setImgProduct('');
+        setPriceProduct('');
+        setFilePreview(null)
+    }
 
 
     const getProductById = async (id) => {
@@ -47,18 +57,13 @@ export const FormProduct = ({ element, closeModal }) => {
 
         //Create
         if (isCreating) {
-            // alert("IS CREATING PRODUCT")
             await createProduct(data)
-            // //limpiar inputs 
-            setNameProduct('');
-            setTypeProduct('');
-            setImgProduct('');
-            setPriceProduct('');
-            setFilePreview(null)
+            setInputs()
 
         } else {
             await updateProduct(productId, data)
             if(typeof closeModal === "function") closeModal()
+            setInputs()
         }
     }
 
@@ -73,6 +78,13 @@ export const FormProduct = ({ element, closeModal }) => {
     }
 
     const title = isCreating ? "Nuevo producto" :  "Editar producto"
+
+    const navigateAbort = () => {
+        navigate('/products')
+        setInputs()
+        setProductId('')
+        if(typeof closeModal === "function") closeModal()
+    }
 
     return (
         <div className="formProduct">
@@ -122,8 +134,10 @@ export const FormProduct = ({ element, closeModal }) => {
                         className="formProduct_options--input" value={priceProduct} required />
 
                 </div>
-
+            <div className="formProduct_containerBtns">
                 <button className="formProduct_btn" >Guardar</button>
+                <button className="formProduct_btn formProduct_btn--abort"  type="button" onClick={() => navigateAbort()}>Cancelar</button>
+            </div>
 
             </form>
         </div>

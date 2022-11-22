@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./style.scss"
 import { useUsersContext } from "../../../context/UsersContext"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { makeRequestGet } from "../../../lib/requests"
 
 export const FormUser = ({ element, closeModal }) => {
@@ -9,6 +9,8 @@ export const FormUser = ({ element, closeModal }) => {
     const { createUser, updateUser } = useUsersContext()
 
     const params = useParams()
+
+    const navigate = useNavigate()
 
     const [user, setUser] = useState(element || {})
 
@@ -35,7 +37,10 @@ export const FormUser = ({ element, closeModal }) => {
         setUser({ ...user, ...newObjKey })
     }
 
-    // console.log("user", user.name)
+    const navigateAbort = () => {
+        navigate('/users')
+        setUser({})
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,19 +53,8 @@ export const FormUser = ({ element, closeModal }) => {
             setUser({})
 
         } else {
-
-            //no siempre existe element por que aveces viene pasado y otras veces
-            //se tiene que traer desde
-            // const copyElemnt = {...element}
-            // const elementfilter = Object.keys(copyElemnt).
-            // filter((key) => key != 'password').
-            // reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
-
-            // setUser(element)
             await updateUser(user)
-            // closeModal()
         }
-
 
     }
 
@@ -104,9 +98,11 @@ export const FormUser = ({ element, closeModal }) => {
                     }
 
                 </div>
+                <div className="formUser_containerBtns">
 
-                <button className="formUser_btn" >Guardar</button>
-
+                    <button className="formUser_btn" >Guardar</button>
+                    <button className="formUser_btn formUser_btn--abort" type="button" onClick={() => navigateAbort()}>Cancelar</button>
+                </div>
             </form>
         </div>
     )
