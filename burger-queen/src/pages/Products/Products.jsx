@@ -23,15 +23,20 @@ export const Products = () => {
 
     useEffect(()=>{
         const paramProductId = params["*"]
-        if(paramProductId) setProductId(paramProductId)
+        if(paramProductId !== "") {
+            setProductId(paramProductId)
+        } else {
+           setProductId('')
+        }
     },[params])
+
 
     useEffect(() => {
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
-    const title = productId ?  "Editar producto" : "Nuevo producto" 
+    const title = productId !== '' ?  "Editar producto" : "Nuevo producto" 
 
     return (
         <div className="products">
@@ -59,7 +64,7 @@ export const Products = () => {
                                     <img src={plus} alt="" className="products_button--plus" />
                                     <span className="products_button--text"> {title} </span>
                                 </div>}
-                                content={<FormProduct element={{}} />}
+                                content={<FormProduct closeModal={closeModal} element={{}} />}
                             />
                             : <FormProduct element={{}} />
                     }

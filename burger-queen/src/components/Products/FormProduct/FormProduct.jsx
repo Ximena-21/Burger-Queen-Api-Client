@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { useProductsContext } from "../../../context/ProductsContext"
 import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
 import { makeRequestGet } from "../../../lib/requests"
 import "./style.scss"
+
+
 export const FormProduct = ({ element, closeModal }) => {
 
     const params = useParams()
@@ -20,18 +22,24 @@ export const FormProduct = ({ element, closeModal }) => {
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        const paramProductId = params["*"]
-        if(paramProductId) getProductById(paramProductId)
-    },[params])
-
     const setInputs = () => {
+        setProductId('');
         setNameProduct('');
         setTypeProduct('');
         setImgProduct('');
         setPriceProduct('');
         setFilePreview(null)
     }
+
+    useEffect(()=>{
+        const paramProductId = params["*"]
+        if(paramProductId !== ""){ 
+            getProductById(paramProductId)
+        } else {
+            setInputs()
+        }
+    },[params])
+
 
 
     const getProductById = async (id) => {
@@ -82,8 +90,7 @@ export const FormProduct = ({ element, closeModal }) => {
     const navigateAbort = () => {
         navigate('/products')
         setInputs()
-        setProductId('')
-        if(typeof closeModal === "function") closeModal()
+        if (typeof closeModal === "function") closeModal() 
     }
 
     return (

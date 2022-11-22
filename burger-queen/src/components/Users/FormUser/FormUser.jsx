@@ -18,18 +18,21 @@ export const FormUser = ({ element, closeModal }) => {
 
     useEffect(()=>{
         const paramUserId = params["*"]
-        if(paramUserId) getUserById(paramUserId)
+        if(paramUserId != '') getUserById(paramUserId)
+       
+        else { 
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar'})
+        }
     },[params])
 
     const getUserById = async (id) => {
         const data = await makeRequestGet(`users/${id}`)
         setUser(data)
-        console.log(data)
     }
 
     const handleInputsChange = async (e) => {
 
-        console.log(user.id)
         const key = e.target.name
         let newObjKey = {}
         newObjKey[key] = e.target.value
@@ -40,6 +43,7 @@ export const FormUser = ({ element, closeModal }) => {
     const navigateAbort = () => {
         navigate('/users')
         setUser({})
+        if (typeof closeModal === "function") closeModal()
     }
 
     const handleSubmit = async (e) => {
@@ -53,7 +57,10 @@ export const FormUser = ({ element, closeModal }) => {
             setUser({})
 
         } else {
+
             await updateUser(user)
+            if(typeof closeModal === "function") closeModal()
+            setUser({})
         }
 
     }
