@@ -56,7 +56,7 @@ async function makeRequestGet(pathname) {
   });
 
   const responseData = await response.json()
-
+  console.log('obtener órdenes ',responseData);
   return responseData
 }
 

@@ -10,6 +10,7 @@
         width: 100%;
         gap: 30px;
         @include flex-row-center;
+        flex-wrap: wrap;
     }
 
     &_select{
