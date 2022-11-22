@@ -16,22 +16,29 @@ export const FormProduct = ({ element, closeModal }) => {
     const [priceProduct, setPriceProduct] = useState(element.price || '')
     const [filePreview, setFilePreview] = useState(element.image || null)
 
-    const isCreating = productId === "" ? true : false
+    const isCreating = productId === "" ? true: false
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        const paramProductId = params["*"]
-        if(paramProductId) getProductById(paramProductId)
-    },[params])
-
     const setInputs = () => {
+        setProductId('')
         setNameProduct('');
         setTypeProduct('');
         setImgProduct('');
         setPriceProduct('');
         setFilePreview(null)
     }
+
+    useEffect(()=>{
+        const paramProductId = params["*"]
+        if(paramProductId !== ""){ 
+            getProductById(paramProductId)
+        } else {
+            console.log('params vacio en useEfect >>>>>>>>>>>', paramProductId);
+            setInputs()
+        }
+    },[params])
+
 
 
     const getProductById = async (id) => {
@@ -82,7 +89,7 @@ export const FormProduct = ({ element, closeModal }) => {
     const navigateAbort = () => {
         navigate('/products')
         setInputs()
-        setProductId('')
+        // setProductId('')
         if(typeof closeModal === "function") closeModal()
     }
 

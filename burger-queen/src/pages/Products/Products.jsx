@@ -25,7 +25,11 @@ export const Products = () => {
 
     useEffect(()=>{
         const paramProductId = params["*"]
-        if(paramProductId) setProductId(paramProductId)
+        if(paramProductId !== "") {
+            setProductId(paramProductId)
+        } else {
+           setProductId('')
+        }
     },[params])
 
     useEffect(() => {
@@ -33,7 +37,9 @@ export const Products = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
-    const title = productId ?  "Editar producto" : "Nuevo producto" 
+    console.log('product id >>>', productId);
+
+    const title = productId !== ''?  "Editar producto" : "Nuevo producto" 
 
     return (
         <div className="products">
