@@ -2,7 +2,6 @@
 
 export const TableBody = (props) => {
 
-    // const {products} = useContext(TableContext)
     const {data, columns} = props
 
     // console.log("get products inside table body", products)
