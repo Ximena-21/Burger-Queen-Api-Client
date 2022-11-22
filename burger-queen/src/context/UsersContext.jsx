@@ -6,6 +6,7 @@ import { TableColumnOption } from "../components/DynamicTable/TableColumnOption"
 import { useModal } from "../Modals/useModal";
 import { FormUser } from "../components/Users/FormUser/FormUser";
 import { DeleteModalUser } from "../components/Users/DeleteModalUser/DeleteModalUser";
+import { useNavigate } from "react-router-dom";
 
 const UsersContext = createContext();
 
@@ -16,6 +17,8 @@ const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([])
 
     const [selectedUser, setSelectedUser] = useState({})
+
+    const navigate = useNavigate()
 
     //no hacer nunca mas
     const columnKeys = ['Nombre','Correo', 'Rol', 'Opciones']
@@ -51,11 +54,12 @@ const UsersProvider = ({ children }) => {
         closeModal()
         console.log('usuario que voy a enviar', data);
     }
-
+  
     //editar
     async function updateUser(data) {
         await makeRequestPatch("users", data.id, data)
         await getUsers()
+        navigate('/users')
     }
 
     //eliminar

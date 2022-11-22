@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { useProductsContext } from "../../../context/ProductsContext"
 import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
 import { makeRequestGet } from "../../../lib/requests"
 import "./style.scss"
+
+
 export const FormProduct = ({ element, closeModal }) => {
 
     const params = useParams()
@@ -21,7 +23,7 @@ export const FormProduct = ({ element, closeModal }) => {
     const navigate = useNavigate()
 
     const setInputs = () => {
-        setProductId('')
+        setProductId('');
         setNameProduct('');
         setTypeProduct('');
         setImgProduct('');
@@ -34,7 +36,6 @@ export const FormProduct = ({ element, closeModal }) => {
         if(paramProductId !== ""){ 
             getProductById(paramProductId)
         } else {
-            console.log('params vacio en useEfect >>>>>>>>>>>', paramProductId);
             setInputs()
         }
     },[params])
@@ -89,8 +90,7 @@ export const FormProduct = ({ element, closeModal }) => {
     const navigateAbort = () => {
         navigate('/products')
         setInputs()
-        // setProductId('')
-        if(typeof closeModal === "function") closeModal()
+        if (typeof closeModal === "function") closeModal() 
     }
 
     return (
