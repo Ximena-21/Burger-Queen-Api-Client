@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import editOrder from '../../../../assets/images/editOrder.png'
+import editOrder from '../../../../assets/images/EditOrder.png'
 import { useOrderContext } from "../../../../context/OrderContext"
 import './style.scss'
 

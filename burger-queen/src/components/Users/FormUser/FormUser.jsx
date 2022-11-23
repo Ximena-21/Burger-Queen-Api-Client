@@ -54,7 +54,9 @@ export const FormUser = ({ element, closeModal }) => {
         if (user.id === undefined) {
 
             await createUser({...user, id: new Date().getTime()})
-            setUser({})
+
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar', password:''})
 
         } else {
 

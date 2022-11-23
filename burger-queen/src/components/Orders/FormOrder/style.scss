@@ -1,0 +1,15 @@
+@import '../../../generics.scss';
+
+.formOrder{
+    width: 90%;
+    min-width: 290px;
+    max-width: 350px;
+    min-height: 300px;
+    max-height: 500px;
+    border-radius: 10px;
+
+    background: aquamarine;
+
+    @include flex-column-center;
+
+}

@@ -18,7 +18,7 @@ export const FormProduct = ({ element, closeModal }) => {
     const [priceProduct, setPriceProduct] = useState(element.price || '')
     const [filePreview, setFilePreview] = useState(element.image || null)
 
-    const isCreating = productId === "" ? true : false
+    const isCreating = productId === "" ? true: false
 
     const navigate = useNavigate()
 
