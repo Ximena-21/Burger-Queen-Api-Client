@@ -9,11 +9,11 @@ export const BodyTableOrder = (props) => {
     const listTr = orders.map((element) => {
 
         return (
-            <tr className='bodyTableOrder_rowBody'>
+            <tr className='bodyTabletOrder_rowBody'>
 
                 {/* cantidad */}
-                <td className='bodyTableOrder_columnBody'>{element.name}</td>
-                <td className='bodyTableOrder_columnBody'>${element.price}</td>
+                <td className='bodyTabletOrder_columnBody'>{element.name}</td>
+                <td className='bodyTabletOrder_columnBody bodyTabletOrder_columnBody--price'>${element.price}</td>
 
                 {/* <TableComlumnOption  element={element}/> */}
             </tr>
@@ -21,11 +21,14 @@ export const BodyTableOrder = (props) => {
     })
 
     return (
-        <tbody className='table_body'>
-            {listTr}
-            <tr className='bodyTableOrder_rowBody bodyTableOrder_rowBody--subtotal'>
-                <td className='bodyTableOrder_columnBody'>Subtotal</td>
-                <td className='bodyTableOrder_columnBody'>$</td>
+        <tbody className='bodyTabletOrder'>
+            <div className="bodyTabletOrder_bodyContainer">
+
+                {listTr}
+            </div>
+            <tr className='bodyTabletOrder_rowBody bodyTabletOrder_rowBody--subtotal'>
+                <td className='bodyTabletOrder_columnBody'>Subtotal</td>
+                <td className='bodyTabletOrder_columnBody'>$</td>
             </tr>
         </tbody>
     )
