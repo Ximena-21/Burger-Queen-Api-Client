@@ -1,23 +1,27 @@
-import './style.scss'
+import "./style.scss";
 
-export const ModalViewOrder = ()  => {
+export const ModalViewOrder = () => {
+  return (
+    <table className="modalViewOrder">
+      <thead className="modalViewOrder_header">
+        <tr className="modalViewOrder_headerRow">
+          <th className="modalViewOrder_headerColumn">Cantidad</th>
+          <th className="modalViewOrder_headerColumn">Productos</th>
+        </tr>
+      </thead>
+      <tbody className='modalViewOrder_body'>
+        <tr className='modalViewOrder_rowBody'>
+          <td className='modalViewOrder_columnBody'>2</td>
+          <td className='modalViewOrder_columnBody'>Agua 500ml</td>
+        </tr>
+      </tbody>
 
-    return(
-        <div className="ModalViewOrder">
-            <div>
-
-                <h5>Cantidad</h5>
-                    <p>2</p>
-                <h5>Productos</h5>
-                    <p>Agua</p>
-
-            </div>
-
-            <div>
-                <h5>Total</h5>
-                <p>$0000</p>
-            </div>   
-
-        </div>
-    )
-}
+      <tfoot className='modalViewOrder_foot'>
+        <tr className='modalViewOrder_footRow'>
+            <th>Total</th>
+            <th>0000</th>
+        </tr>
+      </tfoot>
+    </table>
+  );
+};

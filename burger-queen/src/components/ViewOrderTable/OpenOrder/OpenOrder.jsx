@@ -1,7 +1,8 @@
-import unfold from '../../../assets/images/openOrder.png'
+import unfold from '../../../assets/images/menuPoints.png'
 import { useEffect, useState } from 'react'
 import { Modals } from '../../../Modals/Modals'
 import { useModal } from '../../../Modals/useModal'
+import './style.scss';
 
 export const OpenOrder = ({ element, Add,  type }) => {
 
@@ -22,7 +23,7 @@ export const OpenOrder = ({ element, Add,  type }) => {
         <tr className='table_rowBodyOpt'>
             <td className='table_columnBody'>
                 {
-                    width < 1024 ?
+                    // width < 1024 ?
 
                         <Modals
                             isOpen={isOpen}
@@ -32,8 +33,8 @@ export const OpenOrder = ({ element, Add,  type }) => {
                                 src={unfold} alt="Edit" value={'edit'} />}
                             content={<Add closeModal={close} element={element} />}
                         /> 
-                        : <img className={`table_columnBody--option  `}
-                        src={unfold} alt="Edit" value={'edit'} onClick={open} />
+                        // : <img className={`table_columnBody--option  `}
+                        // src={unfold} alt="Edit" value={'edit'} onClick={open} />
                 }
 
             </td>

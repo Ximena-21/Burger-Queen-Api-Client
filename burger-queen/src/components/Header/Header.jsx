@@ -6,7 +6,7 @@ import { ExitIcon, SideMenu } from "../SideMenu/SideMenu"
 import { ModalsMenu } from "../../Modals/ModalMenu/ModalsMenu"
 import { useModal } from "../../Modals/useModal"
 import { QuantityProducts } from "../Waiter/TakesOrder/QuantityProducts/QuantityProducts"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 export const Header = () => {
 

@@ -7,8 +7,6 @@ import { useProductsContext } from "../../context/ProductsContext";
 import { ProductsTable } from "../../components/Products/ProductTable";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { FormOrder } from "../../components/Orders/FormOrder/FormOrder";
-
 
 export const Products = () => {
 
@@ -66,8 +64,7 @@ export const Products = () => {
                                     <img src={plus} alt="" className="products_button--plus" />
                                     <span className="products_button--text"> {title} </span>
                                 </div>}
-                                // content={<FormProduct closeModal={closeModal} element={{}} />}
-                                content={<FormOrder/>}
+                                content={<FormProduct closeModal={closeModal} element={{}} />}
                             />
                             : <FormProduct element={{}} />
                     }

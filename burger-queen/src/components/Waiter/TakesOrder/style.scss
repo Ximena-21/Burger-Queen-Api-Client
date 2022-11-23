@@ -15,14 +15,14 @@
 
     &_select{
         width: 40%;
-        height: 40px;
-        border-radius: 5px;
+        height: 60px;
+        border-radius: 10px;
         border: none;
         background: url('../../../assets/images/triangle.png') no-repeat 95% 50% $primary-color !important;
         appearance: none;
         outline: none;
-        padding: 10px;
+        padding: 20px;
         font-weight: 600;
-        font-size: 16px;
+        font-size: 20px;
     }
 }

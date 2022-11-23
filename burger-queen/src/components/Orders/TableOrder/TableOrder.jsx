@@ -3,13 +3,13 @@ import { HeaderTableOrder } from "./HeaderTableOrder"
 // import "./style.scss"
 
 
-export const TableOrder = () => {
+export const TableOrder = ({orders}) => {
     
 
     return(
         <table className="tableOrder">
             <HeaderTableOrder/>
-            <BodyTableOrder/>
+            <BodyTableOrder orders={orders}/>
         </table>
     )
 }

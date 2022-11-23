@@ -1,7 +1,7 @@
 import { TableOrder } from "../TableOrder/TableOrder"
 import "./style.scss"
 
-export const FormOrder = () =>{
+export const FormOrder = ({orders}) =>{
     return (
 
         <div className="formOrder">
