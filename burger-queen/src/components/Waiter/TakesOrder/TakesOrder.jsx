@@ -3,40 +3,6 @@ import { useWaiterContext } from "../../../context/WaiterContext";
 import { CardProducts } from "./ContainerProducts/CardProducts";
 import './style.scss';
 
-// export const TableWaiter = () => {
-
-//     const [typeMenu, setTypeMenu] = useState('')
-//     const {products} =  useWaiterContext()
-
-//     const handleTypeMenu = (e) => {
-//         setTypeMenu(e.target.value)
-//     }
-//     console.log('local storage takes',localStorage.getItem("quantityProducts"));
-
-//     return (
-//     <div >
-//         <select name="select_type"  value={typeMenu} onChange={handleTypeMenu} >
-//             <option selected='selected' >Seleccionar</option>
-//             <option >Desayuno</option>
-//             <option >Almuerzo</option>
-//         </select>
-//         {
-//             typeMenu === '' ? '...cargando' :
-//                 <div>
-//                     {
-//                         products.map(element => {
-//                             if(element.type === typeMenu){
-//                             const newElement = ({...element, amount: 0 })
-//                            return <CardProducts element={newElement} />  }
-//                         })
-//                     }
-//                 </div>
-//         }
-//     </div>
-
-//     )
-// }
-
 export const TableWaiter = () => {
 
   const [typeMenu, setTypeMenu] = useState("");

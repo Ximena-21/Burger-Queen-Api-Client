@@ -1,3 +1,4 @@
+import { useOrderContext } from '../../../../context/OrderContext';
 import './style.scss';
 
 //   // export const BoxQuantity = ({quantity, substract, add}) => {
@@ -15,6 +16,8 @@ import './style.scss';
 // };
 
   export const BoxQuantity = ({substract, add, element}) => {
+
+    // console.log('boxquantity element ', element);
 
       return (
         element > 0 ?

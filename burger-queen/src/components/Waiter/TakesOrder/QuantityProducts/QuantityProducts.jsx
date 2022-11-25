@@ -25,7 +25,6 @@ export const QuantityProducts = () => {
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
-
     useEffect(() => {
         !orderItems ? '' :
         setProductsLength(
@@ -33,11 +32,10 @@ export const QuantityProducts = () => {
         )
     }, [orderItems])
 
-
-    // console.log('orderItems ', orderItems);
    return productsLength === 0 ? '' : 
     ( 
-        width < 1024 ?
+        
+        // width < 1024 ?
 
             <Modals
                 isOpen={isOpen}
@@ -45,12 +43,9 @@ export const QuantityProducts = () => {
                 close={close}
                 element={<div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
                <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div>}
-               content={< FormOrder orders={orderItems} />}
+               content={< FormOrder closeModal={close}/>}
             /> 
-            : <div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
-             <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div>
+            // : <div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
+            //  <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div>
     )
-
-//    ( <div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
-//    <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div> )
 }
