@@ -17,14 +17,11 @@ const WaiterProvider = ({children}) => {
         getListProducts();
     }, [])
 
-
-    // const newProduct = products.map(product => ({...product, amount: 0}))
-
     const data = {
         products,
     }
     
-    console.log('waiterContext ',data);
+    console.log('waiterContext >>>>> ',data);
 
     return <WaiterContext.Provider value={data}>{children}</WaiterContext.Provider>
 

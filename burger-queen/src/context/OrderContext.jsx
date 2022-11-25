@@ -1,63 +1,79 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
+import { makeRequestPost } from "../lib/requests";
+import { useModal } from "../Modals/useModal";
 
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
-
   const [productsOrder, setProductsOrder] = useState([]);
-  const [quantity, setQuantity] = useState(0)
+  const [isOpenModal, openModal, closeModal] = useModal(false);
 
   //Aumenta la cantidad del producto seleccionado
   const addItemToOrder = (product) => {
-
-    const inOrder = productsOrder.find((item) => item.product.id === product.id);
+    const inOrder = productsOrder.find(
+      (item) => item.product.id === product.id
+    );
 
     if (inOrder) {
-
       setProductsOrder(
         productsOrder.map((productInOrder) => {
           if (productInOrder.product.id === product.id) {
-            return { ...productInOrder,  qty : (productInOrder.qty += 1) };
+            return { ...productInOrder, qty: (productInOrder.qty += 1) };
           } else {
             return productInOrder;
           }
         })
       );
     } else {
-      setProductsOrder([...productsOrder, {product : product, qty: 1 }]);
+      setProductsOrder([...productsOrder, { product: product, qty: 1 }]);
     }
   };
 
-
   // Disminuye la cantidad del producto seleccionado
   const deleteItemToOrder = (product) => {
-    console.log('product delet ',product);
+    console.log("product delet ", product);
     //Busca si el producto está en la orden
-    const inOrder = productsOrder.find((item) => item.product.id === product.id);
-    // si la cantidad del producto es uno o más, se le resta
-      if (inOrder) {
+    const inOrder = productsOrder.find(
+      (item) => item.product.id === product.id
+    );
 
+    console.log("inOrder ", inOrder);
+    // si la cantidad del producto es uno o más, se le resta
+    if (inOrder) {
+      if (inOrder.qty === 1) {
+        setProductsOrder(
+          productsOrder.filter((item) => item.product.id !== product.id)
+        );
+      } else {
         setProductsOrder(
           productsOrder.map((productInOrder) => {
             if (productInOrder.product.id === product.id) {
-              return { ...productInOrder,  qty : (productInOrder.qty -= 1) };
+              return { ...productInOrder, qty: (productInOrder.qty -= 1) };
             } else {
               return productInOrder;
             }
           })
         );
-      } else {
-        setProductsOrder([...productsOrder]);
+      }
+    } else {
+      setProductsOrder([...productsOrder]);
     }
   };
 
+  async function createOrder(data) {
+    await makeRequestPost("orders", data, true);
+    // await getListProducts();
+    console.log(closeModal);
+    // close();
+  }
+
   const data = {
     productsOrder,
-    quantity,
     addItemToOrder,
     deleteItemToOrder,
+    createOrder
   };
 
   console.log("OrderCOntext >>>>>>>", data);

@@ -26,7 +26,7 @@ export const TableWaiter = () => {
   return (
     <div className="containerOrder">
       <select className="containerOrder_select" name="select_type" value={typeMenu} onChange={handleTypeMenu}>
-        <option style={myStyleOption} selected="selected">Seleccionar</option>
+        <option style={myStyleOption}>Seleccionar</option>
         <option style={myStyleOptionTwo}>Desayuno</option>
         <option style={myStyleOption} >Almuerzo</option>
       </select>
@@ -36,7 +36,7 @@ export const TableWaiter = () => {
         <div className="containerOrder_products" >
           {products.map((element) => {
             if (element.type === typeMenu) {
-              return <CardProducts element={element} />;
+              return <CardProducts key={element.id} element={element} />;
             }
           })}
         </div>

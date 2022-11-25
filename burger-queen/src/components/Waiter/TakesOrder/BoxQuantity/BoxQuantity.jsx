@@ -2,8 +2,6 @@ import './style.scss';
 
   export const BoxQuantity = ({substract, add, element}) => {
 
-    console.log('boxQuantity element ', element);
-
       return (
         element > 0 ?
         <div className="cardProduct_boxQuantity">

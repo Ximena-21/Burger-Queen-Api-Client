@@ -5,7 +5,7 @@ import "./style.scss"
 
 export const FormOrder = () =>{
 
-    const {productsOrder} = useOrderContext()
+    const {productsOrder, createOrder} = useOrderContext()
     const [client, setClient] = useState('')
     const [order, setOrder] = useState({})
     
@@ -17,9 +17,13 @@ export const FormOrder = () =>{
         userId: new Date().getTime(),
         client: client,
         products: productsOrder,
-        status: pending,
+        status: 'pending',
         dateEntry: new Date()
     }
+
+    // const sendOrder = () => {
+        
+    // }
 
     return (
 
@@ -35,7 +39,7 @@ export const FormOrder = () =>{
             <TableOrder/>
 
             <div className="formOrder_btnContainer">
-                <button className="formOrder_btn " >ENVIAR PEDIDO</button>
+                <button className="formOrder_btn " onClick={() => createOrder(dataOrder)}>ENVIAR PEDIDO</button>
                 <button className="formOrder_btn formOrder_btn--abort" >CANCELAR PEDIDO</button>
             </div>
         </div>
