@@ -56,7 +56,7 @@ export const FormProduct = ({ element, closeModal }) => {
         e.preventDefault();
 
         const data = {
-            id: productId || new Date().getTime(),
+            id: productId || new Date(),
             name: nameProduct,
             type: typeProduct,
             image: imgProduct,

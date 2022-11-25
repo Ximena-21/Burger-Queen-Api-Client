@@ -31,6 +31,7 @@ export const QuantityProducts = () => {
             productsOrder.reduce((previous, product) => previous + parseInt(product.qty), 0)
         )
     }, [productsOrder])
+    
 
    return productsLength === 0 ? '' : 
     ( 
