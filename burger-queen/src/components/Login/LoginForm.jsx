@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {  makeRequestPost } from "../../lib/requests";
 
 export const LoginForm = () => {
@@ -8,7 +8,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   /* Cambio de rutas*/
-  // const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 
   async function handleSubmit(event) {
     event.preventDefault();

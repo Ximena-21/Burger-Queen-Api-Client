@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/16</span>
             </div>
         
             
@@ -134,7 +134,12 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,9 +156,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,12 +164,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -209,25 +219,36 @@
 import plus from '../../assets/images/plus.png'
 import { Header } from "../../components/Header/Header";
 import { Modals } from '../../Modals/Modals'
-// import { useProductsContext } from "../../context/ProductsContext";
 import { UsersTable } from "../../components/Users/UsersTable";
 import { useUsersContext } from "../../context/UsersContext";
 import { FormUser } from "../../components/Users/FormUser/FormUser";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 &nbsp;
 export const Users = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 &nbsp;
-    const { isOpenModal, openModal, closeModal} = <span class="cstat-no" title="statement not covered" >useUsersContext()</span>
+    const { isOpenModal, openModal, closeModal } = <span class="cstat-no" title="statement not covered" >useUsersContext()</span>
 &nbsp;
     const [width, setWidth] = <span class="cstat-no" title="statement not covered" >useState(window.innerWidth)</span>
+&nbsp;
+    const [userId, setUserId] = <span class="cstat-no" title="statement not covered" >useState("")</span>
+&nbsp;
+    const params = <span class="cstat-no" title="statement not covered" >useParams()</span>
 &nbsp;
     const handleWindowResize = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        setWidth(window.innerWidth)</span>
     }
 &nbsp;
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span>=&gt;{</span>
+        const paramProductId = <span class="cstat-no" title="statement not covered" >params["*"]</span>
+<span class="cstat-no" title="statement not covered" >        if(paramProductId !== '') <span class="cstat-no" title="statement not covered" >setUserId(paramProductId)</span></span>
+        else <span class="cstat-no" title="statement not covered" >setUserId('')</span>
+    },[params])
+&nbsp;
+    const title = <span class="cstat-no" title="statement not covered" >userId ?  "Editar usuario" : "Nuevo usuario" </span>
+&nbsp;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-        // const handleWindowResize = () =&gt; setWidth(window.innerWidth);
 <span class="cstat-no" title="statement not covered" >        window.addEventListener("resize", handleWindowResize);</span>
 <span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >window.removeEventListener("resize", handleWindowResize);</span></span>
     }, []);
@@ -239,10 +260,15 @@ export const Users = <span class="cstat-no" title="statement not covered" ><span
 &nbsp;
             &lt;div className="users_page"&gt;
 &nbsp;
-                &lt;h1 className="users_role"&gt;ADMINISTRADOR&lt;/h1&gt;
+                &lt;div&gt;
+&nbsp;
+                    &lt;h1 className="users_role"&gt;ADMINISTRADOR&lt;/h1&gt;
+&nbsp;
+                &lt;/div&gt;
+&nbsp;
                 &lt;div className="users_container"&gt;
 &nbsp;
-                {
+                    {
                         width &lt; 1024 ?
                             &lt;Modals
                                 isOpen={isOpenModal}
@@ -251,26 +277,15 @@ export const Users = <span class="cstat-no" title="statement not covered" ><span
                                 element=
                                 {&lt;div className="products_button"&gt;
                                     &lt;img src={plus} alt="" className="products_button--plus" /&gt;
-                                    &lt;span className="products_button--text"&gt; Agregar Usuario&lt;/span&gt;
+                                    &lt;span className="products_button--text"&gt;{title} &lt;/span&gt;
                                 &lt;/div&gt;}
-                                content={&lt;FormUser element={{}} /&gt;}
-                            // content={&lt;ModalAddProduct onClose = {getListProducts}/&gt;}
+                                content={&lt;FormUser closeModal={closeModal} element={{}} /&gt;}
                             /&gt;
 &nbsp;
-                            : &lt;FormUser element={{}} /&gt;
-                    }   
-                    {/* &lt;Modals
-                        isOpen={isOpenModal}
-                        close={closeModal}
-                        open={openModal}
-                        element =
-                        {&lt;div className="products_button"&gt;
-                            &lt;img src={plus} alt="" className="products_button--plus" /&gt;
-                            &lt;span className="products_button--text"&gt; Agregar Producto &lt;/span&gt;
-                        &lt;/div&gt;}
-                        content={&lt;FormProduct element={{}}/&gt;}
-                    /&gt; */}
-                    &lt;UsersTable/&gt;
+                            : &lt;FormUser /&gt; 
+                    }
+         
+                    &lt;UsersTable /&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
@@ -283,7 +298,7 @@ export const Users = <span class="cstat-no" title="statement not covered" ><span
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-18T21:18:46.242Z
+                at 2022-11-25T01:43:35.554Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>0/17</span>
             </div>
         
             
@@ -133,12 +133,7 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a>
-<a name='L75'></a><a href='#L75'>75</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,7 +144,6 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,10 +155,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -186,10 +182,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -217,15 +209,13 @@ import { Modals } from '../../Modals/Modals'
 import { BtnAbort } from '../Products/DeleteModalProduct/DeleteModalProduct'
 import { useModal } from '../../Modals/useModal'
 import { useEffect, useState } from 'react'
-import { useProductsContext } from '../../context/ProductsContext'
+import { useNavigate } from 'react-router-dom'
 &nbsp;
-&nbsp;
-export const TableColumnOption = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> element, Add, Delete }) =&gt; {</span>
-&nbsp;
-    const {updateProduct} = <span class="cstat-no" title="statement not covered" >useProductsContext</span>
+export const TableColumnOption = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> element, Add, Delete, type }) =&gt; {</span>
 &nbsp;
     const [isOpen, open, close] = <span class="cstat-no" title="statement not covered" >useModal(false)</span>
     const [isOpenDelete, openDelete, closeDelete] = <span class="cstat-no" title="statement not covered" >useModal(false)</span>
+    const navigate = <span class="cstat-no" title="statement not covered" >useNavigate()</span>
 &nbsp;
     const [width, setWidth] = <span class="cstat-no" title="statement not covered" >useState(window.innerWidth)</span>
 &nbsp;
@@ -235,18 +225,20 @@ export const TableColumnOption = <span class="cstat-no" title="statement not cov
 &nbsp;
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-        // const handleWindowResize = () =&gt; setWidth(window.innerWidth);
 <span class="cstat-no" title="statement not covered" >        window.addEventListener("resize", handleWindowResize);</span>
 <span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >window.removeEventListener("resize", handleWindowResize);</span></span>
     }, []);
 &nbsp;
 &nbsp;
-    const editProduct = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (element) =&gt;{</span>
-<span class="cstat-no" title="statement not covered" >        console.log('width editar', width)</span>
-<span class="cstat-no" title="statement not covered" >        console.log('elemento', element)</span>
+    const handleNavigateEdit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >navigate(`/${type}/${element.id}`)</span></span>
 &nbsp;
-        // await updateProduct (element.id, element)
+&nbsp;
+    const handleOpenModal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        handleNavigateEdit()</span>
+<span class="cstat-no" title="statement not covered" >        open()</span>
     }
+&nbsp;
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;tr className='table_rowBodyOpt'&gt;
             &lt;td className='table_columnBody'&gt;
@@ -255,17 +247,14 @@ export const TableColumnOption = <span class="cstat-no" title="statement not cov
 &nbsp;
                         &lt;Modals
                             isOpen={isOpen}
-                            open={open}
+                            open={handleOpenModal}
                             close={close}
                             element={&lt;img className={`table_columnBody--option  `}
                                 src={edit} alt="Edit" value={'edit'} /&gt;}
                             content={&lt;Add closeModal={close} element={element} /&gt;}
                         /&gt; 
                         : &lt;img className={`table_columnBody--option  `}
-                        src={edit} alt="Edit" value={'edit'} onClick={<span class="fstat-no" title="function not covered" >()</span>=&gt;{
-<span class="cstat-no" title="statement not covered" >                            editProduct(element)</span>
-                        }} /&gt;
-&nbsp;
+                        src={edit} alt="Edit" value={'edit'} onClick={handleNavigateEdit} /&gt;
                 }
 &nbsp;
 &nbsp;
@@ -284,15 +273,14 @@ export const TableColumnOption = <span class="cstat-no" title="statement not cov
         &lt;/tr&gt;
     )
 }
-&nbsp;
-//makeRequestDelete('products', element.id)</pre></td></tr></table></pre>
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-18T21:18:46.242Z
+                at 2022-11-25T01:43:35.554Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

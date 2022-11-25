@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -116,7 +116,18 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,14 +144,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -169,52 +172,73 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
-import { BrowserRouter, Routes, Route, redirect } from "react-router-dom";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./AppStyles.scss";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
+import { OrderProvider } from "./context/OrderContext";
 import { ProductsProvider } from "./context/ProductsContext";
 import { UsersProvider } from "./context/UsersContext";
+import { ViewOrderProvider } from "./context/ViewOrderContext";
 import { WaiterProvider } from "./context/WaiterContext";
 import { Login } from "./pages/login/Login";
 import { Products } from "./pages/Products/Products";
 import { Users } from "./pages/Users/Users";
+import { ViewOrder } from "./pages/ViewOrder/ViewOrder";
 import { TakesOrder } from "./pages/Waiter/TakesOrder/TakesOrder";
 &nbsp;
 &nbsp;
+&nbsp;
 function <span class="fstat-no" title="function not covered" >App(</span>) {
-&nbsp;
-  const [user, setUser] = <span class="cstat-no" title="statement not covered" >useState(null)</span>
-&nbsp;
-  const handleLogin = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
-    const dataUser = <span class="cstat-no" title="statement not covered" >await JSON.parse(localStorage.getItem("dataUser"))</span>
-<span class="cstat-no" title="statement not covered" >    setUser(dataUser)</span>
-  }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >  handleLogin();</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;div className="App"&gt;
       &lt;BrowserRouter&gt;
         &lt;Routes&gt;
-          &lt;Route path="/" element={&lt;Login /&gt;} /&gt;
-          &lt;Route exact path="/products" element={
-            &lt;ProtectedRoute redirectPath="/orders" isAllowed={!!user &amp;&amp; !user.role.includes('admin')}&gt;
+          &lt;Route index element={&lt;Login /&gt;} /&gt;
+          &lt;Route path="/login" element={&lt;Login /&gt;} /&gt;
+          &lt;Route path="/products/*" element={
+           &lt; ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}&gt;
               &lt;ProductsProvider&gt;
                 &lt;Products /&gt;
               &lt;/ProductsProvider&gt;
-            &lt;/ProtectedRoute&gt; 
+          &lt;/ProtectedRoute&gt;
           } /&gt;
-          &lt;Route exact path="/users" element={
-            &lt;UsersProvider&gt;
-              &lt;Users /&gt;
-            &lt;/UsersProvider&gt;
+          &lt;Route path="/users/*" element={
+           &lt; ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}&gt;
+              &lt;UsersProvider&gt;
+                &lt;Users /&gt;
+              &lt;/UsersProvider&gt;
+          &lt;/ProtectedRoute&gt;
           } /&gt;
-          &lt;Route exact path="/orders" element={
-          &lt;WaiterProvider&gt;
-              &lt;TakesOrder /&gt;
-          &lt;/WaiterProvider&gt;
+          &lt;Route exact path="/takes-orders" element={
+           //&lt; ProtectedRoute avaliableRole={'meser@'} redirect={'/products'}&gt;
+            &lt;WaiterProvider&gt;
+              &lt;OrderProvider&gt;
+                &lt;TakesOrder /&gt;
+              &lt;/OrderProvider&gt;
+            &lt;/WaiterProvider&gt;
+          //&lt;/ProtectedRoute&gt;
           } /&gt;
+          &lt;Route path="/view-orders" element={
+&nbsp;
+            &lt;ViewOrderProvider&gt;
+                &lt;ViewOrder /&gt;
+            &lt;/ViewOrderProvider&gt;
+&nbsp;
+          }/&gt;
         &lt;/Routes&gt;
       &lt;/BrowserRouter&gt;
     &lt;/div&gt;
@@ -229,7 +253,7 @@ export default App;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-18T21:18:46.242Z
+                at 2022-11-25T01:43:35.554Z
             </div>
         <script src="../prettify.js"></script>
         <script>

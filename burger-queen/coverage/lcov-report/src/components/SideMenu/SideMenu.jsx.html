@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -135,7 +135,17 @@
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
 <a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -155,11 +165,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -213,6 +233,7 @@ import Exit from '../../assets/images/exit.png'
 import Products from '../../assets/images/products.png'
 import Users from '../../assets/images/users.png'
 import Orders from '../../assets/images/orders.png'
+import TakesOrder  from '../../assets/images/takesOrder.png'
 import { logOut } from "../../lib/helpers"
 import { Link } from "react-router-dom"
 import { Modals } from "../../Modals/Modals"
@@ -220,29 +241,33 @@ import { LogOutModal } from "./LogOutModal/LogOutModal"
 import { useModal } from "../../Modals/useModal"
 import { BtnAbort } from "../Products/DeleteModalProduct/DeleteModalProduct"
 &nbsp;
-&nbsp;
 export const ExitIcon = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span>close}) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    return(</span>
         &lt;img onClick={close} src={Exit} alt="" className="sideMenu_exitMenu" /&gt;
     )
 }
 &nbsp;
+// const renderMenu = (role, element) =&gt; {
+// return()
+// }
+&nbsp;
 export const SideMenu = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
 &nbsp;
     const [isOpen, open, close] = <span class="cstat-no" title="statement not covered" >useModal(false)</span>
+    const user = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem("dataUser"))</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return (</span>
         &lt;div className="sideMenu"&gt;
 &nbsp;
-            {/* &lt;img src={Exit} alt="" className="sideMenu_exitMenu" /&gt; */}
-&nbsp;
+        
             &lt;div className="sideMenu_userBox"&gt;
                 &lt;img src={User} alt="user" className="sideMenu_userBox--img" /&gt;
-                &lt;span className="sideMenu_userBox--name"&gt;Usuario&lt;/span&gt;
+                &lt;span className="sideMenu_userBox--name"&gt;{user.name}&lt;/span&gt;
             &lt;/div&gt;
 &nbsp;
             &lt;div className="sideMenu_menuBox"&gt;
-&nbsp;
+            {user.role === 'admin' ?  
+                ( &lt;&gt;
                 &lt;div className="sideMenu_menuBox--items"&gt;
                     &lt;img src={Products} alt="" className="sideMenu_menuBox--img" /&gt;
                     &lt;Link to="/products"&gt;&lt;span className="sideMenu_menuBox--text"&gt;Productos&lt;/span&gt;&lt;/Link&gt;
@@ -252,16 +277,21 @@ export const SideMenu = <span class="cstat-no" title="statement not covered" ><s
                 &lt;div className="sideMenu_menuBox--items"&gt;
                     &lt;img src={Users} alt="" className="sideMenu_menuBox--img" /&gt;
                     &lt;Link to="/users"&gt;&lt;span className="sideMenu_menuBox--text"&gt;Usuarios&lt;/span&gt;&lt;/Link&gt;
-                &lt;/div&gt;
+                &lt;/div&gt; &lt;/&gt;) : ''}
 &nbsp;
                 &lt;div className="sideMenu_menuBox--items"&gt;
                     &lt;img src={Orders} alt="" className="sideMenu_menuBox--img" /&gt;
-                    &lt;span className="sideMenu_menuBox--text"&gt;Órdenes&lt;/span&gt;
+                    &lt;Link to="/view-orders"&gt;&lt;span className="sideMenu_menuBox--text"&gt;Órdenes&lt;/span&gt;&lt;/Link&gt;
+                    
                 &lt;/div&gt;
 &nbsp;
-            &lt;/div&gt;
+            {user.role != 'Meser@' ? '' : 
+                &lt;div className="sideMenu_menuBox--items"&gt;
+                    &lt;img src={TakesOrder} alt="" className="sideMenu_menuBox--img" /&gt;
+                    &lt;Link to="/takes-orders"&gt;&lt;span className="sideMenu_menuBox--text"&gt;Tomar orden&lt;/span&gt;&lt;/Link&gt;
+                &lt;/div&gt;}
 &nbsp;
-            {/* &lt;span className="sideMenu_exit" onClick={logOut}&gt;Cerrar Sesión&lt;/span&gt; */}
+            &lt;/div&gt;
 &nbsp;
             &lt;Modals 
             isOpen={isOpen}
@@ -286,7 +316,7 @@ export const SideMenu = <span class="cstat-no" title="statement not covered" ><s
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-18T21:18:46.242Z
+                at 2022-11-25T01:43:35.554Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

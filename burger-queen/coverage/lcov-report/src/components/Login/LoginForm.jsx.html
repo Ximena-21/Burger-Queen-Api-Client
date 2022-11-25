@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">30.43% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/21</span>
+                <span class='fraction'>7/23</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.57% </span>
+                <span class="strong">30.43% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/21</span>
+                <span class='fraction'>7/23</span>
             </div>
         
             
@@ -125,11 +125,7 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,16 +135,10 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,6 +150,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,7 +188,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {  makeRequestPost } from "../../lib/requests";
 &nbsp;
 export const LoginForm = () =&gt; {
@@ -204,17 +196,11 @@ export const LoginForm = () =&gt; {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 &nbsp;
-  // const [postResult, setPostResult] = useState([]);
-  
   /* Cambio de rutas*/
-  // const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
 &nbsp;
   async function <span class="fstat-no" title="function not covered" >handleSubmit(</span>event) {
 <span class="cstat-no" title="statement not covered" >    event.preventDefault();</span>
-&nbsp;
-    
-    
-    // dataUser = JSON.parse(dataUser);
 &nbsp;
     const data = <span class="cstat-no" title="statement not covered" >{</span>
       email: email,
@@ -223,17 +209,19 @@ export const LoginForm = () =&gt; {
 &nbsp;
       const dataLogin = <span class="cstat-no" title="statement not covered" >await makeRequestPost('login', data)</span>
 <span class="cstat-no" title="statement not covered" >      if(dataLogin !== null){</span>
-        const dataUser = <span class="cstat-no" title="statement not covered" >await JSON.parse(localStorage.getItem("dataUser"))</span>
         const token = <span class="cstat-no" title="statement not covered" >dataLogin.accessToken</span>
+<span class="cstat-no" title="statement not covered" >        window.localStorage.setItem("dataUser", JSON.stringify(dataLogin.user));</span>
 <span class="cstat-no" title="statement not covered" >        window.localStorage.setItem("loginToken", token);</span>
 <span class="cstat-no" title="statement not covered" >        window.localStorage.setItem("User", data.email);</span>
+&nbsp;
+        const dataUser = <span class="cstat-no" title="statement not covered" >JSON.parse(localStorage.getItem("dataUser"))</span>
 <span class="cstat-no" title="statement not covered" >        if(dataUser.role === 'admin'){</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >          navigate('/products')</span>
 &nbsp;
         }else <span class="cstat-no" title="statement not covered" >if(dataUser.role === 'Meser@'){</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          navigate('/orders')</span>
+<span class="cstat-no" title="statement not covered" >          navigate('/takes-orders')</span>
 &nbsp;
         }
       }
@@ -268,7 +256,7 @@ export const LoginForm = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-18T21:18:46.242Z
+                at 2022-11-25T01:43:35.554Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
