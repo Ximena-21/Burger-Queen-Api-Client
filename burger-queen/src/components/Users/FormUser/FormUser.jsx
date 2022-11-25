@@ -1,20 +1,35 @@
-import { useState } from "react"
-// import { useProductsContext } from "../../../context/ProductsContext"
-// import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
+import { useEffect, useState } from "react"
 import "./style.scss"
 import { useUsersContext } from "../../../context/UsersContext"
-
-
+import { useNavigate, useParams } from "react-router-dom"
+import { makeRequestGet } from "../../../lib/requests"
 
 export const FormUser = ({ element, closeModal }) => {
 
-    console.log('usuario para editar', element.id);
+    const { createUser, updateUser } = useUsersContext()
 
-    const { createUser , updateUser} = useUsersContext()
+    const params = useParams()
 
+    const navigate = useNavigate()
 
     const [user, setUser] = useState(element || {})
 
+    const isCreating = user?.id ? false : true
+
+    useEffect(()=>{
+        const paramUserId = params["*"]
+        if(paramUserId != '') getUserById(paramUserId)
+       
+        else { 
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar'})
+        }
+    },[params])
+
+    const getUserById = async (id) => {
+        const data = await makeRequestGet(`users/${id}`)
+        setUser(data)
+    }
 
     const handleInputsChange = async (e) => {
 
@@ -22,53 +37,35 @@ export const FormUser = ({ element, closeModal }) => {
         let newObjKey = {}
         newObjKey[key] = e.target.value
 
-        console.log('name target', e.target.value)
-
-        setUser({ ...user, ...newObjKey, id: new Date().getTime(), })
+        setUser({ ...user, ...newObjKey })
     }
 
+    const navigateAbort = () => {
+        navigate('/users')
+        setUser({})
+        if (typeof closeModal === "function") closeModal()
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log('Usuario >>', user)
+        console.log('Usuario enviar >>', user)
 
-        if (element.id === undefined) {
+        if (user.id === undefined) {
 
-            await createUser(user)
+            await createUser({...user, id: new Date().getTime()})
+
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar', password:''})
 
         } else {
 
-            await updateUser(element.id, user)
-            closeModal()
+            await updateUser(user)
+            if(typeof closeModal === "function") closeModal()
+            setUser({})
         }
-        // const data = {
-        //     id: element.id || new Date().getTime(),
-        //     name: nameProduct,
-        //     type: typeProduct,
-        //     image: imgProduct,
-        //     price: priceProduct
-        // };
 
-        // //Create
-        // if (element.id === undefined) {
-        //     await createProduct(data)
-        //     //limpiar inputs 
-        //     setNameProduct('');
-        //     setTypeProduct('');
-        //     setImgProduct('');
-        //     setPriceProduct('');
-        //     setFilePreview(null)
-
-        // } else {
-        //     await updateProduct(element.id, data)
-        //     closeModal()
-        // }
     }
-
-    // const handleInputsChange = async (setFunction, e) => {
-    //     setFunction(e.target.value)
-    // }
 
 
     return (
@@ -85,11 +82,11 @@ export const FormUser = ({ element, closeModal }) => {
 
                     <label htmlFor="userName">Nombre</label>
                     <input onChange={(event) => handleInputsChange(event)} type="text" name="name"
-                        className="formUser_options--input" value={user.name} required />
+                        className="formUser_options--input" value={user.name || ""} required />
 
                     <label htmlFor="userEmail">Correo</label>
                     <input onChange={(event) => handleInputsChange(event, "email")} type="text" name="email"
-                        className="formUser_options--input" value={user.email} required />
+                        className="formUser_options--input" value={user.email || ""} required />
 
                     <label htmlFor="userRole">Rol</label>
                     <select onChange={(event) => handleInputsChange(event, "role")} name="role"
@@ -100,15 +97,21 @@ export const FormUser = ({ element, closeModal }) => {
                         <option >Meser@</option>
                     </select>
 
-
-                    <label htmlFor="userPassword">Contraseña</label>
-                    <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
-                        className="formUser_options--input" value={user.password} required />
+                    {
+                        isCreating &&
+                        <>
+                            <label htmlFor="userPassword">Contraseña</label>
+                            <input onChange={(event) => handleInputsChange(event, "password")} type="password" name="password"
+                                className="formUser_options--input" value={user.password} required />
+                        </>
+                    }
 
                 </div>
+                <div className="formUser_containerBtns">
 
-                <button className="formUser_btn" >Guardar</button>
-
+                    <button className="formUser_btn" >Guardar</button>
+                    <button className="formUser_btn formUser_btn--abort" type="button" onClick={() => navigateAbort()}>Cancelar</button>
+                </div>
             </form>
         </div>
     )

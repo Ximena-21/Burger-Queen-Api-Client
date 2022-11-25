@@ -2,21 +2,24 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { makeRequestDelete, makeRequestGet, makeRequestPatch, makeRequestPost } from "../lib/requests";
-// import { DeleteModalProduct } from "../components/Products/DeleteModalProduct/DeleteModalProduct";
 import { TableColumnOption } from "../components/DynamicTable/TableColumnOption";
-// import { FormProduct } from "../components/Products/FormProduct/FormProduct";
-// import { getProducts, makeRequestDelete, makeRequestPatch, makeRequestPost } from "../lib/requests";
 import { useModal } from "../Modals/useModal";
 import { FormUser } from "../components/Users/FormUser/FormUser";
 import { DeleteModalUser } from "../components/Users/DeleteModalUser/DeleteModalUser";
+import { useNavigate } from "react-router-dom";
 
 const UsersContext = createContext();
 
 
 
-//ProductsProvider (mostrar)
+//UsersProvider (mostrar)
 const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([])
+
+    const [selectedUser, setSelectedUser] = useState({})
+
+    const navigate = useNavigate()
+
     //no hacer nunca mas
     const columnKeys = ['Nombre','Correo', 'Rol', 'Opciones']
     //MODAL PARA CREAR
@@ -32,10 +35,9 @@ const UsersProvider = ({ children }) => {
         {
             key: "role"
         },
-        // {
-        //     key: null, componente: BloqueProductPrice
-        // },
-        { key: null, componente: (element) => <TableColumnOption element={element} Add={FormUser} Delete={DeleteModalUser}  />}
+        { key: null, componente: (element) => <TableColumnOption type="users" 
+        element={element} Add={FormUser} Delete={DeleteModalUser} 
+        setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>}
     ]
 
     //actualizar
@@ -50,13 +52,14 @@ const UsersProvider = ({ children }) => {
         await makeRequestPost("users", data, true)
         await getUsers()
         closeModal()
+        console.log('usuario que voy a enviar', data);
     }
-
+  
     //editar
-    async function updateUser(id, data) {
-        await makeRequestPatch("users", id, data)
+    async function updateUser(data) {
+        await makeRequestPatch("users", data.id, data)
         await getUsers()
-        
+        navigate('/users')
     }
 
     //eliminar
@@ -75,6 +78,8 @@ const UsersProvider = ({ children }) => {
         avaliablesKeys, 
         createUser,
         deleteUser,
+        setSelectedUser,
+        selectedUser,
         updateUser,
         isOpenModal, 
         openModal,

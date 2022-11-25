@@ -18,6 +18,7 @@
     &_menu{
         width: 100%;
         max-width: 30px;
+        cursor: pointer;
     }
 
     &_logo{
@@ -26,7 +27,6 @@
     }
 
     &_user{
-       // width: 30%;
 
         @include flex-row-center;
 

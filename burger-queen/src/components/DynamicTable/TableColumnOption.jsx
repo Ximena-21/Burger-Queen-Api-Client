@@ -4,15 +4,13 @@ import { Modals } from '../../Modals/Modals'
 import { BtnAbort } from '../Products/DeleteModalProduct/DeleteModalProduct'
 import { useModal } from '../../Modals/useModal'
 import { useEffect, useState } from 'react'
-import { useProductsContext } from '../../context/ProductsContext'
+import { useNavigate } from 'react-router-dom'
 
-
-export const TableColumnOption = ({ element, Add, Delete }) => {
-
-    const {updateProduct} = useProductsContext
+export const TableColumnOption = ({ element, Add, Delete, type }) => {
 
     const [isOpen, open, close] = useModal(false)
     const [isOpenDelete, openDelete, closeDelete] = useModal(false)
+    const navigate = useNavigate()
 
     const [width, setWidth] = useState(window.innerWidth)
 
@@ -22,18 +20,20 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
 
 
     useEffect(() => {
-        // const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
 
 
-    const editProduct = async (element) =>{
-        console.log('width editar', width)
-        console.log('elemento', element)
+    const handleNavigateEdit = () => navigate(`/${type}/${element.id}`)
 
-        // await updateProduct (element.id, element)
+
+    const handleOpenModal = () => {
+        handleNavigateEdit()
+        open()
     }
+
+
     return (
         <tr className='table_rowBodyOpt'>
             <td className='table_columnBody'>
@@ -42,17 +42,14 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
 
                         <Modals
                             isOpen={isOpen}
-                            open={open}
+                            open={handleOpenModal}
                             close={close}
                             element={<img className={`table_columnBody--option  `}
                                 src={edit} alt="Edit" value={'edit'} />}
                             content={<Add closeModal={close} element={element} />}
                         /> 
                         : <img className={`table_columnBody--option  `}
-                        src={edit} alt="Edit" value={'edit'} onClick={()=>{
-                            editProduct(element)
-                        }} />
-
+                        src={edit} alt="Edit" value={'edit'} onClick={handleNavigateEdit} />
                 }
 
 
@@ -71,5 +68,3 @@ export const TableColumnOption = ({ element, Add, Delete }) => {
         </tr>
     )
 }
-
-//makeRequestDelete('products', element.id)
