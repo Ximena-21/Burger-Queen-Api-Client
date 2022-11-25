@@ -1,40 +1,32 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useState } from "react";
 import { createContext } from "react";
-import { useWaiterContext } from "./WaiterContext";
 
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
 
-  const { newProduct } = useWaiterContext();
-
-  const [orderItems, setOrderItem] = useState([]);
-
-  useEffect(() => {
-    newProduct;
-  }, [orderItems]);
+  const [productsOrder, setProductsOrder] = useState([]);
+  const [quantity, setQuantity] = useState(0)
 
   //Aumenta la cantidad del producto seleccionado
   const addItemToOrder = (product) => {
-    const inOrder = orderItems.find((item) => item.id === product.id);
+
+    const inOrder = productsOrder.find((item) => item.product.id === product.id);
 
     if (inOrder) {
-      console.log("si está en la orden y suma uno ", orderItems);
 
-      setOrderItem(
-        orderItems.map((productInOrder) => {
-          if (productInOrder.id === product.id) {
-            console.log("entra al condicional una vez después de clickeado");
-            return { ...product, amount: (product.amount += 1) };
+      setProductsOrder(
+        productsOrder.map((productInOrder) => {
+          if (productInOrder.product.id === product.id) {
+            return { ...productInOrder,  qty : (productInOrder.qty += 1) };
           } else {
             return productInOrder;
           }
         })
       );
     } else {
-      console.log("no está en la orden");
-      setOrderItem([...orderItems, { ...product, amount: 1 }]);
+      setProductsOrder([...productsOrder, {product : product, qty: 1 }]);
     }
   };
 
@@ -42,13 +34,13 @@ const OrderProvider = ({ children }) => {
   // Disminuye la cantidad del producto seleccionado
   const deleteItemToOrder = (product) => {
     //Busca si el producto está en la orden
-    const inOrder = newProduct.find(
+    const inOrder = productsOrder.find(
       (productInOrder) => productInOrder.id === product.id
     );
     // si la cantidad del producto es uno o más, se le resta
     if (inOrder.amount > 0) {
-      setOrderItem(
-        newProduct.map((productInOrder) => {
+      setProductsOrder(
+        productsOrder.map((productInOrder) => {
           if (productInOrder.id === product.id) {
             return { ...product, amount: (product.amount -= 1) };
           } else {
@@ -60,7 +52,8 @@ const OrderProvider = ({ children }) => {
   };
 
   const data = {
-    orderItems,
+    productsOrder,
+    quantity,
     addItemToOrder,
     deleteItemToOrder,
   };

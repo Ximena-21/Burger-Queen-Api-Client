@@ -10,6 +10,8 @@ export const LoginForm = () => {
   /* Cambio de rutas*/
   const navigate = useNavigate(); 
 
+
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -53,7 +55,7 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className="loginPage_form">
       <input onChange={handleEmailChange} type="email" name="email" className="loginPage_input" placeholder="Correo" value={email}/>
-      <input onChange={handlePasswordChange} type="password" name="password" className="loginPage_input" placeholder="Contraseña" value={password}/>
+      <input onChange={handlePasswordChange} size="6" type="password" name="password" className="loginPage_input" placeholder="Contraseña" value={password}/>
       <button className="loginPage_btn">Iniciar Sesión</button>
     </form>
   );

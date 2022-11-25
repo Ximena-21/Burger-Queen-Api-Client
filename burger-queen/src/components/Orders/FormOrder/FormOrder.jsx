@@ -6,7 +6,6 @@ export const FormOrder = () =>{
     return (
 
         <div className="formOrder">
-            {/* <img className="formOrder_btnExit" src="" alt="exit buton" /> */}
 
             <h3 className="formOrder_text">Orden</h3>
 

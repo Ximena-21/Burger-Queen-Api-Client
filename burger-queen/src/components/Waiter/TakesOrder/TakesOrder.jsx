@@ -6,9 +6,8 @@ import './style.scss';
 export const TableWaiter = () => {
 
   const [typeMenu, setTypeMenu] = useState("");
-  const { newProduct } = useWaiterContext();
+  const { products } = useWaiterContext();
 
-  console.log("newProduct takes ", newProduct);
 
   const handleTypeMenu = (e) => {
     setTypeMenu(e.target.value);
@@ -35,7 +34,7 @@ export const TableWaiter = () => {
         ""
       ) : (
         <div className="containerOrder_products" >
-          {newProduct.map((element) => {
+          {products.map((element) => {
             if (element.type === typeMenu) {
               return <CardProducts element={element} />;
             }

@@ -10,7 +10,7 @@ import './style.scss'
 
 export const QuantityProducts = () => {
 
-    const { orderItems } = useOrderContext();
+    const { productsOrder } = useOrderContext();
     const [productsLength, setProductsLength] = useState(0);
     const [isOpen, open, close] = useModal(false)
     const [width, setWidth] = useState(window.innerWidth)
@@ -26,11 +26,11 @@ export const QuantityProducts = () => {
     }, []);
 
     useEffect(() => {
-        !orderItems ? '' :
+        !productsOrder ? '' :
         setProductsLength(
-            orderItems.reduce((previous, current) => previous + current.amount, 0)
+            productsOrder.reduce((previous, product) => previous + parseInt(product.qty), 0)
         )
-    }, [orderItems])
+    }, [productsOrder])
 
    return productsLength === 0 ? '' : 
     ( 

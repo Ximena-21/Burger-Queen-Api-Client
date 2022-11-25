@@ -2,16 +2,17 @@ import { useOrderContext } from "../../../context/OrderContext";
 
 export const BodyTableOrder = () => {
 
-  const { orderItems } = useOrderContext();
+  const { productsOrder } = useOrderContext();
 
-  const listTr =  orderItems.map((element) => {
+  const listTr =  productsOrder.map((element) => {
 
     return (
         <tr className='bodyTabletOrder_rowBody'>
 
             {/* cantidad */}
-            <td className='bodyTabletOrder_columnBody'>{element.name}</td>
-            <td className='bodyTabletOrder_columnBody bodyTabletOrder_columnBody--price'>${element.price}</td>
+            <td className='bodyTabletOrder_columnBody'>{element.qty}</td>
+            <td className='bodyTabletOrder_columnBody'>{element.product.name}</td>
+            <td className='bodyTabletOrder_columnBody bodyTabletOrder_columnBody--price'>${element.product.price}</td>
 
         </tr>
     )

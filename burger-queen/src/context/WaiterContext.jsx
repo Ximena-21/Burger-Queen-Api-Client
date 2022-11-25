@@ -18,10 +18,10 @@ const WaiterProvider = ({children}) => {
     }, [])
 
 
-    const newProduct = products.map(product => ({...product, amount: 0}))
+    // const newProduct = products.map(product => ({...product, amount: 0}))
 
     const data = {
-        newProduct,
+        products,
     }
     
     console.log('waiterContext ',data);
