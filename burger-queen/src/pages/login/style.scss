@@ -19,9 +19,10 @@
     }
 
     &_background{
-        min-height: 600px;
-        max-height: 100vh;
-        min-width: 900px;
+        height: 100%;
+        width: 100%;
+        min-width: 320px;
+        max-width: 1100px;
         position: absolute;
         z-index: -1;
         object-fit: cover;
@@ -94,10 +95,6 @@
 @media (min-width: 750px) {
     .loginPage{
 
-        &_background{
-            min-width: 1100px;
-        }
-
         &_container{
             padding-bottom: 200px;
         }
@@ -105,14 +102,6 @@
 }
 
 
-@media (min-width: 950px) {
-    .loginPage{
-
-        &_background{
-            min-width: 1200px;
-        }
-    }
-}
 
 @media (min-width: 1024px) {
     .loginPage{
@@ -124,7 +113,7 @@
         }
 
         &_background{
-            min-width: 1400px;
+            max-width: 1450px;
         }
 
         &_logo{
@@ -145,13 +134,3 @@
     }
 }
 
-
-
-@media (min-width: 1250px) {
-    .loginPage{
-
-        &_background{
-            min-width: 1800px;
-        }
-    }
-}

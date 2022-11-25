@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./AppStyles.scss";
 import { ProtectedRoute } from "./components/ProtectedRoute/ProtectedRoute";
-import { ViewOrderTable } from "./components/ViewOrderTable/ViewOrderTable";
-import { ViewOrders } from "./components/Waiter/ViewOrders/ViewOrders";
 import { OrderProvider } from "./context/OrderContext";
 import { ProductsProvider } from "./context/ProductsContext";
 import { UsersProvider } from "./context/UsersContext";

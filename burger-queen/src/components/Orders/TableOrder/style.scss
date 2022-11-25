@@ -1,0 +1,70 @@
+@import "../../../generics.scss";
+
+.tabletOrder {
+    width: 100%;
+    min-width: 340px;
+    max-width: 850px;
+    /* min-height: 300px; */
+    max-height: 400px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.headerTabletOrder {
+    background: #B8B5B5;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    padding: 5px 0;
+
+    &_headerRow {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+.bodyTabletOrder{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &_columnBody{
+        &--price{
+            color: $tertiary-color;
+        }
+    }
+
+    &_bodyContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        border: #6c6c6c 1px solid;
+        border-radius: 8px;
+        padding: 10px;
+        overflow-y: scroll;
+    }
+    
+
+    &_rowBody{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &--subtotal{
+            background: $secundary-color;
+            padding: 5px;
+            font-weight: 700;
+        }
+    }
+}

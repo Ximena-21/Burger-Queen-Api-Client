@@ -6,20 +6,20 @@ export const FormOrder = () =>{
     return (
 
         <div className="formOrder">
-            <img className="formOrder_btnExit" src="" alt="exit buton" />
+            {/* <img className="formOrder_btnExit" src="" alt="exit buton" /> */}
 
             <h3 className="formOrder_text">Orden</h3>
 
             <div className="formOrder_clientContainer">
-                <label className="formOrder_clientContainer" htmlFor="">Cliente</label>
+                <label className="formOrder_clientContainer--label" htmlFor="">Cliente</label>
                 <input type="text" className="formOrder_clientContainer--input" />
             </div>
 
             <TableOrder/>
 
             <div className="formOrder_btnContainer">
-                <button className="formOrder_btn " >Enviar</button>
-                <button className="formOrder_btn formOrder_btn--abort" >Cancelar</button>
+                <button className="formOrder_btn " >ENVIAR PEDIDO</button>
+                <button className="formOrder_btn formOrder_btn--abort" >CANCELAR PEDIDO</button>
             </div>
         </div>
 
