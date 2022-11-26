@@ -8,7 +8,7 @@ export const OpenOrder = ({ element, Add,  type }) => {
 
     const [isOpen, open, close] = useModal(false)
     const [width, setWidth] = useState(window.innerWidth)
-    
+
     const handleWindowResize = () => {
         setWidth(window.innerWidth)
     }
@@ -30,7 +30,7 @@ export const OpenOrder = ({ element, Add,  type }) => {
                             open={open}
                             close={close}
                             element={<img className={`table_columnBody--option  `}
-                                src={unfold} alt="Edit" value={'edit'} />}
+                                src={unfold} alt="Edit" value={'unfold'} />}
                             content={<Add closeModal={close} element={element} />}
                         /> 
                         // : <img className={`table_columnBody--option  `}

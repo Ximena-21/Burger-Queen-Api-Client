@@ -65,12 +65,12 @@ const OrderProvider = ({ children }) => {
   async function createOrder(data) {
     await makeRequestPost("orders", data, true);
     // await getListProducts();
-    console.log(closeModal);
-    // close();
+    // closeModal();
   }
 
   const data = {
     productsOrder,
+    setProductsOrder,
     addItemToOrder,
     deleteItemToOrder,
     createOrder

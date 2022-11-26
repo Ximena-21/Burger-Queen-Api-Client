@@ -44,7 +44,7 @@ export const QuantityProducts = () => {
                 close={close}
                 element={<div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
                <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div>}
-               content={< FormOrder closeModal={close}/>}
+               content={< FormOrder  />}
             /> 
             // : <div className="editOrder"> <img className="editOrder_img" src={editOrder} alt="" /> 
             //  <div className="editOrder_length"><h4 className="editOrder_length--quantity">{productsLength}</h4></div> </div>

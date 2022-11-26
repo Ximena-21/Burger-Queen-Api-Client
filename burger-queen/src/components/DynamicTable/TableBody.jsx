@@ -21,9 +21,9 @@ export const TableBody = (props) => {
 
   return (
     <tbody className="table_body">
-      {data.map((element) => {
+      {data.map((element, i) => {
         return (
-          <tr className="table_rowBody">
+          <tr className="table_rowBody" key={i + 1}>
             {columns.map((objectColumn, i) => {
               if (objectColumn.hasOwnProperty("componente")) {
                 return objectColumn.componente(element);

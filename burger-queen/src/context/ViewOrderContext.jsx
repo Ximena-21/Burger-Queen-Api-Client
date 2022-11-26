@@ -14,7 +14,7 @@ const ViewOrderProvider = ({ children }) => {
     const [viewOrder, setViewOrder] = useState([])
 
     //no hacer nunca mas
-    const columnKeys = ['Orden','Id', 'Tiempo', 'Estado']
+    const columnKeys = ['Orden', 'Tiempo', 'Estado', '']
     //MODAL PARA CREAR
     const [isOpenModal, openModal, closeModal] = useModal(false);
 
@@ -23,10 +23,7 @@ const ViewOrderProvider = ({ children }) => {
             key: "client"
         },
         {
-            key: "userId"
-        },
-        {
-            key: "dataEntry"
+            key: "dateEntry"
         },
         {
             key: "status"

@@ -5,9 +5,8 @@ import "./style.scss"
 
 export const FormOrder = () =>{
 
-    const {productsOrder, createOrder} = useOrderContext()
+    const {productsOrder, createOrder, setProductsOrder} = useOrderContext()
     const [client, setClient] = useState('')
-    const [order, setOrder] = useState({})
     
     const handleClient = (e) => {
         setClient(e.target.value)
@@ -21,51 +20,33 @@ export const FormOrder = () =>{
         dateEntry: new Date()
     }
 
-    // const sendOrder = () => {
-        
-    // }
+    const sendOrder = async  () => {
+        await createOrder(dataOrder)
+    }
+
+    const abortOrder = () => {
+        setClient('')
+        setProductsOrder([])
+    }
 
     return (
 
-        <div className="formOrder">
+        <form className="formOrder" onSubmit={sendOrder}>
 
             <h3 className="formOrder_text">Orden</h3>
 
             <div className="formOrder_clientContainer">
                 <label className="formOrder_clientContainer--label" htmlFor="">Cliente</label>
-                <input onChange={handleClient} type="text" className="formOrder_clientContainer--input" value={client} />
+                <input required onChange={handleClient} type="text" className="formOrder_clientContainer--input" value={client} />
             </div>
 
             <TableOrder/>
 
             <div className="formOrder_btnContainer">
-                <button className="formOrder_btn " onClick={() => createOrder(dataOrder)}>ENVIAR PEDIDO</button>
-                <button className="formOrder_btn formOrder_btn--abort" >CANCELAR PEDIDO</button>
+                <button className="formOrder_btn " type="submit" >ENVIAR PEDIDO</button>
+                <button className="formOrder_btn formOrder_btn--abort" type="button" onClick={abortOrder}>CANCELAR PEDIDO</button>
             </div>
-        </div>
+        </form>
 
     )
 }
-
-// {
-//     "userId": 15254,
-//      "client": "Carol Shaw",
-//      "products": [
-//        {
-//          "qty": 5,
-//          "product": {
-//            "id": 1214,
-//            "name": "Sandwich de jamón y queso",
-//            "price": 1000,
-//            "image": "https://github.com/Laboratoria/bootcamp/tree/main/projects/04-burger-queen-api/resources/images/sandwich.jpg",
-//            "type": "Desayuno",
-//            "dateEntry": "2022-03-05 15:14:10"
-//          }
-//        }
-//      ],
-//      "status": "pending",
-//      "dateEntry": "2022-03-05 15:14:10"
-//    }
-   
-
-
