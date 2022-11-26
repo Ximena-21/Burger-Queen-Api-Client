@@ -1,12 +1,17 @@
 import unfold from '../../../assets/images/menuPoints.png'
+import delet from '../../../assets/images/delete.png'
 import { useEffect, useState } from 'react'
 import { Modals } from '../../../Modals/Modals'
 import { useModal } from '../../../Modals/useModal'
+import { BtnAbortOrder, DeleteModalOrder } from '../DeletModalOrder/DeleteModalOrder'
 import './style.scss';
 
 export const OpenOrder = ({ element, Add,  type }) => {
 
     const [isOpen, open, close] = useModal(false)
+    const [isOpenDelete, openDelete, closeDelete] = useModal(false)
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"))
+
     const [width, setWidth] = useState(window.innerWidth)
 
     const handleWindowResize = () => {
@@ -38,6 +43,20 @@ export const OpenOrder = ({ element, Add,  type }) => {
                 }
 
             </td>
+            {
+            dataUser.role !== 'Meser@' ? '' : 
+            <td className='table_columnBody'>
+                <Modals
+                    isOpen={isOpenDelete}
+                    open={openDelete}
+                    close={closeDelete}
+                    element={<img className='table_columnBody--option' src={delet} alt="Delete"
+                    />}
+                    content={<DeleteModalOrder element={element} closeModal={closeDelete} />}
+                    elementClose={< BtnAbortOrder close={closeDelete} />}
+                />
+            </td>
+            }
         </tr>
     )
 

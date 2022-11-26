@@ -3,11 +3,7 @@ import "./style.scss";
 
 export const ModalViewOrder = ({element}) => {
   
-  // console.log('prod en modal viewOrder ',element);
   const {viewOrder} = useViewOrderContext()
-
-  // viewOrder.map(element => element.products.map(product => console.log(product)))
-  // console.log('viewOrderModal ',viewOrder);
 
   return (
     <table className="modalViewOrder">
@@ -20,29 +16,35 @@ export const ModalViewOrder = ({element}) => {
       <tbody className='modalViewOrder_body'>
         {
           viewOrder.map(order => {
-            return(
-           order.products.map((product, i) => {
-            if(element.id === product.product.id){
-              // console.log({id: element.id, id2: product.product.id});
+            if(order.id === element.id){
               return(
-              <tr className='modalViewOrder_rowBody' key={i}>
-                <td className='modalViewOrder_columnBody'>{product.qty}</td>
-                <td className='modalViewOrder_columnBody'>{product.product.name}</td>
-              </tr>
-              )
+                order.products.map((product, i) => {
+                   return(
+                    <tr className='modalViewOrder_rowBody' key={i}>
+                      <td className='modalViewOrder_columnBody'>{product.qty}</td>
+                      <td className='modalViewOrder_columnBody'>{product.product.name}</td>
+                    </tr>
+                   )
+                })
+                 )
             }
-            
-           })
-            )
           })
         }
       </tbody>
 
       <tfoot className='modalViewOrder_foot'>
-        <tr className='modalViewOrder_footRow'>
-            <th>Total</th>
-            <th>0000</th>
-        </tr>
+        {
+          viewOrder.map(order => {
+            if(order.id === element.id){
+              return(
+                <tr className='modalViewOrder_footRow'>
+                <th>Total</th>
+                <th>{order.products.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)}</th>
+            </tr>
+              )
+            }
+          })
+        }
       </tfoot>
     </table>
   );

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import { makeRequestPost } from "../lib/requests";
@@ -9,6 +9,17 @@ const OrderContext = createContext();
 const OrderProvider = ({ children }) => {
   const [productsOrder, setProductsOrder] = useState([]);
   const [isOpenModal, openModal, closeModal] = useModal(false);
+
+
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    !productsOrder ? '' :
+    setTotal(
+        productsOrder.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)
+    )
+}, [productsOrder])
+
 
   //Aumenta la cantidad del producto seleccionado
   const addItemToOrder = (product) => {
@@ -71,6 +82,7 @@ const OrderProvider = ({ children }) => {
   const data = {
     productsOrder,
     setProductsOrder,
+    total,
     addItemToOrder,
     deleteItemToOrder,
     createOrder

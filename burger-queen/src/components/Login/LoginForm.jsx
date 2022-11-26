@@ -36,6 +36,10 @@ export const LoginForm = () => {
 
           navigate('/takes-orders')
 
+        }else{
+
+          navigate('/view-orders')
+          
         }
       }
       else{

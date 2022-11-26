@@ -4,6 +4,8 @@ import './style.scss'
 
 export const ViewOrder = () => {
 
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"))
+
     return(
         <div className="viewOrder">
 
@@ -11,7 +13,9 @@ export const ViewOrder = () => {
         <div  className="viewOrder_page">
 
             <div>
-                <h1 className="viewOrder_role">MESERO</h1>
+                <h1 className="viewOrder_role">
+                    {dataUser.role === 'Meser@' ? 'MESERO' : dataUser.role === 'admin' ? 'ADMINISTRADOR' : 'JEFE DE COCINA' }
+                </h1>
             </div>
 
             <div className="viewOrder_container">

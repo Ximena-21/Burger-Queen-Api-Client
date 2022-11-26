@@ -1,21 +1,9 @@
-import { useEffect, useState } from "react";
 import { useOrderContext } from "../../../context/OrderContext";
 import { BoxQuantity } from "../../Waiter/TakesOrder/BoxQuantity/BoxQuantity";
 
 export const BodyTableOrder = () => {
 
-  const { productsOrder, addItemToOrder, deleteItemToOrder} =  useOrderContext()
-
-  const [total, setTotal] = useState(0)
-
-  useEffect(() => {
-    !productsOrder ? '' :
-    setTotal(
-        productsOrder.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)
-    )
-}, [productsOrder])
-
-
+  const { productsOrder, addItemToOrder, deleteItemToOrder, total} =  useOrderContext()
 
   return (
     <tbody className='bodyTabletOrder'>
