@@ -68,6 +68,15 @@
             flex-direction: column;
             align-items: flex-start;
         }
+        &--pending{
+            color: red;
+        }
+        &--ready{
+            color: #FF8000 ;
+        }
+        &--delivered{
+            color: #269823;
+        }
     }
 
     &_img{

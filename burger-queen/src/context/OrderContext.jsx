@@ -1,68 +1,91 @@
 import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
-import { useWaiterContext } from "./WaiterContext";
+import { makeRequestPost } from "../lib/requests";
+import { useModal } from "../Modals/useModal";
 
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
+  const [productsOrder, setProductsOrder] = useState([]);
+  const [isOpenModal, openModal, closeModal] = useModal(false);
 
-  const { newProduct } = useWaiterContext();
 
-  const [orderItems, setOrderItem] = useState([]);
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
-    newProduct;
-  }, [orderItems]);
+    !productsOrder ? '' :
+    setTotal(
+        productsOrder.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)
+    )
+}, [productsOrder])
+
 
   //Aumenta la cantidad del producto seleccionado
   const addItemToOrder = (product) => {
-    const inOrder = orderItems.find((item) => item.id === product.id);
+    const inOrder = productsOrder.find(
+      (item) => item.product.id === product.id
+    );
 
     if (inOrder) {
-      console.log("si está en la orden y suma uno ", orderItems);
-
-      setOrderItem(
-        orderItems.map((productInOrder) => {
-          if (productInOrder.id === product.id) {
-            console.log("entra al condicional una vez después de clickeado");
-            return { ...product, amount: (product.amount += 1) };
+      setProductsOrder(
+        productsOrder.map((productInOrder) => {
+          if (productInOrder.product.id === product.id) {
+            return { ...productInOrder, qty: (productInOrder.qty += 1) };
           } else {
             return productInOrder;
           }
         })
       );
     } else {
-      console.log("no está en la orden");
-      setOrderItem([...orderItems, { ...product, amount: 1 }]);
+      setProductsOrder([...productsOrder, { product: product, qty: 1 }]);
     }
   };
-
 
   // Disminuye la cantidad del producto seleccionado
   const deleteItemToOrder = (product) => {
+    console.log("product delet ", product);
     //Busca si el producto está en la orden
-    const inOrder = newProduct.find(
-      (productInOrder) => productInOrder.id === product.id
+    const inOrder = productsOrder.find(
+      (item) => item.product.id === product.id
     );
+
+    console.log("inOrder ", inOrder);
     // si la cantidad del producto es uno o más, se le resta
-    if (inOrder.amount > 0) {
-      setOrderItem(
-        newProduct.map((productInOrder) => {
-          if (productInOrder.id === product.id) {
-            return { ...product, amount: (product.amount -= 1) };
-          } else {
-            return productInOrder;
-          }
-        })
-      );
+    if (inOrder) {
+      if (inOrder.qty === 1) {
+        setProductsOrder(
+          productsOrder.filter((item) => item.product.id !== product.id)
+        );
+      } else {
+        setProductsOrder(
+          productsOrder.map((productInOrder) => {
+            if (productInOrder.product.id === product.id) {
+              return { ...productInOrder, qty: (productInOrder.qty -= 1) };
+            } else {
+              return productInOrder;
+            }
+          })
+        );
+      }
+    } else {
+      setProductsOrder([...productsOrder]);
     }
   };
 
+  async function createOrder(data) {
+    await makeRequestPost("orders", data, true);
+    // await getListProducts();
+    // closeModal();
+  }
+
   const data = {
-    orderItems,
+    productsOrder,
+    setProductsOrder,
+    total,
     addItemToOrder,
     deleteItemToOrder,
+    createOrder
   };
 
   console.log("OrderCOntext >>>>>>>", data);

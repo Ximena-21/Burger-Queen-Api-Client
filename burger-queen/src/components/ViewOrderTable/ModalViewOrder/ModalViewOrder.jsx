@@ -1,6 +1,10 @@
+import { useViewOrderContext } from "../../../context/ViewOrderContext";
 import "./style.scss";
 
-export const ModalViewOrder = () => {
+export const ModalViewOrder = ({element}) => {
+  
+  const {viewOrder} = useViewOrderContext()
+
   return (
     <table className="modalViewOrder">
       <thead className="modalViewOrder_header">
@@ -10,17 +14,37 @@ export const ModalViewOrder = () => {
         </tr>
       </thead>
       <tbody className='modalViewOrder_body'>
-        <tr className='modalViewOrder_rowBody'>
-          <td className='modalViewOrder_columnBody'>2</td>
-          <td className='modalViewOrder_columnBody'>Agua 500ml</td>
-        </tr>
+        {
+          viewOrder.map(order => {
+            if(order.id === element.id){
+              return(
+                order.products.map((product, i) => {
+                   return(
+                    <tr className='modalViewOrder_rowBody' key={i}>
+                      <td className='modalViewOrder_columnBody'>{product.qty}</td>
+                      <td className='modalViewOrder_columnBody'>{product.product.name}</td>
+                    </tr>
+                   )
+                })
+                 )
+            }
+          })
+        }
       </tbody>
 
       <tfoot className='modalViewOrder_foot'>
-        <tr className='modalViewOrder_footRow'>
-            <th>Total</th>
-            <th>0000</th>
-        </tr>
+        {
+          viewOrder.map(order => {
+            if(order.id === element.id){
+              return(
+                <tr className='modalViewOrder_footRow'>
+                <th>Total</th>
+                <th>{order.products.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)}</th>
+            </tr>
+              )
+            }
+          })
+        }
       </tfoot>
     </table>
   );

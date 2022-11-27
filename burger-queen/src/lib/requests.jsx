@@ -88,11 +88,27 @@ const makeRequestPatch = async (pathname, id, data) => {
     },
     body: JSON.stringify(data),
   });
+}
+
+const makeRequestDeleteOrder = async ( id) => {
+  
+  const token = localStorage.getItem("loginToken")
+
+  const url = `http://localhost:8080/orders/${id}`
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      "content-type": 'application/json',
+      'authorization': `Bearer ${token}`
+    },
+  });
 
 }
 
+
 export {
   makeRequestPost,
+  makeRequestDeleteOrder,
   getProducts,
   makeRequestDelete,
   makeRequestPatch,

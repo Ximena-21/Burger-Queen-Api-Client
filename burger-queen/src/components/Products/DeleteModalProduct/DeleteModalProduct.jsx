@@ -8,7 +8,7 @@ export const BtnAbort = ({close}) => {
 
 export const DeleteModalProduct = ({ element, closeModal }) => {
   const { deleteProduct } = useProductsContext()
-
+  
   const handleDelete = async () => {
     await deleteProduct(element.id)
     closeModal()

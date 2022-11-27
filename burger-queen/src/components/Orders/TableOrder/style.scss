@@ -41,6 +41,10 @@
         &--price{
             color: $tertiary-color;
         }
+
+        &--quantity{
+            background: palevioletred;
+        }
     }
 
     &_bodyContainer{

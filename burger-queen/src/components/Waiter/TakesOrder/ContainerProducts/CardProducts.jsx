@@ -4,9 +4,7 @@ import { useOrderContext } from '../../../../context/OrderContext';
 
 export const CardProducts = ({element}) => {
 
-        const {addItemToOrder, deleteItemToOrder } =  useOrderContext()
-
-        // console.log('element from cardProducts ',element);
+        const {addItemToOrder, deleteItemToOrder, productsOrder} =  useOrderContext()
 
         return(
             <div className="cardProduct"  >
@@ -14,7 +12,20 @@ export const CardProducts = ({element}) => {
                     <h4 className='cardProduct_info--name'>{element.name}</h4>
                     <h4 className='cardProduct_info--name'>${element.price}</h4>
                 </div>
-                    < BoxQuantity element={element.amount} substract={() => deleteItemToOrder(element)} add={ () => addItemToOrder(element)}/>
+                {
+                        productsOrder.map(ele => { 
+                            if(element.id === ele.product.id){
+                                return(
+                                    < BoxQuantity 
+                                    element={ele.qty}
+                                    substract={() => deleteItemToOrder(element)} 
+                                    add={ () => addItemToOrder(element)}/>
+                                )
+                            } else {
+                                return ''
+                            }
+                            })
+                }
             </div>
         
             )
