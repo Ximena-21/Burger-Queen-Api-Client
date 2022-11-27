@@ -2,12 +2,21 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { createContext, useState } from "react";
 import { StatusOrder } from "../components/Orders/StatusOrder/StatusOrder";
+import { DeleteModalOrder } from "../components/ViewOrderTable/DeletModalOrder/DeleteModalOrder";
 import { ModalViewOrder } from "../components/ViewOrderTable/ModalViewOrder/ModalViewOrder";
 import { OpenOrder } from "../components/ViewOrderTable/OpenOrder/OpenOrder";
 import { makeRequestDelete, makeRequestDeleteOrder, makeRequestGet, makeRequestPatch } from "../lib/requests";
 import { useModal } from "../Modals/useModal";
 
 const viewOrderContext = createContext();
+
+function Status(element) {
+
+    return (
+            <td className={`table_columnBody--${element.status} `}>{element.status}</td>
+    )
+
+}
 
 //viewOrderProvider (mostrar)
 const ViewOrderProvider = ({ children }) => {
@@ -27,14 +36,15 @@ const ViewOrderProvider = ({ children }) => {
             key: "client"
         },
         {
-            key: "dateEntry"
+            // key: "dateEntry"
+            key: "totalTime"
         },
         {
-            key: "status"
+            key: null, componente: Status
         },
         { key: null, componente: (element) =>
             <OpenOrder type="view-orders" element={element}
-             Add={ModalViewOrder}  /> }
+             Add={ModalViewOrder} Delete={DeleteModalOrder} /> }
     ]
 
     //actualizar
@@ -46,7 +56,6 @@ const ViewOrderProvider = ({ children }) => {
 
     //eliminar
     async function deleteOrder(id){
-        // await makeRequestDelete("orders", id)
         await makeRequestDeleteOrder(id)
         await getOrders()
     }
@@ -69,7 +78,7 @@ const ViewOrderProvider = ({ children }) => {
         isOpenModal, 
         openModal,
         closeModal,
-        changeStatusDelivered
+        changeStatusDelivered,
     }
 
     console.log("view Order Context >>>> ", data)

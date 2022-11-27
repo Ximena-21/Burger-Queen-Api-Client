@@ -17,7 +17,8 @@ export const FormOrder = () =>{
         client: client,
         products: productsOrder,
         status: 'pending',
-        dateEntry: new Date()
+        dateEntry: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`,
+        totalTime: '00:00'
     }
 
     const sendOrder = async  () => {

@@ -3,10 +3,10 @@ import delet from '../../../assets/images/delete.png'
 import { useEffect, useState } from 'react'
 import { Modals } from '../../../Modals/Modals'
 import { useModal } from '../../../Modals/useModal'
-import { BtnAbortOrder, DeleteModalOrder } from '../DeletModalOrder/DeleteModalOrder'
+import { BtnAbortOrder } from '../DeletModalOrder/DeleteModalOrder'
 import './style.scss';
 
-export const OpenOrder = ({ element, Add,  type }) => {
+export const OpenOrder = ({ element, Add, Delete }) => {
 
     const [isOpen, open, close] = useModal(false)
     const [isOpenDelete, openDelete, closeDelete] = useModal(false)
@@ -52,7 +52,7 @@ export const OpenOrder = ({ element, Add,  type }) => {
                     close={closeDelete}
                     element={<img className='table_columnBody--option' src={delet} alt="Delete"
                     />}
-                    content={<DeleteModalOrder element={element} closeModal={closeDelete} />}
+                    content={<Delete element={element} closeModal={closeDelete} />}
                     elementClose={< BtnAbortOrder close={closeDelete} />}
                 />
             </td>

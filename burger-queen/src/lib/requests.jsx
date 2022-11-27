@@ -98,7 +98,7 @@ const makeRequestDeleteOrder = async ( id) => {
   const res = await fetch(url, {
     method: 'DELETE',
     headers: {
-      'accept': 'application/json',
+      "content-type": 'application/json',
       'authorization': `Bearer ${token}`
     },
   });
