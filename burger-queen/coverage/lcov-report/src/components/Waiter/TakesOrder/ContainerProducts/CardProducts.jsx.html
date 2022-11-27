@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/9</span>
             </div>
         
             
@@ -83,7 +83,18 @@
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,15 +102,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -109,9 +131,7 @@ import { useOrderContext } from '../../../../context/OrderContext';
 &nbsp;
 export const CardProducts = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span>element}) =&gt; {</span>
 &nbsp;
-        const {addItemToOrder, deleteItemToOrder } =  <span class="cstat-no" title="statement not covered" >useOrderContext()</span>
-&nbsp;
-        // console.log('element from cardProducts ',element);
+        const {addItemToOrder, deleteItemToOrder, productsOrder} =  <span class="cstat-no" title="statement not covered" >useOrderContext()</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >        return(</span>
             &lt;div className="cardProduct"  &gt;
@@ -119,7 +139,20 @@ export const CardProducts = <span class="cstat-no" title="statement not covered"
                     &lt;h4 className='cardProduct_info--name'&gt;{element.name}&lt;/h4&gt;
                     &lt;h4 className='cardProduct_info--name'&gt;${element.price}&lt;/h4&gt;
                 &lt;/div&gt;
-                    &lt; BoxQuantity element={element.amount} substract={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >deleteItemToOrder(element)}</span> add={ <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >addItemToOrder(element)}</span>/&gt;
+                {
+                        productsOrder.map(<span class="fstat-no" title="function not covered" >el</span>e =&gt; { 
+<span class="cstat-no" title="statement not covered" >                            if(element.id === ele.product.id){</span>
+<span class="cstat-no" title="statement not covered" >                                return(</span>
+                                    &lt; BoxQuantity 
+                                    element={ele.qty}
+                                    substract={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >deleteItemToOrder(element)} </span>
+                                    add={ <span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >addItemToOrder(element)}</span>/&gt;
+                                )
+                            } else {
+<span class="cstat-no" title="statement not covered" >                                return ''</span>
+                            }
+                            })
+                }
             &lt;/div&gt;
         
             )
@@ -130,7 +163,7 @@ export const CardProducts = <span class="cstat-no" title="statement not covered"
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-25T01:43:35.554Z
+                at 2022-11-27T14:43:58.424Z
             </div>
         <script src="../../../../../prettify.js"></script>
         <script>

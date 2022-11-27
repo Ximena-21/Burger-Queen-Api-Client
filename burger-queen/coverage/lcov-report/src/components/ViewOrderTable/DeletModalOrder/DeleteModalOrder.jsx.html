@@ -3,15 +3,15 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/context/WaiterContext.jsx</title>
+    <title>Code coverage report for src/components/ViewOrderTable/DeletModalOrder/DeleteModalOrder.jsx</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="../../prettify.css" />
-    <link rel="stylesheet" href="../../base.css" />
-    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../../favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style type='text/css'>
         .coverage-summary .sorter {
-            background-image: url(../../sort-arrow-sprite.png);
+            background-image: url(../../../../sort-arrow-sprite.png);
         }
     </style>
 </head>
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/context</a> WaiterContext.jsx</h1>
+        <h1><a href="../../../../index.html">All files</a> / <a href="index.html">src/components/ViewOrderTable/DeletModalOrder</a> DeleteModalOrder.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -95,20 +95,8 @@
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -116,49 +104,64 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useContext, useEffect } from "react";
-import { createContext, useState } from "react";
-import { getProducts } from "../lib/requests";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useViewOrderContext } from "../../../context/ViewOrderContext";
 &nbsp;
-const WaiterContext = <span class="cstat-no" title="statement not covered" >createContext();</span>
+export const BtnAbortOrder = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span>close}) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return &lt;button className="deleteModal_btnAbort" onClick={close}&gt;CANCELAR&lt;/button&gt;;</span>
+};
 &nbsp;
-const WaiterProvider = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span>children}) =&gt; {</span>
+export const DeleteModalOrder = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> element, closeModal }) =&gt; {</span>
+  
+  const { deleteOrder } = <span class="cstat-no" title="statement not covered" >useViewOrderContext()</span>
 &nbsp;
-    const [products, setProducts] = <span class="cstat-no" title="statement not covered" >useState([])</span>
 &nbsp;
-    async function <span class="fstat-no" title="function not covered" >getListProducts(</span>) {
-        const dataProducts = <span class="cstat-no" title="statement not covered" >await getProducts('products')</span>
-<span class="cstat-no" title="statement not covered" >        setProducts(dataProducts);</span>
-    }
+  const handleDelete = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      return(</span>
+        await deleteOrder(element.userId),
+        closeModal()
+      )
+  }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        getListProducts();</span>
-    }, [])
-&nbsp;
-    const data = <span class="cstat-no" title="statement not covered" >{</span>
-        products,
-    }
-    
-<span class="cstat-no" title="statement not covered" >    console.log('waiterContext &gt;&gt;&gt;&gt;&gt; ',data);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >    return &lt;WaiterContext.Provider value={data}&gt;{children}&lt;/WaiterContext.Provider&gt;</span>
-&nbsp;
-}
-&nbsp;
-const useWaiterContext = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >useContext(WaiterContext)</span></span>
-&nbsp;
-export { WaiterProvider, useWaiterContext }
+<span class="cstat-no" title="statement not covered" >  return (</span>
+    &lt;main className="deleteModal"&gt;
+        &lt;section className="deleteModal_container"&gt;
+          &lt;h1 className="deleteModal_title"&gt;Eliminación&lt;/h1&gt;
+            &lt;p className="deleteModal_warning"&gt;La información de la orden no podrá ser recuperada&lt;/p&gt;
+            &lt;p className="deleteModal_question"&gt;¿Está seguro de eliminar la orden?&lt;/p&gt;
+          &lt;button className="deleteModal_btnDelete"
+            onClick={handleDelete}
+          &gt;
+            ELIMINAR
+          &lt;/button&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+  );
+};
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -168,14 +171,14 @@ export { WaiterProvider, useWaiterContext }
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
                 at 2022-11-27T14:43:58.424Z
             </div>
-        <script src="../../prettify.js"></script>
+        <script src="../../../../prettify.js"></script>
         <script>
             window.onload = function () {
                 prettyPrint();
             };
         </script>
-        <script src="../../sorter.js"></script>
-        <script src="../../block-navigation.js"></script>
+        <script src="../../../../sorter.js"></script>
+        <script src="../../../../block-navigation.js"></script>
     </body>
 </html>
     
