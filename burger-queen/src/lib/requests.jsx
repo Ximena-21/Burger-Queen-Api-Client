@@ -102,6 +102,8 @@ const makeRequestDeleteOrder = async ( id) => {
       'authorization': `Bearer ${token}`
     },
   });
+  console.log('respuesta >>', url, id)
+  return res
 
 }
 

@@ -11,7 +11,7 @@ export const DeleteModalOrder = ({ element, closeModal }) => {
 
   const handleDelete = async () => {
       return(
-        await deleteOrder(element.userId),
+        await deleteOrder(element.id),
         closeModal()
       )
   }
