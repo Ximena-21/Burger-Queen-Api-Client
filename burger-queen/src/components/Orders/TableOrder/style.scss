@@ -32,23 +32,41 @@
     }
 }
 
-.bodyTabletOrder{
+.bodyTabletOrder {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    &_columnBody{
-        &--price{
-            color: $tertiary-color;
-        }
+    &_columnBody {
+        width: 40%;
+        min-width: 100px;
+        max-width: 120px;
 
-        &--quantity{
-            background: palevioletred;
+        text-align: center;
+
+        &--price {
+            width: 20%;
+            min-width: 60px;
+            max-width: 80px;
+            text-align: end;
+            color: $tertiary-color;
         }
     }
 
-    &_bodyContainer{
+    &_quantity {
+        width: 15%;
+        max-width: 40px;
+        margin-left: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    &_bodyContainer {
         width: 100%;
+        height: 80%;
+        min-height: 60px;
+        max-height: 150px;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -57,15 +75,15 @@
         padding: 10px;
         overflow-y: scroll;
     }
-    
 
-    &_rowBody{
+
+    &_rowBody {
         width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
-        &--subtotal{
+        &--subtotal {
             background: $secundary-color;
             padding: 5px;
             font-weight: 700;
