@@ -9,6 +9,7 @@ export const CardProducts = ({element}) => {
         return(
             <div className="cardProduct"  >
                 <div className="cardProduct_info" onClick={() => addItemToOrder(element)}>
+                    <img className="cardProduct_info--img" src={element.image} alt="" />
                     <h4 className='cardProduct_info--name'>{element.name}</h4>
                     <h4 className='cardProduct_info--name'>${element.price}</h4>
                 </div>

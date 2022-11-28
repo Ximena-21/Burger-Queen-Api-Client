@@ -4,24 +4,26 @@
 
         @include flex-row-center ;
         width: 50%;
-        gap: 10px;
+        gap: 5px;
 
         &--substract{
             font-size: 25px;
             font-weight: bold;
-            color: white;
+            color: $primary-color;
         }
 
         &--add{
             font-size: 25px;
-            color: white;
+            color: #f9b209;
         }
 
         &--quantity{
             width: 100%;
+            min-width: 20px;
             @include flex-row-center;
+
             background: white;
-            font-size: 18px;
+            //font-size: 18px;
             font-weight: bold;
             border-radius: 5px;
         }
