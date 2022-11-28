@@ -1,5 +1,5 @@
 TN:
-SF:src/App.jsx
+SF:src\App.jsx
 FN:17,App
 FNF:1
 FNH:0
@@ -11,7 +11,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/main.jsx
+SF:src\main.jsx
 FNF:0
 FNH:0
 DA:5,0
@@ -21,7 +21,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/Modals/ModalPortal.jsx
+SF:src\Modals\ModalPortal.jsx
 FN:6,(anonymous_0)
 FN:8,(anonymous_1)
 FNF:2
@@ -39,7 +39,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/Modals/Modals.jsx
+SF:src\Modals\Modals.jsx
 FN:3,(anonymous_0)
 FNF:1
 FNH:0
@@ -52,7 +52,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/Modals/useModal.jsx
+SF:src\Modals\useModal.jsx
 FN:3,(anonymous_0)
 FN:7,(anonymous_1)
 FN:9,(anonymous_2)
@@ -73,7 +73,7 @@ BRF:1
 BRH:0
 end_of_record
 TN:
-SF:src/Modals/ModalMenu/ModalMenu.jsx
+SF:src\Modals\ModalMenu\ModalMenu.jsx
 FN:4,(anonymous_0)
 FN:6,(anonymous_1)
 FNF:2
@@ -91,7 +91,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/Modals/ModalMenu/ModalsMenu.jsx
+SF:src\Modals\ModalMenu\ModalsMenu.jsx
 FN:3,(anonymous_0)
 FNF:1
 FNH:0
@@ -104,7 +104,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/DynamicTable/Table.jsx
+SF:src\components\DynamicTable\Table.jsx
 FN:6,(anonymous_0)
 FNF:1
 FNH:0
@@ -118,7 +118,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/DynamicTable/TableBody.jsx
+SF:src\components\DynamicTable\TableBody.jsx
 FN:1,(anonymous_0)
 FN:24,(anonymous_1)
 FN:27,(anonymous_2)
@@ -142,7 +142,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/DynamicTable/TableColumnOption.jsx
+SF:src\components\DynamicTable\TableColumnOption.jsx
 FN:9,(anonymous_0)
 FN:17,(anonymous_1)
 FN:22,(anonymous_2)
@@ -180,7 +180,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/DynamicTable/TableHeader.jsx
+SF:src\components\DynamicTable\TableHeader.jsx
 FN:1,(anonymous_0)
 FN:9,(anonymous_1)
 FNF:2
@@ -197,7 +197,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Header/Header.jsx
+SF:src\components\Header\Header.jsx
 FN:11,(anonymous_0)
 FNF:1
 FNH:0
@@ -217,7 +217,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/Login/LoginForm.jsx
+SF:src\components\Login\LoginForm.jsx
 FN:5,(anonymous_0)
 FN:12,handleSubmit
 FN:40,(anonymous_2)
@@ -264,7 +264,7 @@ BRF:6
 BRH:2
 end_of_record
 TN:
-SF:src/components/Orders/FormOrder/FormOrder.jsx
+SF:src\components\Orders\FormOrder\FormOrder.jsx
 FN:6,(anonymous_0)
 FN:11,(anonymous_1)
 FN:24,(anonymous_2)
@@ -293,7 +293,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Orders/StatusOrder/StatusOrder.jsx
+SF:src\components\Orders\StatusOrder\StatusOrder.jsx
 FN:4,(anonymous_0)
 FN:10,(anonymous_1)
 FN:21,(anonymous_2)
@@ -351,7 +351,7 @@ BRF:18
 BRH:0
 end_of_record
 TN:
-SF:src/components/Orders/TableOrder/BodyTableOrder.jsx
+SF:src\components\Orders\TableOrder\BodyTableOrder.jsx
 FN:4,(anonymous_0)
 FN:13,(anonymous_1)
 FN:22,(anonymous_2)
@@ -374,7 +374,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Orders/TableOrder/HeaderTableOrder.jsx
+SF:src\components\Orders\TableOrder\HeaderTableOrder.jsx
 FN:2,(anonymous_0)
 FN:10,(anonymous_1)
 FNF:2
@@ -391,7 +391,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Orders/TableOrder/TableOrder.jsx
+SF:src\components\Orders\TableOrder\TableOrder.jsx
 FN:6,(anonymous_0)
 FNF:1
 FNH:0
@@ -404,7 +404,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Products/ProductTable.jsx
+SF:src\components\Products\ProductTable.jsx
 FN:4,ProductsTable
 FNF:1
 FNH:0
@@ -417,7 +417,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Products/DeleteModalProduct/DeleteModalProduct.jsx
+SF:src\components\Products\DeleteModalProduct\DeleteModalProduct.jsx
 FN:5,(anonymous_0)
 FN:9,(anonymous_1)
 FN:12,(anonymous_2)
@@ -440,7 +440,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Products/FormProduct/FormProduct.jsx
+SF:src\components\Products\FormProduct\FormProduct.jsx
 FN:9,(anonymous_0)
 FN:25,(anonymous_1)
 FN:34,(anonymous_2)
@@ -558,7 +558,7 @@ BRF:26
 BRH:0
 end_of_record
 TN:
-SF:src/components/ProtectedRoute/ProtectedRoute.jsx
+SF:src\components\ProtectedRoute\ProtectedRoute.jsx
 FN:3,(anonymous_0)
 FNF:1
 FNH:0
@@ -575,7 +575,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/SideMenu/SideMenu.jsx
+SF:src\components\SideMenu\SideMenu.jsx
 FN:15,(anonymous_0)
 FN:25,(anonymous_1)
 FNF:2
@@ -598,7 +598,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/SideMenu/LogOutModal/LogOutModal.jsx
+SF:src\components\SideMenu\LogOutModal\LogOutModal.jsx
 FN:3,(anonymous_0)
 FN:11,(anonymous_1)
 FNF:2
@@ -615,7 +615,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Users/UsersTable.jsx
+SF:src\components\Users\UsersTable.jsx
 FN:4,UsersTable
 FNF:1
 FNH:0
@@ -628,7 +628,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Users/DeleteModalUser/DeleteModalUser.jsx
+SF:src\components\Users\DeleteModalUser\DeleteModalUser.jsx
 FN:5,(anonymous_0)
 FN:9,(anonymous_1)
 FN:12,(anonymous_2)
@@ -651,7 +651,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Users/FormUser/FormUser.jsx
+SF:src\components\Users\FormUser\FormUser.jsx
 FN:7,(anonymous_0)
 FN:19,(anonymous_1)
 FN:29,(anonymous_2)
@@ -739,7 +739,7 @@ BRF:18
 BRH:0
 end_of_record
 TN:
-SF:src/components/ViewOrderTable/ViewOrderTable.jsx
+SF:src\components\ViewOrderTable\ViewOrderTable.jsx
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
@@ -753,7 +753,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/ViewOrderTable/DeletModalOrder/DeleteModalOrder.jsx
+SF:src\components\ViewOrderTable\DeletModalOrder\DeleteModalOrder.jsx
 FN:3,(anonymous_0)
 FN:7,(anonymous_1)
 FN:12,(anonymous_2)
@@ -775,7 +775,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/ViewOrderTable/ModalViewOrder/ModalViewOrder.jsx
+SF:src\components\ViewOrderTable\ModalViewOrder\ModalViewOrder.jsx
 FN:4,(anonymous_0)
 FN:18,(anonymous_1)
 FN:21,(anonymous_2)
@@ -807,7 +807,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/ViewOrderTable/OpenOrder/OpenOrder.jsx
+SF:src\components\ViewOrderTable\OpenOrder\OpenOrder.jsx
 FN:9,(anonymous_0)
 FN:17,(anonymous_1)
 FN:22,(anonymous_2)
@@ -837,7 +837,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/Waiter/TakesOrder/TakesOrder.jsx
+SF:src\components\Waiter\TakesOrder\TakesOrder.jsx
 FN:6,(anonymous_0)
 FN:12,(anonymous_1)
 FN:37,(anonymous_2)
@@ -866,7 +866,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/Waiter/TakesOrder/BoxQuantity/BoxQuantity.jsx
+SF:src\components\Waiter\TakesOrder\BoxQuantity\BoxQuantity.jsx
 FN:3,(anonymous_0)
 FN:8,(anonymous_1)
 FN:12,(anonymous_2)
@@ -887,12 +887,12 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/Waiter/TakesOrder/ContainerProducts/CardProducts.jsx
+SF:src\components\Waiter\TakesOrder\ContainerProducts\CardProducts.jsx
 FN:5,(anonymous_0)
 FN:11,(anonymous_1)
-FN:16,(anonymous_2)
-FN:21,(anonymous_3)
-FN:22,(anonymous_4)
+FN:17,(anonymous_2)
+FN:22,(anonymous_3)
+FN:23,(anonymous_4)
 FNF:5
 FNH:0
 FNDA:0,(anonymous_0)
@@ -904,20 +904,20 @@ DA:5,0
 DA:7,0
 DA:9,0
 DA:11,0
-DA:17,0
 DA:18,0
-DA:21,0
+DA:19,0
 DA:22,0
-DA:25,0
+DA:23,0
+DA:26,0
 LF:9
 LH:0
-BRDA:17,0,0,0
-BRDA:17,0,1,0
+BRDA:18,0,0,0
+BRDA:18,0,1,0
 BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/Waiter/TakesOrder/QuantityProducts/QuantityProducts.jsx
+SF:src\components\Waiter\TakesOrder\QuantityProducts\QuantityProducts.jsx
 FN:11,(anonymous_0)
 FN:18,(anonymous_1)
 FN:23,(anonymous_2)
@@ -956,7 +956,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/Waiter/ViewOrders/ViewOrders.jsx
+SF:src\components\Waiter\ViewOrders\ViewOrders.jsx
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
@@ -969,7 +969,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/context/OrderContext.jsx
+SF:src\context\OrderContext.jsx
 FN:9,(anonymous_0)
 FN:16,(anonymous_1)
 FN:19,(anonymous_2)
@@ -1050,7 +1050,7 @@ BRF:12
 BRH:0
 end_of_record
 TN:
-SF:src/context/ProductsContext.jsx
+SF:src\context\ProductsContext.jsx
 FN:13,BloqueProductPrice
 FN:26,(anonymous_1)
 FN:39,(anonymous_2)
@@ -1105,7 +1105,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/context/UsersContext.jsx
+SF:src\context\UsersContext.jsx
 FN:16,(anonymous_0)
 FN:38,(anonymous_1)
 FN:44,getUsers
@@ -1157,7 +1157,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/context/ViewOrderContext.jsx
+SF:src\context\ViewOrderContext.jsx
 FN:13,Status
 FN:22,(anonymous_1)
 FN:33,(anonymous_2)
@@ -1207,7 +1207,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/context/WaiterContext.jsx
+SF:src\context\WaiterContext.jsx
 FN:7,(anonymous_0)
 FN:11,getListProducts
 FN:16,(anonymous_2)
@@ -1235,7 +1235,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/lib/helpers.jsx
+SF:src\lib\helpers.jsx
 FN:1,filterAtributteList
 FN:2,(anonymous_1)
 FN:4,(anonymous_2)
@@ -1290,7 +1290,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/lib/requests.jsx
+SF:src\lib\requests.jsx
 FN:1,makeRequestPost
 FN:29,getProducts
 FN:46,makeRequestGet
@@ -1348,7 +1348,7 @@ BRF:3
 BRH:0
 end_of_record
 TN:
-SF:src/pages/Products/Products.jsx
+SF:src\pages\Products\Products.jsx
 FN:11,(anonymous_0)
 FN:20,(anonymous_1)
 FN:24,(anonymous_2)
@@ -1390,7 +1390,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:src/pages/Users/Users.jsx
+SF:src\pages\Users\Users.jsx
 FN:11,(anonymous_0)
 FN:21,(anonymous_1)
 FN:25,(anonymous_2)
@@ -1431,7 +1431,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:src/pages/ViewOrder/ViewOrder.jsx
+SF:src\pages\ViewOrder\ViewOrder.jsx
 FN:5,(anonymous_0)
 FNF:1
 FNH:0
@@ -1449,7 +1449,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/pages/Waiter/TakesOrder/TakesOrder.jsx
+SF:src\pages\Waiter\TakesOrder\TakesOrder.jsx
 FN:6,(anonymous_0)
 FNF:1
 FNH:0
@@ -1462,7 +1462,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/pages/login/Login.jsx
+SF:src\pages\login\Login.jsx
 FN:6,Login
 FNF:1
 FNH:0
