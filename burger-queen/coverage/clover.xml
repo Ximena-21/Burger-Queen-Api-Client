@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669560238598" clover="3.2.0">
-  <project timestamp="1669560238598" name="All files">
-    <metrics statements="545" coveredstatements="10" conditionals="138" coveredconditionals="0" methods="180" coveredmethods="1" elements="863" coveredelements="11" complexity="0" loc="545" ncloc="545" packages="34" files="48" classes="48"/>
+<coverage generated="1669648583454" clover="3.2.0">
+  <project timestamp="1669648583455" name="All files">
+    <metrics statements="545" coveredstatements="20" conditionals="138" coveredconditionals="2" methods="180" coveredmethods="4" elements="863" coveredelements="26" complexity="0" loc="545" ncloc="545" packages="34" files="48" classes="48"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\App.jsx">
@@ -105,33 +105,33 @@
       </file>
     </package>
     <package name="src.components.Login">
-      <metrics statements="24" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <metrics statements="24" coveredstatements="20" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="LoginForm.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\components\Login\LoginForm.jsx">
-        <metrics statements="24" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <metrics statements="24" coveredstatements="20" conditionals="6" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="31" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="51" count="1" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="59" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="48" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Orders.FormOrder">
@@ -656,7 +656,7 @@
       </file>
     </package>
     <package name="src.lib">
-      <metrics statements="60" coveredstatements="3" conditionals="5" coveredconditionals="0" methods="15" coveredmethods="0"/>
+      <metrics statements="60" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="15" coveredmethods="0"/>
       <file name="helpers.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\lib\helpers.jsx">
         <metrics statements="26" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
@@ -687,7 +687,7 @@
         <line num="55" count="0" type="stmt"/>
       </file>
       <file name="requests.jsx" path="C:\Users\1531n\BOG005-burger-queen-api-client\burger-queen\src\lib\requests.jsx">
-        <metrics statements="34" coveredstatements="3" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="34" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
@@ -710,15 +710,15 @@
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="63" count="1" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="93" count="1" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
         <line num="97" count="0" type="stmt"/>
         <line num="98" count="0" type="stmt"/>

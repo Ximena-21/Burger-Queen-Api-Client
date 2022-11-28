@@ -4,7 +4,7 @@ import { useViewOrderContext } from "../../../context/ViewOrderContext";
 export const StatusOrder = ({element}) => {
 
     const dataUser = JSON.parse(localStorage.getItem("dataUser"))
-    const [checked, setChecked] = useState(false);
+    const [checked, setChecked] = useState(true);
     const {changeStatusDelivered} = useViewOrderContext()
 
     const timeProcessed = () => {
