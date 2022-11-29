@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./style.scss"
 import { useUsersContext } from "../../../context/UsersContext"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { makeRequestGet } from "../../../lib/requests"
 
 export const FormUser = ({ element, closeModal }) => {
@@ -10,24 +10,29 @@ export const FormUser = ({ element, closeModal }) => {
 
     const params = useParams()
 
+    const navigate = useNavigate()
+
     const [user, setUser] = useState(element || {})
 
     const isCreating = user?.id ? false : true
 
     useEffect(()=>{
         const paramUserId = params["*"]
-        if(paramUserId) getUserById(paramUserId)
+        if(paramUserId != '') getUserById(paramUserId)
+       
+        else { 
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar'})
+        }
     },[params])
 
     const getUserById = async (id) => {
         const data = await makeRequestGet(`users/${id}`)
         setUser(data)
-        console.log(data)
     }
 
     const handleInputsChange = async (e) => {
 
-        console.log(user.id)
         const key = e.target.name
         let newObjKey = {}
         newObjKey[key] = e.target.value
@@ -35,7 +40,11 @@ export const FormUser = ({ element, closeModal }) => {
         setUser({ ...user, ...newObjKey })
     }
 
-    // console.log("user", user.name)
+    const navigateAbort = () => {
+        navigate('/users')
+        setUser({})
+        if (typeof closeModal === "function") closeModal()
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -45,22 +54,16 @@ export const FormUser = ({ element, closeModal }) => {
         if (user.id === undefined) {
 
             await createUser({...user, id: new Date().getTime()})
-            setUser({})
+
+            const emptyObject = {}
+            setUser({...emptyObject, role: 'Seleccionar', password:''})
 
         } else {
 
-            //no siempre existe element por que aveces viene pasado y otras veces
-            //se tiene que traer desde
-            // const copyElemnt = {...element}
-            // const elementfilter = Object.keys(copyElemnt).
-            // filter((key) => key != 'password').
-            // reduce((cur, key) => { return Object.assign(cur, { [key]: element[key] }) }, {})
-
-            // setUser(element)
             await updateUser(user)
-            // closeModal()
+            if(typeof closeModal === "function") closeModal()
+            setUser({})
         }
-
 
     }
 
@@ -104,9 +107,11 @@ export const FormUser = ({ element, closeModal }) => {
                     }
 
                 </div>
+                <div className="formUser_containerBtns">
 
-                <button className="formUser_btn" >Guardar</button>
-
+                    <button className="formUser_btn" >Guardar</button>
+                    <button className="formUser_btn formUser_btn--abort" type="button" onClick={() => navigateAbort()}>Cancelar</button>
+                </div>
             </form>
         </div>
     )

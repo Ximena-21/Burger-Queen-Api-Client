@@ -24,14 +24,14 @@ export const Users = () => {
 
     useEffect(()=>{
         const paramProductId = params["*"]
-        if(paramProductId) setUserId(paramProductId)
+        if(paramProductId !== '') setUserId(paramProductId)
+        else setUserId('')
     },[params])
 
     const title = userId ?  "Editar usuario" : "Nuevo usuario" 
 
 
     useEffect(() => {
-        // const handleWindowResize = () => setWidth(window.innerWidth);
         window.addEventListener("resize", handleWindowResize);
         return () => window.removeEventListener("resize", handleWindowResize);
     }, []);
@@ -62,11 +62,10 @@ export const Users = () => {
                                     <img src={plus} alt="" className="products_button--plus" />
                                     <span className="products_button--text">{title} </span>
                                 </div>}
-                                content={<FormUser element={{}} />}
-                            // content={<ModalAddProduct onClose = {getListProducts}/>}
+                                content={<FormUser closeModal={closeModal} element={{}} />}
                             />
 
-                            : <FormUser /> //element={{selectedUser}}
+                            : <FormUser /> 
                     }
          
                     <UsersTable />

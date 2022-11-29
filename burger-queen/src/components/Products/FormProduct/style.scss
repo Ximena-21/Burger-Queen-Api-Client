@@ -69,7 +69,6 @@
                 display: flex;
 
                 &--img {
-                    // background: rgb(236, 231, 231);
                     width: 20%;
                     height: 80%;
                     object-fit: contain;
@@ -83,10 +82,13 @@
 
         &--input{
             width: 80%;
-            // display: none;
         }
     }
-
+    &_containerBtns{
+        width: 90%;
+        @include flex-row-center;
+        gap: 20px;
+    }
     &_btn {
         width: 60%;
         height: 36px;
@@ -95,12 +97,15 @@
         border-radius: 10px;
         text-align: center;
         background: $secundary-color;
-        // margin: 0 0 30px 0;
         margin: 0;
         outline: none;
         cursor: pointer;
         font-weight: bold;
         font-size: 14px;
+
+        &--abort{
+            background: rgb(170, 164, 164);
+        }
     }
 }
 
@@ -113,9 +118,5 @@
         &_title {
             margin-top: 0;
         }
-
-        // &_btn {
-        //     margin: 0;
-        // }
     }
 }

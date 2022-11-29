@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { useProductsContext } from "../../../context/ProductsContext"
 import { uploadImgWeb, onChangeImg } from "../../../lib/helpers"
 import { makeRequestGet } from "../../../lib/requests"
 import "./style.scss"
+
+
 export const FormProduct = ({ element, closeModal }) => {
 
     const params = useParams()
@@ -16,12 +18,28 @@ export const FormProduct = ({ element, closeModal }) => {
     const [priceProduct, setPriceProduct] = useState(element.price || '')
     const [filePreview, setFilePreview] = useState(element.image || null)
 
-    const isCreating = productId === "" ? true : false
+    const isCreating = productId === "" ? true: false
+
+    const navigate = useNavigate()
+
+    const setInputs = () => {
+        setProductId('');
+        setNameProduct('');
+        setTypeProduct('');
+        setImgProduct('');
+        setPriceProduct('');
+        setFilePreview(null)
+    }
 
     useEffect(()=>{
         const paramProductId = params["*"]
-        if(paramProductId) getProductById(paramProductId)
+        if(paramProductId !== ""){ 
+            getProductById(paramProductId)
+        } else {
+            setInputs()
+        }
     },[params])
+
 
 
     const getProductById = async (id) => {
@@ -38,7 +56,7 @@ export const FormProduct = ({ element, closeModal }) => {
         e.preventDefault();
 
         const data = {
-            id: productId || new Date().getTime(),
+            id: productId || new Date(),
             name: nameProduct,
             type: typeProduct,
             image: imgProduct,
@@ -47,18 +65,13 @@ export const FormProduct = ({ element, closeModal }) => {
 
         //Create
         if (isCreating) {
-            // alert("IS CREATING PRODUCT")
             await createProduct(data)
-            // //limpiar inputs 
-            setNameProduct('');
-            setTypeProduct('');
-            setImgProduct('');
-            setPriceProduct('');
-            setFilePreview(null)
+            setInputs()
 
         } else {
             await updateProduct(productId, data)
             if(typeof closeModal === "function") closeModal()
+            setInputs()
         }
     }
 
@@ -73,6 +86,12 @@ export const FormProduct = ({ element, closeModal }) => {
     }
 
     const title = isCreating ? "Nuevo producto" :  "Editar producto"
+
+    const navigateAbort = () => {
+        navigate('/products')
+        setInputs()
+        if (typeof closeModal === "function") closeModal() 
+    }
 
     return (
         <div className="formProduct">
@@ -122,8 +141,10 @@ export const FormProduct = ({ element, closeModal }) => {
                         className="formProduct_options--input" value={priceProduct} required />
 
                 </div>
-
+            <div className="formProduct_containerBtns">
                 <button className="formProduct_btn" >Guardar</button>
+                <button className="formProduct_btn formProduct_btn--abort"  type="button" onClick={() => navigateAbort()}>Cancelar</button>
+            </div>
 
             </form>
         </div>

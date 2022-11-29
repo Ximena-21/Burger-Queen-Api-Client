@@ -10,7 +10,6 @@ export const ModalPortal = ({children, isOpen, closeModal}) => {
     return ReactDOM.createPortal(
         <article className={`modal ${isOpen && 'is-open'} `} onClick={closeModal}>
             <div className="modal-container" onClick={handleModalContainerClick}>
-                {/* <button className="modal-close" onClick={closeModal}>X</button> */}
                 <img className="modal-close" onClick={closeModal} src={abort} alt="btnAbort" />
                 {children} {/* contenido que renderiza el componente */}
             </div>

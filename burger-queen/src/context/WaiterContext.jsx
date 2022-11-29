@@ -5,6 +5,7 @@ import { getProducts } from "../lib/requests";
 const WaiterContext = createContext();
 
 const WaiterProvider = ({children}) => {
+
     const [products, setProducts] = useState([])
 
     async function getListProducts() {
@@ -17,10 +18,10 @@ const WaiterProvider = ({children}) => {
     }, [])
 
     const data = {
-        products
+        products,
     }
-
-    // console.log('waiterContext ',data);
+    
+    console.log('waiterContext >>>>> ',data);
 
     return <WaiterContext.Provider value={data}>{children}</WaiterContext.Provider>
 

@@ -17,8 +17,6 @@ async function makeRequestPost(pathname, data, token = false) {
     }
 
     const response = await res.json();
-
-    window.localStorage.setItem("dataUser", JSON.stringify(response.user));
     console.log("respuesta json ", response);
 
     return response;
@@ -58,7 +56,7 @@ async function makeRequestGet(pathname) {
   });
 
   const responseData = await response.json()
-
+  console.log('obtener órdenes ',responseData);
   return responseData
 }
 
@@ -90,25 +88,29 @@ const makeRequestPatch = async (pathname, id, data) => {
     },
     body: JSON.stringify(data),
   });
+}
+
+const makeRequestDeleteOrder = async ( id) => {
+  
+  const token = localStorage.getItem("loginToken")
+
+  const url = `http://localhost:8080/orders/${id}`
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      "content-type": 'application/json',
+      'authorization': `Bearer ${token}`
+    },
+  });
 
 }
 
-// const getUserInformation = async (pathname, email) => {
-
-//   const url = `http://localhost:8080/${pathname}/${email}`
-
-//   const request = await fetch(url, {
-//     headers: {
-//       "content-type": "application/json"
-//     },
-//   })
-// }
 
 export {
   makeRequestPost,
+  makeRequestDeleteOrder,
   getProducts,
   makeRequestDelete,
   makeRequestPatch,
   makeRequestGet, 
-  // getUserInformation
 }
