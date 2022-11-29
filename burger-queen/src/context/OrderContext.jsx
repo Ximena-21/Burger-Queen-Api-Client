@@ -2,20 +2,17 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import { createContext } from "react";
 import { makeRequestPost } from "../lib/requests";
-import { useModal } from "../Modals/useModal";
 
 const OrderContext = createContext();
 
 const OrderProvider = ({ children }) => {
   const [productsOrder, setProductsOrder] = useState([]);
-  const [isOpenModal, openModal, closeModal] = useModal(false);
-
 
   const [total, setTotal] = useState(0)
 
   useEffect(() => {
     !productsOrder ? '' :
-    setTotal(
+    setTotal(() =>
         productsOrder.reduce((previous, product) => previous + parseInt(product.qty) * product.product.price, 0)
     )
 }, [productsOrder])
@@ -75,8 +72,6 @@ const OrderProvider = ({ children }) => {
 
   async function createOrder(data) {
     await makeRequestPost("orders", data, true);
-    // await getListProducts();
-    // closeModal();
   }
 
   const data = {

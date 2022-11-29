@@ -5,7 +5,7 @@ import { StatusOrder } from "../components/Orders/StatusOrder/StatusOrder";
 import { DeleteModalOrder } from "../components/ViewOrderTable/DeletModalOrder/DeleteModalOrder";
 import { ModalViewOrder } from "../components/ViewOrderTable/ModalViewOrder/ModalViewOrder";
 import { OpenOrder } from "../components/ViewOrderTable/OpenOrder/OpenOrder";
-import { makeRequestDelete, makeRequestDeleteOrder, makeRequestGet, makeRequestPatch } from "../lib/requests";
+import { makeRequestDeleteOrder, makeRequestGet, makeRequestPatch } from "../lib/requests";
 import { useModal } from "../Modals/useModal";
 
 const viewOrderContext = createContext();

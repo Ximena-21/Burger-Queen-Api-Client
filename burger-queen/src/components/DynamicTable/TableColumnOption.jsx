@@ -33,7 +33,6 @@ export const TableColumnOption = ({ element, Add, Delete, type }) => {
         open()
     }
 
-
     return (
         <tr className='table_rowBodyOpt'>
             <td className='table_columnBody'>
