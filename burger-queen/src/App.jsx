@@ -12,16 +12,14 @@ import { Users } from "./pages/Users/Users";
 import { ViewOrder } from "./pages/ViewOrder/ViewOrder";
 import { TakesOrder } from "./pages/Waiter/TakesOrder/TakesOrder";
 
-
-
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route index element={<Login />} />
           <Route path="/login" element={<Login />} />
+<<<<<<< HEAD
           <Route path="/products/*" element={
            < ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}>
               <ProductsProvider>
@@ -48,10 +46,54 @@ function App() {
           <Route path="/view-orders" element={
 
             <ViewOrderProvider>
+=======
+          <Route
+            path="/products/*"
+            element={
+              <ProtectedRoute
+                avaliableRole={"admin"}
+                redirect={"/takes-orders"}
+              >
+                <ProductsProvider>
+                  <Products />
+                </ProductsProvider>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/*"
+            element={
+              <ProtectedRoute
+                avaliableRole={"admin"}
+                redirect={"/login"}
+              >
+                <UsersProvider>
+                  <Users />
+                </UsersProvider>
+              </ProtectedRoute>
+            }
+          />
+            <Route
+              path="/takes-orders"
+              element={
+                 < ProtectedRoute avaliableRole={'Meser@'} redirect={'/login'}>
+                <WaiterProvider>
+                  <OrderProvider>
+                    <TakesOrder />
+                  </OrderProvider>
+                </WaiterProvider>
+                </ProtectedRoute>
+              }
+            />
+          <Route
+            path="/view-orders"
+            element={
+              <ViewOrderProvider>
+>>>>>>> bda206d2a171fa8078db1ad28346a5706c62bd8f
                 <ViewOrder />
-            </ViewOrderProvider>
-
-          }/>
+              </ViewOrderProvider>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
