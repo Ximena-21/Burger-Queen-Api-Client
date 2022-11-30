@@ -37,13 +37,13 @@ function App() {
           </ProtectedRoute>
           } />
           <Route exact path="/takes-orders" element={
-           //< ProtectedRoute avaliableRole={'meser@'} redirect={'/products'}>
+           < ProtectedRoute avaliableRole={'Meser@'} redirect={'/products'}>
             <WaiterProvider>
               <OrderProvider>
                 <TakesOrder />
               </OrderProvider>
             </WaiterProvider>
-          //</ProtectedRoute>
+          </ProtectedRoute>
           } />
           <Route path="/view-orders" element={
 
