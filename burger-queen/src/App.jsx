@@ -19,34 +19,6 @@ function App() {
         <Routes>
           <Route index element={<Login />} />
           <Route path="/login" element={<Login />} />
-<<<<<<< HEAD
-          <Route path="/products/*" element={
-           < ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}>
-              <ProductsProvider>
-                <Products />
-              </ProductsProvider>
-          </ProtectedRoute>
-          } />
-          <Route path="/users/*" element={
-           < ProtectedRoute avaliableRole={'admin'} redirect={'/takes-orders'}>
-              <UsersProvider>
-                <Users />
-              </UsersProvider>
-          </ProtectedRoute>
-          } />
-          <Route exact path="/takes-orders" element={
-           < ProtectedRoute avaliableRole={'Meser@'} redirect={'/products'}>
-            <WaiterProvider>
-              <OrderProvider>
-                <TakesOrder />
-              </OrderProvider>
-            </WaiterProvider>
-          </ProtectedRoute>
-          } />
-          <Route path="/view-orders" element={
-
-            <ViewOrderProvider>
-=======
           <Route
             path="/products/*"
             element={
@@ -89,7 +61,6 @@ function App() {
             path="/view-orders"
             element={
               <ViewOrderProvider>
->>>>>>> bda206d2a171fa8078db1ad28346a5706c62bd8f
                 <ViewOrder />
               </ViewOrderProvider>
             }
