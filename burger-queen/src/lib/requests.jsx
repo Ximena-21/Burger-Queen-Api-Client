@@ -39,6 +39,7 @@ async function getProducts(pathname) {
   });
 
   const responseData = await response.json()
+  console.log('REQUEST >>>>>>>>', responseData);
 
   return responseData
 }
@@ -73,6 +74,10 @@ const makeRequestDelete = async (pathname, id,) => {
     },
   });
 
+  // const responseDelete = await res.json()
+  // console.log('Request Delete >>>> ',res);
+  // return res
+
 }
 
 const makeRequestPatch = async (pathname, id, data) => {
@@ -88,6 +93,8 @@ const makeRequestPatch = async (pathname, id, data) => {
     },
     body: JSON.stringify(data),
   });
+
+  // console.log('Request PATCH >>>> ',res);
 }
 
 const makeRequestDeleteOrder = async ( id) => {
