@@ -1,1 +1,5 @@
 export const makeRequestPost = jest.fn()
+export const getProducts = jest.fn()
+export const makeRequestGet = jest.fn()
+export const makeRequestDelete = jest.fn()
+export const makeRequestPatch = jest.fn()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669775420059" clover="3.2.0">
-  <project timestamp="1669775420059" name="All files">
-    <metrics statements="546" coveredstatements="33" conditionals="140" coveredconditionals="3" methods="181" coveredmethods="10" elements="867" coveredelements="46" complexity="0" loc="546" ncloc="546" packages="34" files="48" classes="48"/>
+<coverage generated="1670280304286" clover="3.2.0">
+  <project timestamp="1670280304286" name="All files">
+    <metrics statements="548" coveredstatements="33" conditionals="140" coveredconditionals="3" methods="181" coveredmethods="10" elements="869" coveredelements="46" complexity="0" loc="548" ncloc="548" packages="34" files="48" classes="48"/>
     <package name="src">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.jsx" path="/home/ximena21/programming/BurguerQueen-React/BOG005-burger-queen-api-client/burger-queen/src/App.jsx">
@@ -401,16 +401,17 @@
       </file>
     </package>
     <package name="src.components.ViewOrderTable.DeletModalOrder">
-      <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
       <file name="DeleteModalOrder.jsx" path="/home/ximena21/programming/BurguerQueen-React/BOG005-burger-queen-api-client/burger-queen/src/components/ViewOrderTable/DeletModalOrder/DeleteModalOrder.jsx">
-        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ViewOrderTable.ModalViewOrder">
@@ -655,7 +656,7 @@
       </file>
     </package>
     <package name="src.lib">
-      <metrics statements="62" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="15" coveredmethods="0"/>
+      <metrics statements="63" coveredstatements="0" conditionals="5" coveredconditionals="0" methods="15" coveredmethods="0"/>
       <file name="helpers.jsx" path="/home/ximena21/programming/BurguerQueen-React/BOG005-burger-queen-api-client/burger-queen/src/lib/helpers.jsx">
         <metrics statements="26" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
@@ -686,7 +687,7 @@
         <line num="55" count="0" type="stmt"/>
       </file>
       <file name="requests.jsx" path="/home/ximena21/programming/BurguerQueen-React/BOG005-burger-queen-api-client/burger-queen/src/lib/requests.jsx">
-        <metrics statements="36" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="37" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
@@ -702,27 +703,28 @@
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="65" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="66" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="80" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="93" count="0" type="stmt"/>
-        <line num="95" count="0" type="stmt"/>
-        <line num="97" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
         <line num="105" count="0" type="stmt"/>
-        <line num="106" count="0" type="stmt"/>
+        <line num="112" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.Products">

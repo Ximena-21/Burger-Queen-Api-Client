@@ -10,6 +10,7 @@ export const DeleteModalOrder = ({ element, closeModal }) => {
 
 
   const handleDelete = async () => {
+    console.log('id order >>>', element.id)
       return(
         await deleteOrder(element.id),
         closeModal()
