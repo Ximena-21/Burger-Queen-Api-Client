@@ -2,6 +2,7 @@ import "./style.scss"
 import logo from "../../assets/images/logo.png"
 import background from "../../assets/images/BackgroundLogin.jpg"
 import { LoginForm } from "../../components/Login/LoginForm"
+import { Navigate } from "react-router-dom"
 
 export function Login () {
 
