@@ -5,6 +5,10 @@ import { LoginForm } from "../../components/Login/LoginForm"
 
 export function Login () {
 
+    const user = JSON.parse(localStorage.getItem("dataUser")) || {}
+
+    if(user) return <Navigate to={"/view-orders"} replace/>
+
     return (
         <div className="loginPage">
             <img className="loginPage_background" src={background} />
