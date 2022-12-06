@@ -1,9 +1,12 @@
+import { config } from "./config";
+
+
 async function makeRequestPost(pathname, data, token = false) {
 
   token = localStorage.getItem("loginToken")
 
   try {
-    const url = `http://localhost:8080/${pathname}`
+    const url = `${config.API_URL}/${pathname}`
     const res = await fetch(url, {
       method: "POST",
       headers: {
@@ -29,7 +32,7 @@ async function makeRequestPost(pathname, data, token = false) {
 async function getProducts(pathname) {
 
   const token = localStorage.getItem("loginToken")
-  const url = `http://localhost:8080/${pathname}`
+  const url = `${config.API_URL}/${pathname}`
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -47,7 +50,7 @@ async function getProducts(pathname) {
 async function makeRequestGet(pathname) {
 
   const token = localStorage.getItem("loginToken")
-  const url = `http://localhost:8080/${pathname}`
+  const url = `${config.API_URL}/${pathname}`
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -65,7 +68,7 @@ const makeRequestDelete = async (pathname, id,) => {
   
   const token = localStorage.getItem("loginToken")
 
-  const url = `http://localhost:8080/${pathname}/${id}`
+  const url = `${config.API_URL}/${pathname}/${id}`
   const res = await fetch(url, {
     method: 'DELETE',
     headers: {
@@ -84,7 +87,7 @@ const makeRequestPatch = async (pathname, id, data) => {
   
   const token = localStorage.getItem("loginToken")
 
-  const url = `http://localhost:8080/${pathname}/${id}`
+  const url = `${config.API_URL}/${pathname}/${id}`
   const res = await fetch(url, {
     method: 'PATCH',
     headers: {
@@ -101,7 +104,7 @@ const makeRequestDeleteOrder = async ( id) => {
   
   const token = localStorage.getItem("loginToken")
 
-  const url = `http://localhost:8080/orders/${id}`
+  const url = `${config.API_URL}/orders/${id}`
   const res = await fetch(url, {
     method: 'DELETE',
     headers: {
