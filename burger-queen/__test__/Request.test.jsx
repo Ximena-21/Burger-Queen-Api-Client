@@ -33,6 +33,31 @@ describe("Request API", () => {
       ]
     );
 
+    console.log('PETICION TEST >>>',    getProducts.mockResolvedValueOnce(
+      [
+        {
+          "id": 1,
+          "name": "Sandwich de jamón y queso",
+          "price": 1000,
+          "image": "https://raw.githubusercontent.com/ssinuco/burger-queen-api-mock/main/resources/images/sandwich.png",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+        {
+          "id": 2,
+          "name": "Café americano",
+          "price": 500,
+          "image": "https://raw.githubusercontent.com/ssinuco/burger-queen-api-mock/main/resources/images/coffee.png",
+          "type": "Desayuno",
+          "dateEntry": "2022-03-05 15:14:10"
+        },
+      ]
+    )
+);
+
+
+console.log('GET PRODUCTS >', getProducts);
+
 
     await waitFor(() => {
       expect(getProducts).not.toBeNull();
