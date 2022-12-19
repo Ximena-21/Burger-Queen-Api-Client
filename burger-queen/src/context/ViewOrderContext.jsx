@@ -51,7 +51,7 @@ const ViewOrderProvider = ({ children }) => {
     async function getOrders() {
         const data = await makeRequestGet("orders")
         setViewOrder(data);
-        console.log(data)
+        console.log('ordenes >>>>',data)
     }
 
     //eliminar

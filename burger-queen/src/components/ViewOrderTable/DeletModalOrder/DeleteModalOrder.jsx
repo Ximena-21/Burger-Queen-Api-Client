@@ -6,13 +6,27 @@ export const BtnAbortOrder = ({close}) => {
 
 export const DeleteModalOrder = ({ element, closeModal }) => {
   
-  const { deleteOrder } = useViewOrderContext()
+  const { deleteOrder, viewOrder } = useViewOrderContext()
+
+  console.log("VIENDO ORDENES DESDE EL MODAL", viewOrder);
+
+  const findOrder = () =>{
+    console.log("element",element.id);
+    return viewOrder.find((order)=> {
+      if(element.id === order.id) {
+        return order
+      }
+    })
+  }
+
 
 
   const handleDelete = async () => {
-    console.log('id order >>>', element.id)
-      return(
-        await deleteOrder(element.id),
+    const currentOrder = findOrder()
+    return(
+      
+      // console.log('id order >>>', currentOrder.id)
+        await deleteOrder( currentOrder.id),
         closeModal()
       )
   }
