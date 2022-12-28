@@ -169,9 +169,9 @@ npm install
 
 _Necesario `Api Mock`_
 
-```
+
 Usaremos un mock de la API [repositorio](https://github.com/ssinuco/burger-queen-api-mock/blob/main/README.md)
-```
+
 
 ## Demo 
 
