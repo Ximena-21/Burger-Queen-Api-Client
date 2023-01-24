@@ -8,12 +8,15 @@ export const FormOrder = () =>{
     const {productsOrder, createOrder, setProductsOrder} = useOrderContext()
     const [client, setClient] = useState('')
     
+    const dataUser = JSON.parse(localStorage.getItem("dataUser"));
+
     const handleClient = (e) => {
         setClient(e.target.value)
     }
 
     const dataOrder = {
-        userId: new Date().getTime(),
+        // userId: new Date().getTime(),
+        userId: dataUser.id,
         client: client,
         products: productsOrder,
         status: 'pending',
